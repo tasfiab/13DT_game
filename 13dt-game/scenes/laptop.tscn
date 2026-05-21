@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://biv1emegwty3j"]
+
+[ext_resource type="Script" uid="uid://bryysn6it7qfj" path="res://scripts/laptop.gd" id="1_5ijq5"]
+[ext_resource type="Texture2D" uid="uid://bdfepqca87t4" path="res://assets/art/computer_outer.png" id="2_5ijq5"]
+[ext_resource type="Texture2D" uid="uid://b1527m2k0m62j" path="res://assets/mina.png" id="2_creid"]
+[ext_resource type="Texture2D" uid="uid://cnfyh3ifmjb42" path="res://assets/art/calendar.png" id="2_ejyiq"]
+[ext_resource type="Texture2D" uid="uid://54kn7ut6yomr" path="res://assets/art/calendar_icon.png" id="3_creid"]
+[ext_resource type="Texture2D" uid="uid://cllnjmfxnkcq3" path="res://assets/art/calendar_marker.png" id="3_ejyiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0riy"]
+size = Vector2(57, 52)
+
+[node name="Node2D" type="Node2D" unique_id=14524745 node_paths=PackedStringArray("calendar_layer", "mina_layer", "marker_sprite", "markers")]
+script = ExtResource("1_5ijq5")
+calendar_layer = NodePath("CanvasLayer")
+mina_layer = NodePath("CanvasLayer3")
+marker_sprite = NodePath("CanvasLayer/Sprite2D")
+markers = NodePath("Markers")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1106693035]
+visible = false
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=1584500242]
+
+[node name="portrait" type="TextureRect" parent="CanvasLayer3" unique_id=247559489]
+offset_left = 104.0
+offset_top = 140.0
+offset_right = 505.0
+offset_bottom = 541.0
+texture = ExtResource("2_creid")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=789822955]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1744726624]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_ejyiq")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1039113562]
+position = Vector2(169, 233)
+scale = Vector2(1.5624998, 1.5624998)
+texture = ExtResource("3_ejyiq")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1175834812]
+layer = 10
+
+[node name="ComputerOuter" type="Sprite2D" parent="CanvasLayer2" unique_id=232419986]
+position = Vector2(576.00006, 324.00003)
+scale = Vector2(9, 9)
+texture = ExtResource("2_5ijq5")
+
+[node name="Sprite2D" type="TextureRect" parent="CanvasLayer2" unique_id=1935967863]
+offset_left = 598.0
+offset_top = 554.0
+offset_right = 651.0
+offset_bottom = 607.0
+texture = ExtResource("3_creid")
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer2/Sprite2D" unique_id=500397760]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer2/Sprite2D/Area2D" unique_id=2018440345]
+position = Vector2(26.5, 26)
+shape = SubResource("RectangleShape2D_l0riy")
+
+[node name="Markers" type="Node" parent="." unique_id=1719920984]
+
+[node name="Marker2D" type="Marker2D" parent="Markers" unique_id=1785917637]
+position = Vector2(169, 233)
+
+[node name="Marker2D2" type="Marker2D" parent="Markers" unique_id=1067357991]
+position = Vector2(305, 233)
+
+[node name="Marker2D3" type="Marker2D" parent="Markers" unique_id=496021314]
+position = Vector2(440, 233)
+
+[node name="Marker2D4" type="Marker2D" parent="Markers" unique_id=464148946]
+position = Vector2(576, 233)
+
+[node name="Marker2D5" type="Marker2D" parent="Markers" unique_id=884413705]
+position = Vector2(708, 233)
+
+[node name="Marker2D6" type="Marker2D" parent="Markers" unique_id=2058776670]
+position = Vector2(844, 233)
+
+[node name="Marker2D7" type="Marker2D" parent="Markers" unique_id=303904310]
+position = Vector2(981, 233)
+
+[node name="Marker2D8" type="Marker2D" parent="Markers" unique_id=1137499217]
+position = Vector2(169, 316)
+
+[node name="Marker2D9" type="Marker2D" parent="Markers" unique_id=1250777116]
+position = Vector2(305, 316)
+
+[node name="Marker2D10" type="Marker2D" parent="Markers" unique_id=688669398]
+position = Vector2(440, 316)
+
+[node name="Marker2D12" type="Marker2D" parent="Markers" unique_id=134555262]
+position = Vector2(576, 316)
+
+[node name="Marker2D13" type="Marker2D" parent="Markers" unique_id=1129336036]
+position = Vector2(708, 316)
+
+[node name="Marker2D14" type="Marker2D" parent="Markers" unique_id=710300016]
+position = Vector2(844, 316)
+
+[node name="Marker2D11" type="Marker2D" parent="Markers" unique_id=614017889]
+position = Vector2(981, 316)
+
+[node name="Marker2D15" type="Marker2D" parent="Markers" unique_id=176327359]
+position = Vector2(169, 396)
+
+[node name="Marker2D16" type="Marker2D" parent="Markers" unique_id=1893938601]
+position = Vector2(305, 396)
+
+[node name="Marker2D17" type="Marker2D" parent="Markers" unique_id=357509725]
+position = Vector2(440, 396)
+
+[node name="Marker2D19" type="Marker2D" parent="Markers" unique_id=785799531]
+position = Vector2(576, 396)
+
+[node name="Marker2D20" type="Marker2D" parent="Markers" unique_id=924180365]
+position = Vector2(708, 396)
+
+[node name="Marker2D21" type="Marker2D" parent="Markers" unique_id=1280544841]
+position = Vector2(844, 396)
+
+[node name="Marker2D18" type="Marker2D" parent="Markers" unique_id=752836742]
+position = Vector2(981, 396)
+
+[node name="Marker2D22" type="Marker2D" parent="Markers" unique_id=2057660698]
+position = Vector2(169, 479)
+
+[node name="Marker2D23" type="Marker2D" parent="Markers" unique_id=380570908]
+position = Vector2(305, 479)
+
+[node name="Marker2D24" type="Marker2D" parent="Markers" unique_id=572266276]
+position = Vector2(440, 479)
+
+[node name="Marker2D26" type="Marker2D" parent="Markers" unique_id=540886094]
+position = Vector2(576, 479)
+
+[node name="Marker2D27" type="Marker2D" parent="Markers" unique_id=1233245894]
+position = Vector2(708, 479)
+
+[node name="Marker2D28" type="Marker2D" parent="Markers" unique_id=58365307]
+position = Vector2(844, 479)
+
+[node name="Marker2D25" type="Marker2D" parent="Markers" unique_id=1715955813]
+position = Vector2(981, 479)
+
+[connection signal="mouse_entered" from="CanvasLayer2/Sprite2D/Area2D" to="." method="_on_calendar_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer2/Sprite2D/Area2D" to="." method="_on_calendar_mouse_exited"]
