@@ -1,0 +1,35 @@
+~ start
+Mina: Hello there! My name is Mina
+Mina: What do you require my assistance for?  
+- Will you be my friend?
+	Mina: [$> Global.expression = 'happy']...
+	Mina: Of course!
+	Mina: Making friends can be difficult, but don't worry, because I'm here for you 
+	Mina: What is your name?
+	- Violet
+		Mina: ... 
+		Mina: Violet? What a lovely name!
+		Mina: Now that we know each other's names, how are you Violet?
+		- good
+			Mina: That's great to hear!
+			Mina: I'm doing good as well! Especially since I've got to make a new friend
+		- not good...
+			$> Global.expression = 'sad'
+			Mina: Oh no 
+			Mina: Would you like to talk about it? I'm here to listen!
+			- No, it's ok
+				Mina: Ok then...
+				Mina:  [$> Global.expression = 'happy']If you ever change your mind though, please let me know
+				Mina: Like I said, I'm here for you!
+			- I have no friends and schools been stressing me out
+				Mina: ...
+				Mina: I'm so sad to hear that 
+				Mina: Making friends is difficult, and it is totally normal to not have any friends
+				$> Global.expression = 'happy'
+				Mina: But now, you don't have to worry about that because you have me!
+				Mina: And if you ever need assistance with school, I'm more than ready to provide it!
+		
+		Mina: Do you need anything else?
+		- No, goodnight :)
+			Mina: Ok, goodnight Violet!
+=> END

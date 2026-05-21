@@ -1,0 +1,14 @@
+~ start
+val: hi!
+- talk
+	val: I had a ___ for the first time yesterday!
+	val: it was so good - you should try it!
+
+- banter (50% accuracy)
+	violet: 
+	% val: ??
+	% val: :)
+	
+~ greeting
+	val: hi!
+=> END
