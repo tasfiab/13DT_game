@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dxja0sfafof31"]
+
+[ext_resource type="Script" uid="uid://cjdb8c5oy43qp" path="res://scripts/mingame.gd" id="1_dnb3p"]
+[ext_resource type="PackedScene" uid="uid://dy6i4rvwymvxx" path="res://scenes/distraction.tscn" id="2_mmak5"]
+[ext_resource type="PackedScene" uid="uid://c1d8fvtujnuc5" path="res://scenes/important_info.tscn" id="3_xcdbh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dhdgh"]
+radius = 39.763474
+height = 79.52695
+
+[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("important", "distraction", "target_node")]
+script = ExtResource("1_dnb3p")
+important = NodePath("important_info")
+distraction = NodePath("Label2")
+target_node = NodePath("ColorRect/Area2D")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=54850521]
+offset_left = 154.00003
+offset_top = 350.0
+offset_right = 232.00003
+offset_bottom = 429.0
+scale = Vector2(3.7199984, 3.7199984)
+
+[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1791743739]
+position = Vector2(39, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1167432132]
+shape = SubResource("CapsuleShape2D_dhdgh")
+
+[node name="Label2" parent="." unique_id=1069203816 instance=ExtResource("2_mmak5")]
+z_index = 1
+offset_left = 2.0
+offset_top = 34.0
+offset_right = 86.0
+offset_bottom = 57.0
+
+[node name="important_info" parent="." unique_id=1432078683 instance=ExtResource("3_xcdbh")]
+offset_left = 178.0
+offset_top = 103.0
+offset_right = 306.0
+offset_bottom = 126.0
+metadata/important = true
+
+[connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_head_entered"]

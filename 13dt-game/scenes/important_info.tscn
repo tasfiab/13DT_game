@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c1d8fvtujnuc5"]
+
+[ext_resource type="Script" uid="uid://b2ice04q3dnhx" path="res://scripts/distraction.gd" id="1_ck73d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ck73d"]
+radius = 14.0
+height = 144.0
+
+[node name="important_info" type="Label" unique_id=1432078683 node_paths=PackedStringArray("label")]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "important stuff!!"
+script = ExtResource("1_ck73d")
+label = NodePath(".")
+metadata/_custom_type_script = "uid://b2ice04q3dnhx"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=681338402]
+metadata/important = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=51770381]
+position = Vector2(64, 13)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ck73d")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://tvkt1ayv0ii4"]
+
+[node name="Node2D" type="Node2D" unique_id=963497688]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2133584340]
+offset_right = 119.0
+offset_bottom = 40.0
+color = Color(0.22, 0.22, 0.22, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1427706937]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

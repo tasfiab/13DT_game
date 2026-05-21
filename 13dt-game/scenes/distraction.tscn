@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dy6i4rvwymvxx"]
+
+[ext_resource type="Script" uid="uid://b2ice04q3dnhx" path="res://scripts/distraction.gd" id="1_rqyey"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1u7wr"]
+radius = 32.0
+height = 208.0
+
+[node name="Node2D" type="Label" unique_id=1069203816 node_paths=PackedStringArray("label")]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "distraction"
+script = ExtResource("1_rqyey")
+label = NodePath(".")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=471678512]
+position = Vector2(0, -1)
+metadata/distraction = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1916280215]
+position = Vector2(46, 13)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1u7wr")
+
+[connection signal="mouse_entered" from="Area2D2" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D2" to="." method="_on_mouse_exited"]
