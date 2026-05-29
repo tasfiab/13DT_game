@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bb0msx7quhi4c"
+path="res://.godot/imported/chr_class.dialogue-a2b08c61b20237d507666ed9e6b9ba72.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogue_scripts/chr_class.dialogue"
+dest_files=["res://.godot/imported/chr_class.dialogue-a2b08c61b20237d507666ed9e6b9ba72.tres"]
+
+[params]
+
+defaults=true

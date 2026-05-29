@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dc75hoiwxtoob"]
+
+[ext_resource type="Script" uid="uid://bjev8dt166xve" path="res://scripts/question.gd" id="1_5wkig"]
+
+[node name="Node2D" type="Node2D" unique_id=662698006 node_paths=PackedStringArray("panel", "label")]
+script = ExtResource("1_5wkig")
+panel = NodePath("Panel")
+label = NodePath("Panel/Label")
+
+[node name="Panel" type="Panel" parent="." unique_id=874465963]
+offset_left = 548.0
+offset_top = 51.0
+offset_right = 985.0
+offset_bottom = 264.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1365918473]
+layout_mode = 0
+offset_right = 442.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 3

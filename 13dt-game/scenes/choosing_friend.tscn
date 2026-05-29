@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://j3sq8iqd1wdo"]
+
+[ext_resource type="Script" uid="uid://b22i0tflv8hee" path="res://scripts/choosing_friend.gd" id="1_d3nm3"]
+
+[node name="Node2D" type="Node2D" unique_id=1424026488]
+script = ExtResource("1_d3nm3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=789579578]
+offset_left = 50.0
+offset_top = 439.0
+offset_right = 1083.0
+offset_bottom = 583.0
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1514959881]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1513436437]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=1793939075]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_val_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_chr_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_far_button_pressed"]

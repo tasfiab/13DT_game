@@ -1,14 +1,38 @@
-~ start
+~ one_heart
 val: hi!
 - talk
 	val: I had a ___ for the first time yesterday!
-	val: it was so good - you should try it!
-
-- banter (50% accuracy)
-	violet: 
-	% val: ??
-	% val: :)
+	val: it was really good - you should try it!
 	
 ~ greeting
 	val: hi!
+=> END
+
+~ two_hearts
+	val: AHH I have a test next period
+	- did you study
+		val: ...
+		val: that's... irrelevant
+		- well, 
+			- you have no one to blame but yourself
+				val: aww c'mon, I was really busy yesterday...
+				val: with... engaging in wider world! in short form... 
+				- you were doomscrolling, weren't you?
+					val: ...
+					val: AHH I thought I hid that welllll 
+					
+					- get your book out
+					
+				- ok? I'll take your word for it
+					val: yea...
+				
+		- I can help you study right now
+			- if you want?
+				val: really?
+				val: wait let me get my stuff out
+				val: thank you so much!
+	- good luck! :)
+		val: thanks!!
+		val: ...I'm gonna need it haha
+		val
 => END

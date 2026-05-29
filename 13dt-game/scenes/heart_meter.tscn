@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://gggssl4qm0ga"]
+
+[ext_resource type="Script" uid="uid://b6tdwxjx55fll" path="res://scripts/heart_meter.gd" id="1_2hg05"]
+[ext_resource type="Texture2D" uid="uid://bjh54igxx54yx" path="res://assets/art/heart.png" id="1_2sf3n"]
+[ext_resource type="Texture2D" uid="uid://djdqjkf37up2e" path="res://assets/art/heart_meter.png" id="2_2hg05"]
+[ext_resource type="Texture2D" uid="uid://cbgsra6dp3mxw" path="res://assets/art/heart_meter_progress.png" id="3_rfjfd"]
+
+[node name="Control" type="Control" unique_id=1622419761 node_paths=PackedStringArray("val_meter", "chr_meter", "far_meter")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2hg05")
+val_meter = NodePath("VBoxContainer/HBoxContainer/TextureProgressBar")
+chr_meter = NodePath("VBoxContainer/HBoxContainer2/TextureProgressBar")
+far_meter = NodePath("VBoxContainer/HBoxContainer3/TextureProgressBar")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=106534733]
+layout_mode = 0
+offset_left = 919.0
+offset_top = 32.000008
+offset_right = 993.0
+offset_bottom = 88.00001
+scale = Vector2(2.6536107, 2.6536107)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=430354178]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1265853053]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "v"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1437872446]
+layout_mode = 2
+texture = ExtResource("1_2sf3n")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=263347762]
+layout_mode = 2
+texture_under = ExtResource("2_2hg05")
+texture_progress = ExtResource("3_rfjfd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1451644922]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=2127680639]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "c"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2" unique_id=756094421]
+layout_mode = 2
+texture = ExtResource("1_2sf3n")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer2" unique_id=86874108]
+layout_mode = 2
+texture_under = ExtResource("2_2hg05")
+texture_progress = ExtResource("3_rfjfd")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1155758339]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1075183986]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "f"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=585623572]
+layout_mode = 2
+texture = ExtResource("1_2sf3n")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer3" unique_id=1749768976]
+layout_mode = 2
+texture_under = ExtResource("2_2hg05")
+texture_progress = ExtResource("3_rfjfd")

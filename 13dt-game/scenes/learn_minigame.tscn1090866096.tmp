@@ -8,20 +8,17 @@
 radius = 39.763474
 height = 79.52695
 
-[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("important", "distraction", "target_node", "text_box", "question", "cam")]
+[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("important", "distraction", "target_node")]
 script = ExtResource("1_dnb3p")
 important = NodePath("important_info")
 distraction = NodePath("Label2")
 target_node = NodePath("ColorRect/Area2D")
-text_box = NodePath("Panel")
-question = NodePath("Panel/Label")
-cam = NodePath("Camera2D")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=54850521]
-offset_left = 76.0
-offset_top = 478.00003
-offset_right = 154.0
-offset_bottom = 557.0
+offset_left = 154.00003
+offset_top = 350.0
+offset_right = 232.00003
+offset_bottom = 429.0
 scale = Vector2(3.7199984, 3.7199984)
 
 [node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1791743739]
@@ -56,8 +53,5 @@ offset_right = 442.0
 offset_bottom = 215.0
 theme_override_font_sizes/font_size = 30
 autowrap_mode = 3
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1369209496]
-position = Vector2(-576, 324)
 
 [connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_head_entered"]
