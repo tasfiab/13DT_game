@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://dxja0sfafof31"]
+
+[ext_resource type="Script" uid="uid://cjdb8c5oy43qp" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="2_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dy6i4rvwymvxx" path="res://scenes/distraction.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://c1d8fvtujnuc5" path="res://scenes/important_info.tscn" id="4_85g3d"]
+[ext_resource type="PackedScene" uid="uid://j3sq8iqd1wdo" path="res://scenes/choosing_friend.tscn" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://bhkc2ojh3dxys" path="res://scenes/book.tscn" id="6_ya4ey"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dhdgh"]
+radius = 39.763474
+height = 79.52695
+
+[sub_resource type="Animation" id="Animation_rdffu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.25, 0.030000001, 0.11066669, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0et52"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.25, 0.030000001, 0.11066669, 0), Color(0.25, 0.030000001, 0.11066669, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rdffu"]
+_data = {
+&"RESET": SubResource("Animation_rdffu"),
+&"fade": SubResource("Animation_0et52")
+}
+
+[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "ui", "fade_animation")]
+script = ExtResource("1_tefeu")
+choosing_friends_layer = NodePath("CanvasLayer")
+learn_timer = NodePath("Label3/Timer")
+learn_time = NodePath("Label3")
+important = NodePath("important_info")
+distraction = NodePath("Label2")
+target_node = NodePath("ColorRect/Area2D")
+text_box = NodePath("Panel")
+question = NodePath("Panel/Label")
+mina_button = NodePath("Button")
+friend_text_box = NodePath("Panel2")
+friend_text = NodePath("Panel2/Label")
+cam = NodePath("Camera2D")
+q_time = NodePath("Label")
+q_timer = NodePath("Label/Timer")
+ui = NodePath("Camera2D/Control2")
+fade_animation = NodePath("ColorRect2/AnimationPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=54850521]
+offset_left = 76.0
+offset_top = 478.00003
+offset_right = 154.0
+offset_bottom = 557.0
+scale = Vector2(3.7199984, 3.7199984)
+
+[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1791743739]
+position = Vector2(39, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1167432132]
+shape = SubResource("CapsuleShape2D_dhdgh")
+
+[node name="Panel" type="Panel" parent="." unique_id=124843880]
+offset_left = 548.0
+offset_top = 51.0
+offset_right = 985.0
+offset_bottom = 264.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=401194878]
+layout_mode = 0
+offset_right = 442.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1161201710]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 45.0
+offset_right = 547.0
+offset_bottom = 181.0
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1653088846]
+layout_mode = 2
+size_flags_vertical = 3
+text = "a"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=911370044]
+layout_mode = 2
+size_flags_vertical = 3
+text = "b"
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=173530225]
+layout_mode = 2
+size_flags_vertical = 3
+text = "c"
+
+[node name="Button4" type="Button" parent="Panel/VBoxContainer" unique_id=548021059]
+layout_mode = 2
+size_flags_vertical = 3
+text = "d"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1586461676]
+visible = false
+offset_left = -548.0
+offset_top = 345.0
+offset_right = -241.0
+offset_bottom = 405.0
+
+[node name="Label" type="Label" parent="Panel2" unique_id=629731607]
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 30
+text = "it's a"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1369209496]
+position = Vector2(-1152, 0)
+anchor_mode = 0
+
+[node name="Control2" parent="Camera2D" unique_id=1622419761 instance=ExtResource("2_o6xl0")]
+
+[node name="Label2" parent="." unique_id=1069203816 instance=ExtResource("3_tipki")]
+z_index = 1
+offset_left = 2.0
+offset_top = 34.0
+offset_right = 86.0
+offset_bottom = 57.0
+
+[node name="important_info" parent="." unique_id=1432078683 instance=ExtResource("4_85g3d")]
+offset_left = 178.0
+offset_top = 103.0
+offset_right = 306.0
+offset_bottom = 126.0
+metadata/important = true
+
+[node name="Label" type="Label" parent="." unique_id=1703788782]
+offset_left = 1026.0
+offset_top = 283.0
+offset_right = 1233.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 25
+text = "10"
+
+[node name="Timer" type="Timer" parent="Label" unique_id=297443353]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=722127697]
+visible = false
+
+[node name="Node2D" parent="CanvasLayer" unique_id=1424026488 instance=ExtResource("5_choun")]
+
+[node name="Label3" type="Label" parent="." unique_id=497715648]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="Label3" unique_id=1115973496]
+
+[node name="Button" type="Button" parent="." unique_id=1672214970]
+offset_left = 685.0
+offset_top = 525.0
+offset_right = 844.0
+offset_bottom = 558.0
+text = "ask Mina"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1659049434]
+offset_right = 1148.0
+offset_bottom = 649.0
+mouse_filter = 2
+color = Color(0.25, 0.030000001, 0.11066669, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2" unique_id=419715535]
+libraries/ = SubResource("AnimationLibrary_rdffu")
+
+[node name="Control" parent="." unique_id=1046598385 instance=ExtResource("6_ya4ey")]
+offset_left = 64.0
+offset_top = 685.0
+offset_right = 64.0
+offset_bottom = 685.0
+
+[connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_head_entered"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_a_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_b_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button3" to="." method="_c_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button4" to="." method="_d_pressed"]
+[connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Label3/Timer" to="." method="_learn_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_mina_asked"]

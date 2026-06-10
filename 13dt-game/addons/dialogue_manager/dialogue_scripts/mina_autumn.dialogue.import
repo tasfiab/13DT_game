@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ckkbhqvgl8fr3"
+path="res://.godot/imported/mina_autumn.dialogue-4007ddacb302b2b83abfb1e72748eb27.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogue_scripts/mina_autumn.dialogue"
+dest_files=["res://.godot/imported/mina_autumn.dialogue-4007ddacb302b2b83abfb1e72748eb27.tres"]
+
+[params]
+
+defaults=true

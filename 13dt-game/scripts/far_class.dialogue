@@ -1,0 +1,97 @@
+~ start
+Farah: hi!
+
+=>< one_heart
+
+=> END
+
+~ one_heart
+%
+	Farah: Violet, right? 
+	Farah: it's nice to see you again!!
+	Farah: um...
+	Farah: how has your day been?
+	- good
+		Farah: yayy! that's good [$> Global.far_meter += 2][$> Global.happiness -= 2]
+		Farah: I hope the rest of the day is good too
+	- bad
+		Farah: aww, how come?  [$> Global.far_meter -= 5][$> Global.happiness += 2]
+		Farah: wait, actually you don't have to tell me
+		Farah: I mean you can, if you want, I just don't want to pry into personal issues, y'know?
+		Farah: anyway, I hope your day gets better
+		Farah: stay strong!!
+% 
+	Farah: I like your pencil case
+	- thank you!
+		Farah: no problem! [$> Global.happiness += 2]
+		Farah: I mean, it is really cute, hehe
+	- it's from ...
+		Farah: ooo ok, I was wondering hehe [$> Global.far_meter += 4][$> Global.happiness -= 2]
+		Farah: I think I've heard of that store!
+		Farah: I'll have to check it out sometime then!
+	- it was a gift 
+		Farah: ahh, that's nice! [$> Global.far_meter += 2][$> Global.happiness += 2]
+		Farah: they picked a good gift then, hehe!
+
+%
+	Farah: do you get what's going on right now?
+	- yea, are you slow?
+		Farah: ... yea, I guess I am [$> Global.far_meter -= 2][$> Global.happiness += 2]
+		Farah: But yay! I'm happy you get it though
+	- I think
+		Farah: hehe, that's better then no! [$> Global.far_meter += 2][$> Global.happiness -= 2]
+		Farah: umm, can you help me with this question...
+		- sure
+			Farah: thank you!!  [$> Global.far_meter += 2][$> Global.happiness -= 2]
+			Farah: ...
+			Farah: ok! I think I get it now
+			Farah: ahh, you're really smart
+		- hold on a sec
+			Farah: oh ok! [$> Global.far_meter -= 2][$> Global.happiness += 2]
+			Farah: ...
+			Farah: actually, nevermind, it's ok!
+			Farah: thanks anyway!
+
+=>< questions
+	
+=> END
+
+~ questions
+Farah: ...
+- compliment
+	% => good
+	% => bad
+- joke 
+	% => joke_good
+	% => joke_bad
+- end convo
+=> END
+
+~ good
+Farah: ...  [$> Global.far_meter += 2]
+Farah: aww, really?
+Farah: thanks Violet!
+=> bell
+=> END
+
+~ bad
+Farah: ... [$> Global.far_meter -= 2]
+Farah: oh, ok haha...
+=> bell
+=> END
+
+~ joke_good
+Farah: ... [$> Global.far_meter += 2]
+Farah: hehehe
+=> bell
+=> END
+
+~ joke_bad
+Farah: ... [$> Global.far_meter -= 2]
+Farah: oh, haha...
+=> bell
+=> END
+
+~ bell
+Farah: ok, let's focus now!
+=> END

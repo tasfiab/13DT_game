@@ -4,25 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://bjh54igxx54yx" path="res://assets/art/heart.png" id="1_2sf3n"]
 [ext_resource type="Texture2D" uid="uid://djdqjkf37up2e" path="res://assets/art/heart_meter.png" id="2_2hg05"]
 [ext_resource type="Texture2D" uid="uid://cbgsra6dp3mxw" path="res://assets/art/heart_meter_progress.png" id="3_rfjfd"]
+[ext_resource type="Texture2D" uid="uid://b4se8bbtkoc8c" path="res://assets/art/happiness_meter.png" id="5_mt5qe"]
+[ext_resource type="Texture2D" uid="uid://b08kkyolp63jv" path="res://assets/art/happiness.png" id="6_2hvrn"]
+[ext_resource type="Texture2D" uid="uid://sudxo0p8ifjt" path="res://assets/art/happiness_meter_prog.png" id="6_6uj0v"]
 
-[node name="Control" type="Control" unique_id=1622419761 node_paths=PackedStringArray("val_meter", "chr_meter", "far_meter")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Control" type="Node2D" unique_id=2022308998 node_paths=PackedStringArray("meter_container", "val_meter", "chr_meter", "far_meter", "happy_meter")]
 script = ExtResource("1_2hg05")
+meter_container = NodePath("VBoxContainer")
 val_meter = NodePath("VBoxContainer/HBoxContainer/TextureProgressBar")
 chr_meter = NodePath("VBoxContainer/HBoxContainer2/TextureProgressBar")
 far_meter = NodePath("VBoxContainer/HBoxContainer3/TextureProgressBar")
+happy_meter = NodePath("VBoxContainer2/TextureProgressBar")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=106534733]
-layout_mode = 0
-offset_left = 919.0
-offset_top = 32.000008
-offset_right = 993.0
-offset_bottom = 88.00001
+offset_left = 20.0
+offset_top = 32.0
+offset_right = 104.0
+offset_bottom = 88.0
 scale = Vector2(2.6536107, 2.6536107)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=430354178]
@@ -39,6 +37,7 @@ texture = ExtResource("1_2sf3n")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=263347762]
 layout_mode = 2
+max_value = 200.0
 texture_under = ExtResource("2_2hg05")
 texture_progress = ExtResource("3_rfjfd")
 
@@ -56,6 +55,7 @@ texture = ExtResource("1_2sf3n")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer2" unique_id=86874108]
 layout_mode = 2
+max_value = 200.0
 texture_under = ExtResource("2_2hg05")
 texture_progress = ExtResource("3_rfjfd")
 
@@ -65,7 +65,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3" unique_id=1075183986]
 layout_mode = 2
 theme_override_font_sizes/font_size = 11
-text = "f"
+text = "F"
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer3" unique_id=585623572]
 layout_mode = 2
@@ -75,3 +75,21 @@ texture = ExtResource("1_2sf3n")
 layout_mode = 2
 texture_under = ExtResource("2_2hg05")
 texture_progress = ExtResource("3_rfjfd")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=974562231]
+offset_left = 1059.0
+offset_top = 414.0
+offset_right = 1076.0
+offset_bottom = 482.0
+scale = Vector2(2.7981508, 2.7981508)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer2" unique_id=334453072]
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("5_mt5qe")
+texture_progress = ExtResource("6_6uj0v")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=1515777923]
+layout_mode = 2
+texture = ExtResource("6_2hvrn")
+stretch_mode = 5

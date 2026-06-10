@@ -2,8 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b22i0tflv8hee" path="res://scripts/choosing_friend.gd" id="1_d3nm3"]
 
-[node name="Node2D" type="Node2D" unique_id=1424026488]
+[node name="Node2D" type="Node2D" unique_id=1424026488 node_paths=PackedStringArray("friends_container", "options_container")]
 script = ExtResource("1_d3nm3")
+friends_container = NodePath("HBoxContainer")
+options_container = NodePath("HBoxContainer2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=906302482]
+offset_left = -43.0
+offset_right = 1174.0
+offset_bottom = 653.0
+color = Color(0.26, 0.17419998, 0.17419998, 0.29803923)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=789579578]
 offset_left = 50.0
@@ -15,15 +23,36 @@ theme_override_constants/separation = 30
 [node name="Button" type="Button" parent="HBoxContainer" unique_id=1514959881]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "val"
 
 [node name="Button2" type="Button" parent="HBoxContainer" unique_id=1513436437]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "christine"
 
 [node name="Button3" type="Button" parent="HBoxContainer" unique_id=1793939075]
 layout_mode = 2
 size_flags_horizontal = 3
+text = "farah"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1118298731]
+offset_left = 318.0
+offset_top = 259.0
+offset_right = 776.0
+offset_bottom = 343.0
+
+[node name="Button" type="Button" parent="HBoxContainer2" unique_id=182983894]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "learn"
+
+[node name="Button2" type="Button" parent="HBoxContainer2" unique_id=1214527479]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "talk"
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_val_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_chr_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_far_button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/Button" to="." method="_on_learn_pressed"]
+[connection signal="pressed" from="HBoxContainer2/Button2" to="." method="_on_talk_pressed"]

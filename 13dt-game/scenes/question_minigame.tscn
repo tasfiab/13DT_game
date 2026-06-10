@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://dc75hoiwxtoob"]
 
-[ext_resource type="Script" uid="uid://bjev8dt166xve" path="res://scripts/question.gd" id="1_5wkig"]
-
-[node name="Node2D" type="Node2D" unique_id=662698006 node_paths=PackedStringArray("panel", "label")]
-script = ExtResource("1_5wkig")
-panel = NodePath("Panel")
-label = NodePath("Panel/Label")
+[node name="Node2D" type="Node2D" unique_id=662698006]
 
 [node name="Panel" type="Panel" parent="." unique_id=874465963]
 offset_left = 548.0

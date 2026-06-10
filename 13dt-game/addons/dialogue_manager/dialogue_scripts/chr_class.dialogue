@@ -1,3 +1,68 @@
 ~ start
-chr: hi
+Christine: hi
+Christine: ...
+Christine: how are you?
+- good
+	Christine: mhmm 
+	Christine: that's good
+	=>< questions
+
+- today's been really tiring
+	Christine: I know right  [$> Global.chr_meter += 5][$> Global.happiness += 2]
+	Christine: I feel like I'm struggling to keep my eyes open
+	Christine: and I got six hours of sleep last night, that's pretty good right?
+	- six?!
+		Christine: ohh... I guess it is bad... [$> Global.chr_meter -= 2][$> Global.happiness -= 2]
+	- yea, I got around that much too
+		Christine: yes, you get it! [$> Global.chr_meter += 2][$> Global.happiness += 2]
+	Christine: I really wish we could just sleep right now...
+	- I mean, we could? [$> Global.chr_meter -= 2][$> Global.happiness += 2]
+		Christine: oh, yea, that's true...
+		Christine: but no - we have to lock in! 
+		Christine: ok, let's keep talking after class
+	- right, me too 
+		Christine: pfft [$> Global.chr_meter += 2][$> Global.happiness -= 2]
+		Christine: let's take a nap at lunch then! 
+		=>< questions
+=> END
+
+~ questions
+Christine: ...
+- compliment
+	% => good
+	% => bad
+- joke 
+	% => joke_good
+	% => joke_bad
+- end convo
+=> END
+
+~ good
+Christine: ...  [$> Global.chr_meter += 2]
+Christine: you really think so? 
+Christine: thank you! 
+=> bell
+=> END
+
+~ bad
+Christine: ... [$> Global.chr_meter -= 2]
+Christine: ??
+Christine: now's not time for you to joke around
+=> bell
+=> END
+
+~ joke_good
+Christine: pfft [$> Global.chr_meter += 2]
+Christine: that's so stupid haha
+=> bell
+=> END
+
+~ joke_bad
+Christine: hmm [$> Global.chr_meter -= 2]
+Christine: oh yea...
+=> bell
+=> END
+
+~ bell
+Christine: ok, let's lock in now!
 => END
