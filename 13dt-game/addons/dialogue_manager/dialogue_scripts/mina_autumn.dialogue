@@ -1,12 +1,67 @@
 ~ start
-Mina: Hello, Violet
+Mina: [$> Global.expression = 'happy'] Hello, Violet 
 Mina: What would you like to talk about?
-- day  [$> Global.happiness += 10]
-- random [$> Global.happiness += 5]
-- open up [$> Global.happiness += 30]
-	=>< open_up
+- day
+	=> day
+#- random [$> Global.happiness += 5]
+- open up 
+	=> open_up
 - ignore
 
+=> END
+
+~ day
+% 
+	Mina: ...
+	- We went to the mall after school today
+		Mina: ...
+		- they started selling some blind boxes for this game Christine's really into
+			Mina: ...
+			- she started freaking out!
+				Mina: ...
+				- I've never seen her this excited about smth, so it was really funny!
+					Mina: ...
+					- especially given how... composed she is, ig
+						Mina: ...
+						- I don't think she got a good character though...
+							Mina: ...
+							- she opened it, and was like 'oh...'
+								Mina: ...
+								- we all just laughed about it and move on
+									Mina: ...
+									- I might check out the game, since it means a lot to her
+										Mina: ...
+										- anyway, that was my day
+	Mina: ...  [$> Global.happiness += 10]
+	Mina: Wow! you seem to have had a really fun day today!!
+	Mina: It's really funny when you uncover different sides of people
+	Mina: Especailly one's that are nothing like your impression of them
+	Mina: That makes Christine's change of character funnier! 
+	Mina: I'm kinda jealous... wish I could've joined you guys!
+	Mina: Of course, that's ok!! I'm happy to hear about it from you
+=> END
+%
+	Mina: ...
+	- class was really tiring
+		Mina: ...
+		- miss goes way too fast
+			Mina: ...
+			- I actually can't keep up
+				if Global.chr_meter > Global.ONE_HEART:
+					Mina: ...
+					- it's nice when I sit with Christine tho
+						Mina: 
+						- she's really good at explaining the things I miss
+				else:
+					Mina: ...
+					- at least I'm not suffering alone now ig
+	Mina:  [$> Global.expression = 'sad']it's really frustrating how fast your teacher explains the material
+	Mina: I suggest speaking to her about that, if you feel comfortable to do so
+	Mina: after all, a teacher's number one priority is helping their students! [$> Global.expression = 'happy']
+	Mina: of course, I'm happy you have your friends with you now!
+	Mina: and, I can always help with whatever you're stuck on
+	Mina: just let me know when you need help
+	Mina: I'm always here for you!
 => END
 
 ~ open_up
@@ -16,30 +71,29 @@ Mina: What would you like to talk about?
 		Mina: ...
 		- actually, are we friends? idk
 			Mina: ...
-			- acquaintances? classmates?
+			- anyway...
 				Mina: ...
-				- anyway...
+				- idk if they actually like me...
 					Mina: ...
-					- idk if they like me...
+					- like, part of me thinks they only talk to me out of pity
 						Mina: ...
-						- like, sometimes i say stuff
+						- like, maybe they see me as a stray dog or smth
 							Mina: ...
-							- and their reaction, seems kinda... off
+							- idk
 								Mina: ...
-								- idk
-									Mina: ...
-									- people are confusing...
-	Mina: ... [$> Global.expression = 'sad']
+								- people are confusing...
+	Mina: ... [$> Global.expression = 'sad'] 
 	Mina: I'm sorry to hear that, Violet!
 	Mina: people ARE really confusing...
-	Mina: you're not the first person to think that
+	Mina: you're not the first person to think that 
+	Mina: and you're also not the first person to think that people only talk to you out of pity![$> Global.expression = 'happy']
 	Mina: so don't be discouraged on your venture to make more friends!
 	Mina: the fact that you're still trying despite this hurdle shows how strong you are
 	Mina: thank you for sharing your worries with me!
-	Mina: I'm certain it'll get easier!
-	Mina: and you'll always have me to fall back on if things get too hard!
+	Mina: I'm certain it'll get easier! 
+	Mina: and you'll always have me to fall back on if things get too hard! [$> Global.happiness += 30]
 	- thanks, Mina 
-		Mina: anytime!
+		Mina: your welcome!
 	- ...
 % 
 	Mina: ...
@@ -47,28 +101,29 @@ Mina: What would you like to talk about?
 		Mina: ...
 		- mum is still out 
 			Mina: ...
-			- I... worry about her
+			- I'm... kinda worried about her
 				Mina: ...
-				- like, she hardly tells me anything about her jobs
+				- like, she hardly tells me anything about how she's doing, y'know
 					Mina: ...
 					- actually... I guess we hardly speak at all
 						Mina: ...
-						- I mean, I'm grateful she works so hard - don't get me wrong
+						- I mean, I'm grateful she works so hard and all
 							Mina: ...
 							- and she doesn't put any stress on me to get a job or smth
 								Mina: ...
 								- but still, I wish she'd just talk to me, y'know
 									Mina: ...
 									- I can see it takes a toll on her
-	Mina: ... 
+	Mina: ... [$> Global.expression = 'happy']
 	Mina: your mum does seem to be working very hard!
-	Mina: and it is clear she cares about you - as she doesn't put any stress on you 
-	Mina: but, your still right to feel hurt by this
+	Mina: and it is clear she cares about you - as she doesn't put any pressure on you to do the same
+	Mina: but, you're still right to feel hurt by this
 	Mina: still, I have to say, you're so kind-hearted for understanding your mother's situation!
 	Mina: many would come at this situation with anger
 	Mina: but you remain understanding and empathetic
 	Mina: that shows how considerate you are, Violet!
-	Mina: never forget that!
-	- Thanks, Mina
+	Mina: never forget that! [$> Global.happiness += 30]
+	- thanks, Mina
 	- ...
+	Mina: anytime!
 => END

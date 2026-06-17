@@ -1,82 +1,133 @@
 ~ greeting
-val: hi!
-=>< one_heart
+Val: hi!
+if Global.val_meter <= Global.ONE_HEART:
+	=>< one_heart
+elif Global.val_meter <= Global.TWO_HEARTS:
+	=> two_hearts
 => END
 ~ one_heart
 %
-	val: I had a pomegranate for the first time yesterday!
-	val: it was really good - you should try one!
-	val: they're in season!
-	val: I think... 
-	val: I heard that from somewhere, I swear!
+	Val: I had a pomegranate for the first time yesterday!
+	Val: it was really good - you should try one!
+	Val: they're in season!
+	Val: I think... 
+	Val: I heard that from somewhere, I swear!
 	- I've had one before
-		val: omg really!! [$> Global.val_meter += 2][$> Global.happiness += 5]
-		val: how was it? 
+		Val: omg really!! [$> Global.val_meter += 2][$> Global.happiness += 2]
+		Val: how was it? 
 		- it was kinda gross
-			val: EHH, REALLY?
-			val: you just haven't had a good one then!
-			val: ok, remind me to bring you one tomorrow
-			val: the one's at my house right now are so good
+			Val: EHH, REALLY?
+			Val: you just haven't had a good one then!
+			Val: ok, remind me to bring you one tomorrow
+			Val: the one's at my house right now are so good
 		- it was delicious
-			val: YAYYY, I KNOW RIGHT
-	- this is your first time having one?
-		[$> Global.happiness += 10]
-		val: ...
-		val: AHH, DON'T JUDGE ME!! [$> Global.val_meter -= 2]
-		val: it's - there's
-		val: THERE'S A FIRST TIME FOR EVERYTHING!!
-		val: I'm just letting you know 'cause it was so good
-		val: I didn't expect such judgement
+			Val: YAYYY, I KNOW RIGHT
+	- this is really your first time having one?
+		Val: ...
+		Val: AHH, DON'T JUDGE ME!! [$> Global.val_meter -= 2][$> Global.happiness += 5][$> Global.wrong += 1]
+		Val: it's - there's
+		Val: THERE'S A FIRST TIME FOR EVERYTHING!!
+		Val: I'm just letting you know 'cause it was so good
+		Val: damn, I didn't expect such judgement
 		- chill, I wasn't judging you
-			val: ... [$> Global.val_meter -= 5]
+			Val: ... [$> Global.val_meter -= 5][$> Global.wrong += 1]
 		- haha, sorry for judging you
-			val: ... [$> Global.val_meter += 2]
+			Val: ... [$> Global.val_meter += 2]
 	- ok, I'll try one
-		val: YES [$> Global.val_meter += 2]
-		val: send me a pic of it when you do!
-		val: make sure you get a good one too!
+		Val: YES [$> Global.val_meter += 2]
+		Val: send me a pic of it when you do!
+		Val: make sure you get a good one too!
 % 
-	val: ...
-	val: umm, how are you?
+	Val: ...
+	Val: umm, how are you?
 	- good
-		val: that's good!
-		val: I'm good too 
+		Val: that's good!  [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+		Val: I'm good too 
+		
 	- tired
-		val: same!
-		val: it's just one more period tho!
-		val: STAY STRONG!!
+		Val: same!  [$> Global.val_meter += 2][$> Global.happiness += 2]
+		Val: it's just one more period tho!
+		Val: STAY STRONG!!
+
+=> questions
 => END
 
 
 ~ two_hearts
-	val: AHH I have a test next period
+	Val: AHH I have a test next period
 	- did you study
-		val: ...
-		val: that's... irrelevant
+		Val: ...
+		Val: that's... irrelevant
 		- well, 
 			- you have no one to blame but yourself
-				val: AWW C'MON, I was really busy yesterday...
-				val: with... engaging in the wider world! in short form... 
+				Val: AWW C'MON, I was really busy yesterday...
+				Val: with... engaging in the wider world! in short form... 
 				- you were doomscrolling, weren't you?
-					val: ...
-					val: AHH I thought I hid that welllll 
-					val: ok, fine you caught me
+					Val: ...
+					Val: AHH I thought I hid that welllll 
+					Val: ok, fine you caught me
 					
 					- get your book out
-						val: yes ma'am 
+						Val: yes ma'am 
 					
 				- ok? I'll take your word for it
-					val: yea...
-					val: thanks hehe
+					Val: yea...
+					Val: thanks hehe
 				
 		- I can help you study... right now?
 			- if you want?
-				val: no way! really?
-				val: you'd do that for me
-				val: wait, let me get my stuff out
-				val: thank you so much!
+				Val: no way! really?
+				Val: you'd do that for me
+				Val: wait, let me get my stuff out
+				Val: thank you so much!
 	- good luck! :)
-		val: thanks!!
-		val: ...I'm gonna need it haha
-		val
+		Val: thanks!!
+		Val: ...I'm gonna need it haha
+		Val:
+=> END
+
+
+~ questions
+Val: ...
+- compliment
+	% => good
+	%2 => bad
+- joke 
+	% => joke_good
+	% => joke_bad
+- end convo
+=> END
+
+~ good
+Val: ...  [$> Global.val_meter += 4][$> Global.happiness += 2]
+Val: aww, Violet
+Val: don't look - I'm blushing right now!!
+=> bell
+=> END
+
+~ bad
+Val: ... [$> Global.val_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+Val: excuse me?
+Val: I'm gonna pretend I didn't hear that
+=> bell
+=> END
+
+~ joke_good
+Val: HAHAHAHA [$> Global.val_meter += 2][$> Global.happiness += 2]
+Val: Oh shoot, didn't mean to laugh that loud... haha
+Val: if we get yelled at, it's your fault 
+=> bell
+=> END
+
+~ joke_bad
+Val: ?? [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+Val: ohhhh, that's what you meant!
+Val: bruh, that was so corny
+Val: you can do better than that...
+=> bell
+=> END
+
+~ bell
+Val: ahh, ms is staring at us...
+Val: let's lock in
 => END

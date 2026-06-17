@@ -23,21 +23,26 @@ func _on_val_button_pressed() -> void:
 	button_pressed()
 	Global.val_chosen = true
 	Global.val_meter += 5
-	if Global.far_meter > 0:
-		Global.far_meter -= 1
-	if Global.chr_meter > 0:
-		Global.chr_meter > 0
+	
+	Global.far_meter -= 2
+	Global.chr_meter -= 2
 
 func _on_chr_button_pressed() -> void:
 	button_pressed()
 	Global.chr_chosen = true
 	Global.chr_meter += 5
+	
+	Global.far_meter -= 2
+	Global.val_meter -= 2
 
 
 func _on_far_button_pressed() -> void:
 	button_pressed()
 	Global.far_chosen = true
 	Global.far_meter += 5
+	
+	Global.chr_meter -= 2
+	Global.val_meter -= 2
 
 func button_pressed():
 	Global.friend_chosen.emit()

@@ -49,7 +49,7 @@ _data = {
 &"fade": SubResource("Animation_0et52")
 }
 
-[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "ans_button", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "ui", "fade_animation", "end_screen")]
+[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "ans_button", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "ui", "fade_animation")]
 script = ExtResource("1_tefeu")
 choosing_friends_layer = NodePath("CanvasLayer")
 learn_timer = NodePath("Label3/Timer")
@@ -68,7 +68,6 @@ q_time = NodePath("Label")
 q_timer = NodePath("Label/Timer")
 ui = NodePath("Camera2D/Control2")
 fade_animation = NodePath("ColorRect2/AnimationPlayer")
-end_screen = NodePath("prototype_end_screen")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=54850521]
 offset_left = 76.0

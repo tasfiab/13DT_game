@@ -21,5 +21,6 @@ func _process(delta: float) -> void:
 	
 	if Global.learn:
 		meter_container.visible = false
+	
 	else:
 		meter_container.visible = true

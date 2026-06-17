@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://54kn7ut6yomr" path="res://assets/art/calendar_icon.png" id="3_creid"]
 [ext_resource type="Texture2D" uid="uid://cllnjmfxnkcq3" path="res://assets/art/calendar_marker.png" id="3_ejyiq"]
 [ext_resource type="Texture2D" uid="uid://cogea8gycgdqv" path="res://assets/art/power_off.png" id="6_2jtcb"]
+[ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="8_jj3px"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jtcb"]
+size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0riy"]
 size = Vector2(57, 52)
@@ -93,18 +97,24 @@ position = Vector2(576.00006, 324.00003)
 scale = Vector2(9, 9)
 texture = ExtResource("2_5ijq5")
 
-[node name="TextureButton" type="TextureButton" parent="outer" unique_id=1295686550]
-offset_left = 1061.0
-offset_top = 557.0
-offset_right = 1101.0
-offset_bottom = 597.0
-texture_normal = ExtResource("6_2jtcb")
+[node name="TextureRect" type="TextureRect" parent="outer" unique_id=1430819104]
+offset_left = 1048.0
+offset_top = 556.0
+offset_right = 1088.0
+offset_bottom = 596.0
+texture = ExtResource("6_2jtcb")
+
+[node name="Area2D" type="Area2D" parent="outer/TextureRect" unique_id=1300118528]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outer/TextureRect/Area2D" unique_id=219814625]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_2jtcb")
 
 [node name="Sprite2D" type="TextureRect" parent="outer" unique_id=1935967863]
 offset_left = 598.0
-offset_top = 554.0
+offset_top = 551.0
 offset_right = 651.0
-offset_bottom = 607.0
+offset_bottom = 604.0
 texture = ExtResource("3_creid")
 
 [node name="Area2D" type="Area2D" parent="outer/Sprite2D" unique_id=500397760]
@@ -112,6 +122,8 @@ texture = ExtResource("3_creid")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="outer/Sprite2D/Area2D" unique_id=2018440345]
 position = Vector2(26.5, 26)
 shape = SubResource("RectangleShape2D_l0riy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="outer" unique_id=307702452]
 
 [node name="Markers" type="Node" parent="." unique_id=1719920984]
 
@@ -130,12 +142,6 @@ position = Vector2(576, 233)
 [node name="Marker2D5" type="Marker2D" parent="Markers" unique_id=884413705]
 position = Vector2(708, 233)
 
-[node name="Marker2D6" type="Marker2D" parent="Markers" unique_id=2058776670]
-position = Vector2(844, 233)
-
-[node name="Marker2D7" type="Marker2D" parent="Markers" unique_id=303904310]
-position = Vector2(981, 233)
-
 [node name="Marker2D8" type="Marker2D" parent="Markers" unique_id=1137499217]
 position = Vector2(169, 316)
 
@@ -150,12 +156,6 @@ position = Vector2(576, 316)
 
 [node name="Marker2D13" type="Marker2D" parent="Markers" unique_id=1129336036]
 position = Vector2(708, 316)
-
-[node name="Marker2D14" type="Marker2D" parent="Markers" unique_id=710300016]
-position = Vector2(844, 316)
-
-[node name="Marker2D11" type="Marker2D" parent="Markers" unique_id=614017889]
-position = Vector2(981, 316)
 
 [node name="Marker2D15" type="Marker2D" parent="Markers" unique_id=176327359]
 position = Vector2(169, 396)
@@ -172,12 +172,6 @@ position = Vector2(576, 396)
 [node name="Marker2D20" type="Marker2D" parent="Markers" unique_id=924180365]
 position = Vector2(708, 396)
 
-[node name="Marker2D21" type="Marker2D" parent="Markers" unique_id=1280544841]
-position = Vector2(844, 396)
-
-[node name="Marker2D18" type="Marker2D" parent="Markers" unique_id=752836742]
-position = Vector2(981, 396)
-
 [node name="Marker2D22" type="Marker2D" parent="Markers" unique_id=2057660698]
 position = Vector2(169, 479)
 
@@ -193,15 +187,8 @@ position = Vector2(576, 479)
 [node name="Marker2D27" type="Marker2D" parent="Markers" unique_id=1233245894]
 position = Vector2(708, 479)
 
-[node name="Marker2D28" type="Marker2D" parent="Markers" unique_id=58365307]
-position = Vector2(844, 479)
-
-[node name="Marker2D25" type="Marker2D" parent="Markers" unique_id=1715955813]
-position = Vector2(981, 479)
-
 [node name="CanvasLayer4" type="CanvasLayer" parent="." unique_id=1575063599]
 layer = 20
-visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer4" unique_id=1762553555]
 offset_right = 1148.0
@@ -212,5 +199,11 @@ color = Color(0.25, 0.030000001, 0.11066669, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer4/ColorRect2" unique_id=912866316]
 libraries/ = SubResource("AnimationLibrary_ejyiq")
 
+[node name="Control" parent="." unique_id=2022308998 instance=ExtResource("8_jj3px")]
+position = Vector2(-188, -191.00002)
+scale = Vector2(1.1600004, 1.1600004)
+
+[connection signal="mouse_entered" from="outer/TextureRect/Area2D" to="." method="_can_power_off"]
+[connection signal="mouse_exited" from="outer/TextureRect/Area2D" to="." method="_cannot_power_off"]
 [connection signal="mouse_entered" from="outer/Sprite2D/Area2D" to="." method="_on_calendar_mouse_entered"]
 [connection signal="mouse_exited" from="outer/Sprite2D/Area2D" to="." method="_on_calendar_mouse_exited"]

@@ -1,7 +1,7 @@
 ~ start
 Farah: hi!
 
-=>< one_heart
+=> one_heart
 
 => END
 
@@ -13,13 +13,14 @@ Farah: hi!
 	Farah: how has your day been?
 	- good
 		Farah: yayy! that's good [$> Global.far_meter += 2][$> Global.happiness -= 2]
-		Farah: I hope the rest of the day is good too
+		Farah: I hope the rest of your day is good too
 	- bad
-		Farah: aww, how come?  [$> Global.far_meter -= 5][$> Global.happiness += 2]
+		Farah: aww, how come?  [$> Global.far_meter -= 5][$> Global.happiness += 2][$> Global.wrong += 1]
 		Farah: wait, actually you don't have to tell me
 		Farah: I mean you can, if you want, I just don't want to pry into personal issues, y'know?
 		Farah: anyway, I hope your day gets better
 		Farah: stay strong!!
+	=> questions
 % 
 	Farah: I like your pencil case
 	- thank you!
@@ -32,11 +33,12 @@ Farah: hi!
 	- it was a gift 
 		Farah: ahh, that's nice! [$> Global.far_meter += 2][$> Global.happiness += 2]
 		Farah: they picked a good gift then, hehe!
+	=> questions
 
 %
 	Farah: do you get what's going on right now?
 	- yea, are you slow?
-		Farah: ... yea, I guess I am [$> Global.far_meter -= 2][$> Global.happiness += 2]
+		Farah: ... yea, I guess I am [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
 		Farah: But yay! I'm happy you get it though
 	- I think
 		Farah: hehe, that's better then no! [$> Global.far_meter += 2][$> Global.happiness -= 2]
@@ -47,20 +49,18 @@ Farah: hi!
 			Farah: ok! I think I get it now
 			Farah: ahh, you're really smart
 		- hold on a sec
-			Farah: oh ok! [$> Global.far_meter -= 2][$> Global.happiness += 2]
+			Farah: oh ok! [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
 			Farah: ...
 			Farah: actually, nevermind, it's ok!
 			Farah: thanks anyway!
-
-=>< questions
-	
+	=> questions
 => END
 
 ~ questions
 Farah: ...
 - compliment
 	% => good
-	% => bad
+	%2 => bad
 - joke 
 	% => joke_good
 	% => joke_bad
@@ -68,26 +68,26 @@ Farah: ...
 => END
 
 ~ good
-Farah: ...  [$> Global.far_meter += 2]
+Farah: ...  [$> Global.far_meter += 4][$> Global.happiness += 2]
 Farah: aww, really?
 Farah: thanks Violet!
 => bell
 => END
 
 ~ bad
-Farah: ... [$> Global.far_meter -= 2]
+Farah: ... [$> Global.far_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
 Farah: oh, ok haha...
 => bell
 => END
 
 ~ joke_good
-Farah: ... [$> Global.far_meter += 2]
+Farah: ... [$> Global.far_meter += 2][$> Global.happiness += 2]
 Farah: hehehe
 => bell
 => END
 
 ~ joke_bad
-Farah: ... [$> Global.far_meter -= 2]
+Farah: ... [$> Global.far_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
 Farah: oh, haha...
 => bell
 => END

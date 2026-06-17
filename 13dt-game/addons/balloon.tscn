@@ -203,6 +203,7 @@ offset_left = 104.0
 offset_top = 139.0
 offset_right = 505.0
 offset_bottom = 540.0
+expand_mode = 5
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

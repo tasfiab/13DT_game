@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://duewxhhluctqq"
+path="res://.godot/imported/far_class.dialogue-da6b5f16acec34346105418e6bff5a9a.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogue_scripts/far_class.dialogue"
+dest_files=["res://.godot/imported/far_class.dialogue-da6b5f16acec34346105418e6bff5a9a.tres"]
+
+[params]
+
+defaults=true

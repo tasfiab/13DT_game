@@ -12,6 +12,7 @@ signal minigame_ended
 @export var target_node : Node
 
 @export var text_box : Panel
+@export var ans_button : VBoxContainer
 @export var question : Label
 
 @export var mina_button : Button
@@ -27,6 +28,8 @@ signal minigame_ended
 @export var ui : Control 
 
 @export var fade_animation : AnimationPlayer
+
+@export var end_screen : CanvasLayer
 
 const INIT_POS := Vector2(0,0)
 const DOWN_POS := Vector2(0,653)
@@ -89,57 +92,70 @@ var ans = {
 		2 : "b",
 		3 : "c",
 	},
-	"Stats" : {
-		"1" : "b",
-		"2" : "a",
-		"3" : "b",
+	"Stats " : {
+		1 : "b",
+		2 : "a",
+		3 : "b",
 	},
-	"Language Features" : {
-		"1" : "d",
-		"2" : "c",
-		"3" : "c",
+	"Language Features " : {
+		1 : "d",
+		2 : "c",
+		3 : "c",
 	},
-	"Essays" : {
-		"1" : "d",
-		"2" : "d",
-		"3" : "b",
+	"Essays " : {
+		1 : "d",
+		2 : "d",
+		3 : "b",
 	},
-	"Grammar" : {
-		"1" : "c",
-		"2" : "d",
-		"3" : "d",
+	"Grammar " : {
+		1 : "c",
+		2 : "d",
+		3 : "d",
 	},
-	"Themes" : {
-		"1" : "a",
-		"2" : "a",
-		"3" : "a",
+	"Themes " : {
+		1 : "a",
+		2 : "a",
+		3 : "a",
 	},
-	"Chemistry" : {
-		"1" : "c",
-		"2" : "a",
-		"3" : "b",
+	"Chemistry " : {
+		1 : "c",
+		2 : "a",
+		3 : "b",
 	},
-	"Physics" : {
-		"1" : "a",
-		"2" : "b",
-		"3" : "b",
+	"Physics " : {
+		1 : "a",
+		2 : "b",
+		3 : "b",
 	},
-	"Biology" : {
-		"1" : "d",
-		"2" : "d",
-		"3" : "a",
+	"Biology " : {
+		1 : "c",
+		2 : "a",
+		3 : "d",
 	},
-	
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mina_button.visible = false
 	cam.position = INIT_POS
 	text_box.visible = false
+	
+	if Global.game_end:
+		end_screen.visible = true
+	
 	while not Global.game_end:
-		Global.happiness -= 10
-		Global.day += 1
-		mina_button.visible = false
+		if Global.day == 0:
+			Global.happiness = 50
+		
+		elif Global.day % 5 == 0:
+			Global.happiness = 0 + round(Global.happiness/3)
+		
+		else:
+			Global.happiness -= 10
+			
+		if Global.day % 3 == 0:
+			Global.lessons += 1
+		
 		friend_text_box.visible = false
 		q_time.visible = false
 		q_time_left = 10
@@ -164,15 +180,20 @@ func _ready() -> void:
 				Global.add_meter(5)
 				await DialogueManager.dialogue_ended
 			elif Global.far_chosen:
-				DialogueManager.show_dialogue_balloon(load("res://scripts/far_class.dialogue"))
+				DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/far_class.dialogue"))
 				Global.add_meter(5)
 				await DialogueManager.dialogue_ended
+			if Global.wrong >= 2:
+				Global.happiness -= 10
+			Global.wrong = 0
 			var tween_back : Tween = create_tween()
 			tween_back.tween_property(cam, "global_position", INIT_POS, 0.2)
 			await tween_back.finished
 			Global.talk = false
 
 		if Global.learn:
+			if Global.pages_done < Global.lessons:
+				Global.pages_done += 1
 			print("learn")
 			learn_start = true
 			learn_timer.start()
@@ -184,13 +205,14 @@ func _ready() -> void:
 		var chance = randi_range(1,3)
 		#var chance = 1
 		
-		if chance == 1 and Global.lessons >= 0:
+		if chance == 1 and Global.day > 0:
 			print("your here :)")
 			question_asked = true
 			text_box.visible = true
+			ans_button.visible = true
 			mina_button.visible = true
 			q_time.visible = true
-			topic = randi_range(0, (Global.lessons - 1))
+			topic = randi_range(0, (Global.day - 1))
 			q_num = randi_range(1,3)
 			question.text = START + topics[topic] + Q + str(q_num)
 			
@@ -208,6 +230,8 @@ func _ready() -> void:
 			var tween : Tween = create_tween()
 			tween.tween_property(cam, "global_position", INIT_POS, 0.2)
 			if answered:
+				ans_button.visible = false
+				mina_button.visible = false
 				if right_ans:
 					question.text = RIGHT
 					await get_tree().create_timer(5).timeout
@@ -217,18 +241,25 @@ func _ready() -> void:
 					
 			
 			else:
+				ans_button.visible = false
+				mina_button.visible = false
 				question.text = "never mind"
 				await get_tree().create_timer(5).timeout
 			
 		fade_animation.play('fade')
 		await fade_animation.animation_finished
+		Global.day += 1
 		get_tree().change_scene_to_file("res://scenes/laptop.tscn")
+		break
 		
 		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.happiness < 0:
+		Global.game_end = true
+	
 	q_time.text = str(q_time_left)
 	if learn_start:
 		time += delta * imp_speed

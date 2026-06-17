@@ -1,36 +1,99 @@
 ~ start
-Christine: hi
-Christine: ...
-Christine: how are you?
-- good
-	Christine: mhmm 
-	Christine: that's good
-	=>< questions
+Christine: hi 
+if Global.chr_meter < Global.ONE_HEART:
+	=> one_heart
 
-- today's been really tiring
-	Christine: I know right  [$> Global.chr_meter += 5][$> Global.happiness += 2]
-	Christine: I feel like I'm struggling to keep my eyes open
-	Christine: and I got six hours of sleep last night, that's pretty good right?
-	- six?!
-		Christine: ohh... I guess it is bad... [$> Global.chr_meter -= 2][$> Global.happiness -= 2]
-	- yea, I got around that much too
-		Christine: yes, you get it! [$> Global.chr_meter += 2][$> Global.happiness += 2]
-	Christine: I really wish we could just sleep right now...
-	- I mean, we could? [$> Global.chr_meter -= 2][$> Global.happiness += 2]
-		Christine: oh, yea, that's true...
-		Christine: but no - we have to lock in! 
-		Christine: ok, let's keep talking after class
-	- right, me too 
-		Christine: pfft [$> Global.chr_meter += 2][$> Global.happiness -= 2]
-		Christine: let's take a nap at lunch then! 
+~ one_heart
+%
+	Christine: ...
+	Christine: how are you?
+	- good
+		Christine: mhmm [$> Global.chr_meter -= 2][$> Global.happiness -= 5][$> Global.wrong += 1]
+		$> Global.expression = "happy"
+		Christine: that's good [$> Global.expression = "normal"]
 		=>< questions
+
+	- today's been really tiring
+		$> Global.expression = "happy"
+		Christine: I know right [$> Global.chr_meter += 5][$> Global.happiness += 2]
+		Christine: I feel like I'm struggling to keep my eyes open
+		Christine: and I got six hours of sleep last night, that's pretty good right?
+		- six?!
+			$> Global.expression = "sad"
+			Christine: ohh... I guess it is bad... [$> Global.chr_meter -= 2][$> Global.happiness -= 5][$> Global.wrong += 1]
+		- yea, I got around that much too
+			$> Global.expression = "laugh"
+			Christine: yes, you get it! [$> Global.chr_meter += 2][$> Global.happiness += 2]
+		$> Global.expression = "normal"
+		Christine: I really wish we could just sleep right now...
+		- I mean, we could? [$> Global.chr_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
+			$> Global.expression = "normal"
+			Christine: oh, yea, that's true...
+			$> Global.expression = "happy"
+			Christine: but no - we have to lock in! 
+			Christine: ok, let's keep talking after class
+		- right, me too 
+			$> Global.expression = "laugh"
+			Christine: pfft [$> Global.chr_meter += 2][$> Global.happiness -= 2]
+			$> Global.expression = "happy"
+			Christine: let's take a nap at lunch then! 
+			=>< questions
+% 
+	Christine: ...
+	Christine: were you able to write down the last slide? 
+	- yes 
+		$> Global.expression = "happy"
+		Christine: [$> Global.chr_meter += 2][$> Global.happiness += 2] oh cool! can I write it down from your book
+		$> Global.expression = "normal"
+		Christine: I missed it... haha
+	- no
+		Christine: me neither [$> Global.chr_meter += 4][$> Global.happiness += 2]
+		: she raises her hand
+		Christine: miss, can you go back one slide please
+		$> Global.expression = "happy"
+		Christine: thank you so much!
+		- damn, you did that so casually
+			$> Global.expression = "normal"
+			Christine: huh, did what?
+			- oh nvm haha... 
+				$> Global.expression = "angry"
+				Christine: [$> Global.chr_meter -= 4][$> Global.happiness -= 2] oh, ok...
+			- like, 
+				Christine: ...
+				- asking to go back a slide
+					Christine: ...
+					- I don't think I could do that haha
+						Christine: [$> Global.chr_meter += 2][$> Global.happiness += 2] huh?
+						Christine: ohh, do you feel awkward like, asking for help? 
+						$> Global.expression = "laugh"
+						Christine: you're just like Farah haha!
+						$> Global.expression = "happy"
+						Christine: don't worry, I'll train you too
+						- train me?
+							Christine: [$> Global.chr_meter += 2]like, give you the push to ask questions in class
+							Christine: it's what I do with Farah 
+							$> Global.expression = "laugh"
+							Christine: I got her from asking no questions to asking one like, 30% of the times she needs to
+							$> Global.expression = "happy"
+							Christine: which is some progress!
+							$> Global.expression = "laugh"
+							Christine: so yea, I'll help you too haha
+						- ok, thanks haha
+							Christine: [$> Global.chr_meter -= 2][$> Global.happiness -= 2] no problem
+		- thanks
+			$> Global.expression = "happy"
+			Christine: [$> Global.happiness -= 2] no problem
+			$> Global.expression = "normal"
+			Christine: I mean, I needed it too
+	=> questions
 => END
 
 ~ questions
+$> Global.expression = "normal"
 Christine: ...
 - compliment
 	% => good
-	% => bad
+	%2 => bad
 - joke 
 	% => joke_good
 	% => joke_bad
@@ -38,31 +101,39 @@ Christine: ...
 => END
 
 ~ good
-Christine: ...  [$> Global.chr_meter += 2]
+Christine: ...  [$> Global.chr_meter += 4][$> Global.happiness += 2]
+$> Global.expression = "happy"
 Christine: you really think so? 
+$> Global.expression = "laugh"
 Christine: thank you! 
 => bell
 => END
 
 ~ bad
-Christine: ... [$> Global.chr_meter -= 2]
+Christine: ... [$> Global.chr_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+$> Global.expression = "angry"
 Christine: ??
 Christine: now's not time for you to joke around
 => bell
 => END
 
 ~ joke_good
-Christine: pfft [$> Global.chr_meter += 2]
+Christine: ...
+$> Global.expression = "laugh"
+Christine: pfft [$> Global.chr_meter += 2][$> Global.happiness += 2]
 Christine: that's so stupid haha
 => bell
 => END
 
 ~ joke_bad
-Christine: hmm [$> Global.chr_meter -= 2]
+Christine: ...
+$> Global.expression = "normal"
+Christine: hmm [$> Global.chr_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
 Christine: oh yea...
 => bell
 => END
 
 ~ bell
+$> Global.expression = "happy"
 Christine: ok, let's lock in now!
 => END

@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b4se8bbtkoc8c" path="res://assets/art/happiness_meter.png" id="5_mt5qe"]
 [ext_resource type="Texture2D" uid="uid://b08kkyolp63jv" path="res://assets/art/happiness.png" id="6_2hvrn"]
 [ext_resource type="Texture2D" uid="uid://sudxo0p8ifjt" path="res://assets/art/happiness_meter_prog.png" id="6_6uj0v"]
+[ext_resource type="Texture2D" uid="uid://dlkehm6npck2k" path="res://assets/art/happiness_meter_over.png" id="6_uob68"]
 
 [node name="Control" type="Node2D" unique_id=2022308998 node_paths=PackedStringArray("meter_container", "val_meter", "chr_meter", "far_meter", "happy_meter")]
 script = ExtResource("1_2hg05")
@@ -37,7 +38,7 @@ texture = ExtResource("1_2sf3n")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer" unique_id=263347762]
 layout_mode = 2
-max_value = 200.0
+max_value = 250.0
 texture_under = ExtResource("2_2hg05")
 texture_progress = ExtResource("3_rfjfd")
 
@@ -55,7 +56,7 @@ texture = ExtResource("1_2sf3n")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer2" unique_id=86874108]
 layout_mode = 2
-max_value = 200.0
+max_value = 250.0
 texture_under = ExtResource("2_2hg05")
 texture_progress = ExtResource("3_rfjfd")
 
@@ -73,6 +74,7 @@ texture = ExtResource("1_2sf3n")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/HBoxContainer3" unique_id=1749768976]
 layout_mode = 2
+max_value = 250.0
 texture_under = ExtResource("2_2hg05")
 texture_progress = ExtResource("3_rfjfd")
 
@@ -85,8 +87,10 @@ scale = Vector2(2.7981508, 2.7981508)
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer2" unique_id=334453072]
 layout_mode = 2
+value = 20.0
 fill_mode = 3
 texture_under = ExtResource("5_mt5qe")
+texture_over = ExtResource("6_uob68")
 texture_progress = ExtResource("6_6uj0v")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2" unique_id=1515777923]

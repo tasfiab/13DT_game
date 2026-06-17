@@ -138,7 +138,7 @@ func apply_dialogue_line() -> void:
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 	var portrait_path : String = "res://assets/%s.png" % (dialogue_line.character + '_' + Global.expression).to_lower()
-	if FileAccess.file_exists(portrait_path):
+	if FileAccess.file_exists(portrait_path): 
 		portrait.texture = load(portrait_path)
 	else: portrait.texture = null
 	

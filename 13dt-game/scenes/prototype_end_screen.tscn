@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://1tqbbx5omwx2"]
+
+[ext_resource type="Script" uid="uid://2koies1et58n" path="res://scripts/end_screen.gd" id="1_bf3ih"]
+
+[node name="prototype_end_screen" type="CanvasLayer" unique_id=91638804 node_paths=PackedStringArray("val_label", "chr_label", "far_label", "happiness")]
+script = ExtResource("1_bf3ih")
+val_label = NodePath("VBoxContainer/Label2")
+chr_label = NodePath("VBoxContainer/Label3")
+far_label = NodePath("VBoxContainer/Label4")
+happiness = NodePath("VBoxContainer/Label5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=251985634]
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0.627451, 0.14509805, 0.32156864, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1721782223]
+offset_right = 1153.0
+offset_bottom = 647.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=912590196]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Month end"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=261261133]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Val:"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1796300931]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Christine:"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer" unique_id=1580601537]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Farah:"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer" unique_id=396229722]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer" unique_id=796728537]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Happiness:"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer" unique_id=1239564252]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="VBoxContainer" unique_id=162374239]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Thanks for testing the prototype :)"
+horizontal_alignment = 1
