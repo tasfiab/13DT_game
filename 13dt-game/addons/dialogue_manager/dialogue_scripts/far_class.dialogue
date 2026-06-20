@@ -13,11 +13,6 @@ Farah: hi!
 	Farah: it's nice to see you again!!
 	$> Global.expression = "happy"
 	Farah: how has your day been?
-	- good
-		$> Global.expression = "elated"
-		Farah: yayy! that's good [$> Global.far_meter += 2][$> Global.happiness -= 2]
-		$> Global.expression = "happy"
-		Farah: I hope the rest of your day is good too
 	- bad
 		$> Global.expression = "sad"
 		Farah: aww, how come?  [$> Global.far_meter -= 5][$> Global.happiness += 2][$> Global.wrong += 1]
@@ -26,54 +21,61 @@ Farah: hi!
 		$> Global.expression = "sad"
 		Farah: I mean you can, if you want, I just don't want to pry into personal issues, y'know?
 		Farah: anyway, I hope your day gets better
-		Farah: stay strong!!
+	- good
+		$> Global.expression = "elated"
+		Farah: yayy! that's good [$> Global.far_meter += 2][$> Global.happiness -= 2]
+		$> Global.expression = "happy"
+		Farah: I hope the rest of your day is good too
 	=> questions
 % 
 	Farah: I like your pencil case
 	- thank you!
-		$> Global.expression = "happy"
+		$> Global.expression = "elated"
 		Farah: no problem! [$> Global.happiness += 2]
 		$> Global.expression = "happy"
 		Farah: I mean, it is really cute, hehe
+	- it was a gift 
+		$> Global.expression = "elated"
+		$> Global.happiness += 2
+		Farah: ahh, that's nice! [$> Global.far_meter += 2]
+		$> Global.expression = "happy"
+		Farah: they picked a good gift then, hehe!
 	- it's from ...
 		$> Global.expression = "elated"
-		Farah: ooo ok, I was wondering hehe [$> Global.far_meter += 4][$> Global.happiness -= 2]
+		Farah: ooo ok, I was wondering hehe [$> Global.far_meter += 4]
 		Farah: I think I've heard of that store!
 		$> Global.expression = "happy"
 		Farah: I'll have to check it out sometime then!
-	- it was a gift 
-		$> Global.expression = "elated"
-		Farah: ahh, that's nice! [$> Global.far_meter += 2][$> Global.happiness += 2]
-		$> Global.expression = "happy"
-		Farah: they picked a good gift then, hehe!
+
 	=> questions
 %
 	Farah: do you get what's going on right now?
 	- yea, are you slow?
 		$> Global.expression = "laugh"
-		Farah: oh haha... yea, I guess I am [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
+		$> Global.happiness += 2
+		Farah: oh haha... yea, I guess I am [$> Global.far_meter -= 2][$> Global.wrong += 1]
 		$> Global.expression = "happy"
 		Farah: But yay! I'm happy you get it though
 	- I think
 		$> Global.expression = "elated"
-		Farah: hehe, that's better then no! [$> Global.far_meter += 2][$> Global.happiness -= 2]
+		Farah: hehe, that's better then no! [$> Global.far_meter += 2]
 		$> Global.expression = "unsure"
 		Farah: umm, can you help me with this question...
+		- hold on a sec
+			$> Global.expression = "elated"
+			Farah: ok! [$> Global.far_meter -= 2][$> Global.happiness += 4][$> Global.wrong += 1]
+			$> Global.expression = "happy"
+			Farah: ...
+			$> Global.expression = "laugh"
+			Farah: actually, nevermind, it's ok!
 		- sure
 			$> Global.expression = "elated"
-			Farah: really? thank you so much!!  [$> Global.far_meter += 2][$> Global.happiness -= 2]
+			Farah: really? thank you so much!! [$> Global.far_meter += 2]
 			$> Global.expression = "unsure"
 			Farah: ...
 			$> Global.expression = "elated"
 			Farah: ok! I think I get it now
 			Farah: you're really good at explaining it!
-		- hold on a sec
-			$> Global.expression = "elated"
-			Farah: ok! [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
-			$> Global.expression = "happy"
-			Farah: ...
-			$> Global.expression = "laugh"
-			Farah: actually, nevermind, it's ok!
 	=> questions
 => END
 

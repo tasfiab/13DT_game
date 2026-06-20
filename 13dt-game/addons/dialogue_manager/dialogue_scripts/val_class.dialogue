@@ -17,6 +17,27 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 	Val: I think...
 	$> Global.expression = "surprised" 
 	Val: I heard that from somewhere, I swear!
+	- this is really your first time having one?
+		$> Global.expression = "angry" 
+		$> Global.happiness += 5
+		Val: ... 
+		$> Global.expression = "surprised" 
+		Val: AHH, DON'T JUDGE ME!! [$> Global.val_meter -= 2][$> Global.wrong += 1]
+		$> Global.expression = "angry" 
+		Val: it's - there's
+		$> Global.expression = "surprised" 
+		Val: THERE'S A FIRST TIME FOR EVERYTHING!!
+		$> Global.expression = "unsure" 
+		Val: I'm just letting you know 'cause it was so good
+		$> Global.expression = "angry" 
+		Val: damn, I didn't expect such judgement
+		- chill, I wasn't judging you
+			$> Global.happiness += 2
+			Val: suree... [$> Global.val_meter -= 5][$> Global.wrong += 1]
+		- haha, sorry for judging you
+			$> Global.happiness += 2
+			$> Global.expression = "unsure" 
+			Val: ok... [$> Global.val_meter += 2]
 	- I've had one before
 		$> Global.expression = "elated"
 		Val: omg really!! [$> Global.val_meter += 2][$> Global.happiness += 2]
@@ -33,24 +54,6 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 		- it was delicious
 			$> Global.expression = "elated" 
 			Val: YAYYY, I KNOW RIGHT
-	- this is really your first time having one?
-		$> Global.expression = "angry" 
-		Val: ...
-		$> Global.expression = "surprised" 
-		Val: AHH, DON'T JUDGE ME!! [$> Global.val_meter -= 2][$> Global.happiness += 5][$> Global.wrong += 1]
-		$> Global.expression = "angry" 
-		Val: it's - there's
-		$> Global.expression = "surprised" 
-		Val: THERE'S A FIRST TIME FOR EVERYTHING!!
-		$> Global.expression = "unsure" 
-		Val: I'm just letting you know 'cause it was so good
-		$> Global.expression = "angry" 
-		Val: damn, I didn't expect such judgement
-		- chill, I wasn't judging you
-			Val: suree... [$> Global.val_meter -= 5][$> Global.wrong += 1]
-		- haha, sorry for judging you
-			$> Global.expression = "unsure" 
-			Val: ok... [$> Global.val_meter += 2]
 	- ok, I'll try one
 		$> Global.expression = "elated" 
 		Val: YES [$> Global.val_meter += 2]
@@ -61,18 +64,17 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 	$> Global.expression = "unsure" 
 	Val: ...
 	Val: umm, how are you?
-	- good
-		$> Global.expression = "unsure" 
-		Val: that's good... [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
-		$> Global.expression = "unsure" 
-		Val: I'm good too 
-		
 	- tired
 		$> Global.expression = "happy" 
 		Val: same! [$> Global.val_meter += 2][$> Global.happiness += 2]
 		Val: it's just one more period tho!
 		$> Global.expression = "laugh" 
 		Val: STAY STRONG!
+	- good
+		$> Global.expression = "unsure" 
+		Val: that's good... [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+		$> Global.expression = "unsure" 
+		Val: I'm good too 
 
 => questions
 => END
