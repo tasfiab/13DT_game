@@ -1,4 +1,5 @@
 ~ greeting
+$> Global.expression = "happy"
 Val: hi!
 if Global.val_meter <= Global.ONE_HEART:
 	=>< one_heart
@@ -8,46 +9,70 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 ~ one_heart
 %
 	Val: I had a pomegranate for the first time yesterday!
+	$> Global.expression = "elated"
 	Val: it was really good - you should try one!
+	$> Global.expression = "happy"
 	Val: they're in season!
-	Val: I think... 
+	$> Global.expression = "unsure"
+	Val: I think...
+	$> Global.expression = "surprised" 
 	Val: I heard that from somewhere, I swear!
 	- I've had one before
+		$> Global.expression = "elated"
 		Val: omg really!! [$> Global.val_meter += 2][$> Global.happiness += 2]
 		Val: how was it? 
 		- it was kinda gross
+			$> Global.expression = "surprised" 
 			Val: EHH, REALLY?
+			$> Global.expression = "laugh" 
 			Val: you just haven't had a good one then!
+			$> Global.expression = "elated" 
 			Val: ok, remind me to bring you one tomorrow
+			$> Global.expression = "happy" 
 			Val: the one's at my house right now are so good
 		- it was delicious
+			$> Global.expression = "elated" 
 			Val: YAYYY, I KNOW RIGHT
 	- this is really your first time having one?
+		$> Global.expression = "angry" 
 		Val: ...
+		$> Global.expression = "surprised" 
 		Val: AHH, DON'T JUDGE ME!! [$> Global.val_meter -= 2][$> Global.happiness += 5][$> Global.wrong += 1]
+		$> Global.expression = "angry" 
 		Val: it's - there's
+		$> Global.expression = "surprised" 
 		Val: THERE'S A FIRST TIME FOR EVERYTHING!!
+		$> Global.expression = "unsure" 
 		Val: I'm just letting you know 'cause it was so good
+		$> Global.expression = "angry" 
 		Val: damn, I didn't expect such judgement
 		- chill, I wasn't judging you
-			Val: ... [$> Global.val_meter -= 5][$> Global.wrong += 1]
+			Val: suree... [$> Global.val_meter -= 5][$> Global.wrong += 1]
 		- haha, sorry for judging you
-			Val: ... [$> Global.val_meter += 2]
+			$> Global.expression = "unsure" 
+			Val: ok... [$> Global.val_meter += 2]
 	- ok, I'll try one
+		$> Global.expression = "elated" 
 		Val: YES [$> Global.val_meter += 2]
 		Val: send me a pic of it when you do!
+		$> Global.expression = "happy" 
 		Val: make sure you get a good one too!
 % 
+	$> Global.expression = "unsure" 
 	Val: ...
 	Val: umm, how are you?
 	- good
-		Val: that's good!  [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+		$> Global.expression = "unsure" 
+		Val: that's good... [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+		$> Global.expression = "unsure" 
 		Val: I'm good too 
 		
 	- tired
-		Val: same!  [$> Global.val_meter += 2][$> Global.happiness += 2]
+		$> Global.expression = "happy" 
+		Val: same! [$> Global.val_meter += 2][$> Global.happiness += 2]
 		Val: it's just one more period tho!
-		Val: STAY STRONG!!
+		$> Global.expression = "laugh" 
+		Val: STAY STRONG!
 
 => questions
 => END
@@ -88,6 +113,7 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 
 
 ~ questions
+$> Global.expression = "happy" 
 Val: ...
 - compliment
 	% => good
@@ -95,32 +121,42 @@ Val: ...
 - joke 
 	% => joke_good
 	% => joke_bad
+- open up [if Global.val_meter > Global.FOUR_HEARTS]
 - end convo
 => END
 
 ~ good
 Val: ...  [$> Global.val_meter += 4][$> Global.happiness += 2]
+$> Global.expression = "sad" 
 Val: aww, Violet
+$> Global.expression = "surprised" 
 Val: don't look - I'm blushing right now!!
 => bell
 => END
 
 ~ bad
 Val: ... [$> Global.val_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+$> Global.expression = "angry" 
 Val: excuse me?
+$> Global.expression = "unsure" 
 Val: I'm gonna pretend I didn't hear that
 => bell
 => END
 
 ~ joke_good
-Val: HAHAHAHA [$> Global.val_meter += 2][$> Global.happiness += 2]
+Val: ...
+$> Global.expression = "laugh" 
+Val: HAHHHAHAHA [$> Global.val_meter += 2][$> Global.happiness += 2]
 Val: Oh shoot, didn't mean to laugh that loud... haha
 Val: if we get yelled at, it's your fault 
 => bell
 => END
 
 ~ joke_bad
+Val: ...
+$> Global.expression = "angry" 
 Val: ?? [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+$> Global.expression = "unsure" 
 Val: ohhhh, that's what you meant!
 Val: bruh, that was so corny
 Val: you can do better than that...
@@ -128,6 +164,7 @@ Val: you can do better than that...
 => END
 
 ~ bell
+$> Global.expression = "unsure"
 Val: ahh, ms is staring at us...
 Val: let's lock in
 => END

@@ -24,6 +24,11 @@ DialogueManager="*uid://c3rodes2l3gxb"
 
 runtime/balloon_path="res://addons/balloon.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")

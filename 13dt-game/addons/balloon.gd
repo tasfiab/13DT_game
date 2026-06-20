@@ -58,6 +58,8 @@ var mutation_cooldown: Timer = Timer.new()
 ## The base balloon anchor
 @onready var balloon: Control = %Balloon
 
+@onready var margin_container : MarginContainer = $Balloon/MarginContainer
+
 @onready var portrait : TextureRect = $portrait
 
 ## The label showing the name of the currently speaking character
@@ -88,12 +90,22 @@ func _ready() -> void:
 		if not is_instance_valid(dialogue_resource):
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
+		
 
 
 func _process(delta: float) -> void:
+	#if not Global.in_class:
+		#margin_container.size = Global.DIO_SIZE_CUTSCENE
+		#margin_container.global_position = Global.DIO_POS_CLASS
+		#margin_container.size = Global.RESPONSE_SIZE_CUTSCENE
+		#margin_container.global_position = Global.RESPONSE_POS_CUTSCENE
+	#else:
+		#margin_container.size = Global.DIO_SIZE_CLASS
+		#margin_container.global_position = Global.DIO_POS_CLASS
+		#responses_menu.size = Global.RESPONSE_SIZE_CLASS
+		#responses_menu.global_position = Global.RESPONSE_POS_CLASS
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
-
 
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing

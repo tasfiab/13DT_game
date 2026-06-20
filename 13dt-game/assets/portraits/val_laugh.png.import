@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxtidw8euu08c"
-path="res://.godot/imported/christine_normal.png-ebf803cd5afb027dd981c31686f6eda5.ctex"
+uid="uid://dogis0wk7wfvn"
+path="res://.godot/imported/val_laugh.png-f95196970f1a9f7960987972e4e8a36c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/christine_normal.png"
-dest_files=["res://.godot/imported/christine_normal.png-ebf803cd5afb027dd981c31686f6eda5.ctex"]
+source_file="res://assets/portraits/val_laugh.png"
+dest_files=["res://.godot/imported/val_laugh.png-f95196970f1a9f7960987972e4e8a36c.ctex"]
 
 [params]
 

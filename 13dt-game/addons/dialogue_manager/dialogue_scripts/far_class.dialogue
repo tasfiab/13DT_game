@@ -1,4 +1,5 @@
 ~ start
+$> Global.expression = "happy"
 Farah: hi!
 
 => one_heart
@@ -8,15 +9,21 @@ Farah: hi!
 ~ one_heart
 %
 	Farah: Violet, right? 
+	$> Global.expression = "elated"
 	Farah: it's nice to see you again!!
-	Farah: um...
+	$> Global.expression = "happy"
 	Farah: how has your day been?
 	- good
+		$> Global.expression = "elated"
 		Farah: yayy! that's good [$> Global.far_meter += 2][$> Global.happiness -= 2]
+		$> Global.expression = "happy"
 		Farah: I hope the rest of your day is good too
 	- bad
+		$> Global.expression = "sad"
 		Farah: aww, how come?  [$> Global.far_meter -= 5][$> Global.happiness += 2][$> Global.wrong += 1]
+		$> Global.expression = "unsure"
 		Farah: wait, actually you don't have to tell me
+		$> Global.expression = "sad"
 		Farah: I mean you can, if you want, I just don't want to pry into personal issues, y'know?
 		Farah: anyway, I hope your day gets better
 		Farah: stay strong!!
@@ -24,39 +31,54 @@ Farah: hi!
 % 
 	Farah: I like your pencil case
 	- thank you!
+		$> Global.expression = "happy"
 		Farah: no problem! [$> Global.happiness += 2]
+		$> Global.expression = "happy"
 		Farah: I mean, it is really cute, hehe
 	- it's from ...
+		$> Global.expression = "elated"
 		Farah: ooo ok, I was wondering hehe [$> Global.far_meter += 4][$> Global.happiness -= 2]
 		Farah: I think I've heard of that store!
+		$> Global.expression = "happy"
 		Farah: I'll have to check it out sometime then!
 	- it was a gift 
+		$> Global.expression = "elated"
 		Farah: ahh, that's nice! [$> Global.far_meter += 2][$> Global.happiness += 2]
+		$> Global.expression = "happy"
 		Farah: they picked a good gift then, hehe!
 	=> questions
-
 %
 	Farah: do you get what's going on right now?
 	- yea, are you slow?
-		Farah: ... yea, I guess I am [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
+		$> Global.expression = "laugh"
+		Farah: oh haha... yea, I guess I am [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
+		$> Global.expression = "happy"
 		Farah: But yay! I'm happy you get it though
 	- I think
+		$> Global.expression = "elated"
 		Farah: hehe, that's better then no! [$> Global.far_meter += 2][$> Global.happiness -= 2]
+		$> Global.expression = "unsure"
 		Farah: umm, can you help me with this question...
 		- sure
-			Farah: thank you!!  [$> Global.far_meter += 2][$> Global.happiness -= 2]
+			$> Global.expression = "elated"
+			Farah: really? thank you so much!!  [$> Global.far_meter += 2][$> Global.happiness -= 2]
+			$> Global.expression = "unsure"
 			Farah: ...
+			$> Global.expression = "elated"
 			Farah: ok! I think I get it now
-			Farah: ahh, you're really smart
+			Farah: you're really good at explaining it!
 		- hold on a sec
-			Farah: oh ok! [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
+			$> Global.expression = "elated"
+			Farah: ok! [$> Global.far_meter -= 2][$> Global.happiness += 2][$> Global.wrong += 1]
+			$> Global.expression = "happy"
 			Farah: ...
+			$> Global.expression = "laugh"
 			Farah: actually, nevermind, it's ok!
-			Farah: thanks anyway!
 	=> questions
 => END
 
 ~ questions
+$> Global.expression = "happy"
 Farah: ...
 - compliment
 	% => good
@@ -64,11 +86,13 @@ Farah: ...
 - joke 
 	% => joke_good
 	% => joke_bad
+- open up [if Global.far_meter > Global.FOUR_HEARTS]
 - end convo
 => END
 
 ~ good
 Farah: ...  [$> Global.far_meter += 4][$> Global.happiness += 2]
+$> Global.expression = "elated"
 Farah: aww, really?
 Farah: thanks Violet!
 => bell
@@ -76,22 +100,26 @@ Farah: thanks Violet!
 
 ~ bad
 Farah: ... [$> Global.far_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+$> Global.expression = "laugh"
 Farah: oh, ok haha...
 => bell
 => END
 
 ~ joke_good
 Farah: ... [$> Global.far_meter += 2][$> Global.happiness += 2]
+$> Global.expression = "elated"
 Farah: hehehe
 => bell
 => END
 
 ~ joke_bad
 Farah: ... [$> Global.far_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+$> Global.expression = "laugh"
 Farah: oh, haha...
 => bell
 => END
 
 ~ bell
+$> Global.expression = "happy"
 Farah: ok, let's focus now!
 => END

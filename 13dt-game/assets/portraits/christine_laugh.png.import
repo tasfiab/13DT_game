@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmfnu8vkghl8c"
-path="res://.godot/imported/sunset_palette.png-7cf452b9181d57325783553bc82f8e6b.ctex"
+uid="uid://b1tv4mgb7ttlx"
+path="res://.godot/imported/christine_laugh.png-0ba4b4df172301dae310e6afa6930044.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sunset_palette.png"
-dest_files=["res://.godot/imported/sunset_palette.png-7cf452b9181d57325783553bc82f8e6b.ctex"]
+source_file="res://assets/portraits/christine_laugh.png"
+dest_files=["res://.godot/imported/christine_laugh.png-0ba4b4df172301dae310e6afa6930044.ctex"]
 
 [params]
 

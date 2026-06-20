@@ -25,6 +25,8 @@ signal minigame_ended
 @export var q_time : Label
 @export var q_timer : Timer
 
+@export var wrong_label : Label
+
 @export var ui : Control 
 
 @export var fade_animation : AnimationPlayer
@@ -139,15 +141,20 @@ func _ready() -> void:
 	mina_button.visible = false
 	cam.position = INIT_POS
 	text_box.visible = false
-	
+	if Global.happiness <= 0:
+		Global.game_end = true
+
 	if Global.game_end:
 		end_screen.visible = true
 	
 	while not Global.game_end:
+		Global.in_class = true
+		wrong_label.visible = false
 		if Global.day == 0:
 			Global.happiness = 50
 		
 		elif Global.day % 5 == 0:
+			Global.open_up = false
 			Global.happiness = 0 + round(Global.happiness/3)
 		
 		else:
@@ -173,18 +180,15 @@ func _ready() -> void:
 			await tween.finished
 			if Global.val_chosen:
 				DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/val_class.dialogue"))
-				Global.add_meter(5)
 				await DialogueManager.dialogue_ended
 			elif Global.chr_chosen:
 				DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/chr_class.dialogue"))
-				Global.add_meter(5)
 				await DialogueManager.dialogue_ended
 			elif Global.far_chosen:
 				DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/far_class.dialogue"))
-				Global.add_meter(5)
 				await DialogueManager.dialogue_ended
 			if Global.wrong >= 2:
-				Global.happiness -= 10
+				Global.happiness -= 20
 			Global.wrong = 0
 			var tween_back : Tween = create_tween()
 			tween_back.tween_property(cam, "global_position", INIT_POS, 0.2)
@@ -250,6 +254,7 @@ func _ready() -> void:
 		await fade_animation.animation_finished
 		Global.day += 1
 		get_tree().change_scene_to_file("res://scenes/laptop.tscn")
+		Global.in_class = false
 		break
 		
 		
@@ -257,8 +262,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.happiness < 0:
-		Global.game_end = true
+	if Global.talk:
+		wrong_label.text = "wrong: " + str(Global.wrong) + "/2"
+		wrong_label.visible = true
 	
 	q_time.text = str(q_time_left)
 	if learn_start:
@@ -316,7 +322,7 @@ func _on_head_entered(area: Area2D) -> void:
 		distraction = instance
 
 	elif area.has_meta('important'):
-		Global.happiness += 2
+		Global.happiness += 3
 		print(Global.happiness)
 		important.queue_free()
 		important = null
@@ -350,10 +356,10 @@ func ans_pressed(letter : String):
 	if ans[topics[topic]][q_num] == letter:
 		print(ans[topics[topic]][q_num])
 		right_ans = true
-		Global.happiness += 10
+		Global.happiness += 20
 	else:
 		right_ans = false
-		Global.happiness -= 20
+		Global.happiness -= 30
 		
 	if friend_ans == letter:
 		Global.add_meter(10)

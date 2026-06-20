@@ -22,7 +22,13 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=912590196]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Month end"
+text = "Two weeks end!!"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="VBoxContainer" unique_id=1489287160]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "(or your happiness is 0 :( )"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=261261133]

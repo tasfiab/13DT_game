@@ -1,4 +1,5 @@
 ~ start
+$>  Global.expression = "normal"
 Christine: hi 
 if Global.chr_meter < Global.ONE_HEART:
 	=> one_heart
@@ -43,19 +44,18 @@ if Global.chr_meter < Global.ONE_HEART:
 	Christine: were you able to write down the last slide? 
 	- yes 
 		$> Global.expression = "happy"
-		Christine: [$> Global.chr_meter += 2][$> Global.happiness += 2] oh cool! can I write it down from your book
+		Christine: [$> Global.chr_meter += 2][$> Global.happiness += 2]oh cool! can I write it down from your book
 		$> Global.expression = "normal"
 		Christine: I missed it... haha
 	- no
 		Christine: me neither [$> Global.chr_meter += 4][$> Global.happiness += 2]
-		: she raises her hand
 		Christine: miss, can you go back one slide please
 		$> Global.expression = "happy"
 		Christine: thank you so much!
 		- damn, you did that so casually
 			$> Global.expression = "normal"
 			Christine: huh, did what?
-			- oh nvm haha... 
+			- oh nevermind haha... 
 				$> Global.expression = "angry"
 				Christine: [$> Global.chr_meter -= 4][$> Global.happiness -= 2] oh, ok...
 			- like, 
@@ -97,6 +97,7 @@ Christine: ...
 - joke 
 	% => joke_good
 	% => joke_bad
+- open up [if Global.chr_meter > Global.FOUR_HEARTS]
 - end convo
 => END
 

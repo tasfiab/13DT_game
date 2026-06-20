@@ -11,6 +11,9 @@ signal power_off
 
 var can_click_calendar := false
 var can_power_off := false
+var can_click_mina := false
+
+var mina_done := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +21,6 @@ func _ready() -> void:
 		print(Global.day)
 		fade_animation.play_backwards('fade')
 		await fade_animation.animation_finished
-		DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/mina_autumn.dialogue"))
-		await DialogueManager.dialogue_ended
 		await power_off
 		fade_animation.play('fade')
 		await fade_animation.animation_finished
@@ -45,10 +46,15 @@ func _process(delta: float) -> void:
 				calendar_layer.visible = true
 				calendar_layer.layer = 2
 		
+	if can_click_mina and not mina_done:
+		if Input.is_action_just_pressed("left_click"):
+			DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/mina_autumn.dialogue"))
+			mina_done = true
 	if can_power_off:
 		if Input.is_action_just_pressed("left_click"):
 			power_off.emit()
 			can_power_off = false
+
 
 
 func _on_calendar_mouse_entered() -> void:
@@ -65,3 +71,11 @@ func _can_power_off() -> void:
 
 func _cannot_power_off() -> void:
 	can_power_off = false
+
+
+func _can_click_mina() -> void:
+	can_click_mina = true
+
+
+func _cannot_click_mina() -> void:
+	can_click_mina = false

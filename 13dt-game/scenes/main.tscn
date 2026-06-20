@@ -49,7 +49,7 @@ _data = {
 &"fade": SubResource("Animation_0et52")
 }
 
-[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "ans_button", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "ui", "fade_animation", "end_screen")]
+[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "ans_button", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "wrong_label", "ui", "fade_animation", "end_screen")]
 script = ExtResource("1_tefeu")
 choosing_friends_layer = NodePath("CanvasLayer")
 learn_timer = NodePath("Label3/Timer")
@@ -66,6 +66,7 @@ friend_text = NodePath("Panel2/Label")
 cam = NodePath("Camera2D")
 q_time = NodePath("Label")
 q_timer = NodePath("Label/Timer")
+wrong_label = NodePath("Label4")
 ui = NodePath("Camera2D/Control2")
 fade_animation = NodePath("ColorRect2/AnimationPlayer")
 end_screen = NodePath("prototype_end_screen")
@@ -207,6 +208,13 @@ offset_bottom = 685.0
 
 [node name="prototype_end_screen" parent="." unique_id=91638804 instance=ExtResource("7_o6xl0")]
 visible = false
+
+[node name="Label4" type="Label" parent="." unique_id=1903855052]
+offset_left = -1468.0
+offset_top = 839.0
+offset_right = -1395.0
+offset_bottom = 862.0
+text = "wrong: /2"
 
 [connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_head_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_a_pressed"]

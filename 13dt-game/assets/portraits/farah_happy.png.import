@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1tv4mgb7ttlx"
-path="res://.godot/imported/christine_laugh.png-2b17f2f251ba8c47f34ae5907fefa902.ctex"
+uid="uid://brsfrdnum11ih"
+path="res://.godot/imported/farah_happy.png-72f1fb5dd891515f503de2b2538d3bdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/christine_laugh.png"
-dest_files=["res://.godot/imported/christine_laugh.png-2b17f2f251ba8c47f34ae5907fefa902.ctex"]
+source_file="res://assets/portraits/farah_happy.png"
+dest_files=["res://.godot/imported/farah_happy.png-72f1fb5dd891515f503de2b2538d3bdf.ctex"]
 
 [params]
 

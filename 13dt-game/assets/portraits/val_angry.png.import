@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1pgnesrie5qf"
-path="res://.godot/imported/christine_happy.png-17ca447807d01fe811c7af4a66078885.ctex"
+uid="uid://ociivv8dr55k"
+path="res://.godot/imported/val_angry.png-062f283d7575f82abf8f142485b71c26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/christine_happy.png"
-dest_files=["res://.godot/imported/christine_happy.png-17ca447807d01fe811c7af4a66078885.ctex"]
+source_file="res://assets/portraits/val_angry.png"
+dest_files=["res://.godot/imported/val_angry.png-062f283d7575f82abf8f142485b71c26.ctex"]
 
 [params]
 

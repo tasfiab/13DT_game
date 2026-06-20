@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl2cc1uoi7pw1"
-path="res://.godot/imported/pinkie_palette.png-0448d8a1b99550b38f469ea744eb93f7.ctex"
+uid="uid://c8ow03a6plhun"
+path="res://.godot/imported/farah_sad.png-d047b91c03e51fb5ed928c211faeadf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pinkie_palette.png"
-dest_files=["res://.godot/imported/pinkie_palette.png-0448d8a1b99550b38f469ea744eb93f7.ctex"]
+source_file="res://assets/portraits/farah_sad.png"
+dest_files=["res://.godot/imported/farah_sad.png-d047b91c03e51fb5ed928c211faeadf7.ctex"]
 
 [params]
 

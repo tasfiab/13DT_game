@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://djdqjkf37up2e" path="res://assets/art/heart_meter.png" id="2_2hg05"]
 [ext_resource type="Texture2D" uid="uid://cbgsra6dp3mxw" path="res://assets/art/heart_meter_progress.png" id="3_rfjfd"]
 [ext_resource type="Texture2D" uid="uid://b4se8bbtkoc8c" path="res://assets/art/happiness_meter.png" id="5_mt5qe"]
+[ext_resource type="Texture2D" uid="uid://b3lyckvslhdhp" path="res://assets/art/heart_meter_over.png" id="5_uob68"]
 [ext_resource type="Texture2D" uid="uid://b08kkyolp63jv" path="res://assets/art/happiness.png" id="6_2hvrn"]
 [ext_resource type="Texture2D" uid="uid://sudxo0p8ifjt" path="res://assets/art/happiness_meter_prog.png" id="6_6uj0v"]
 [ext_resource type="Texture2D" uid="uid://dlkehm6npck2k" path="res://assets/art/happiness_meter_over.png" id="6_uob68"]
@@ -40,6 +41,7 @@ texture = ExtResource("1_2sf3n")
 layout_mode = 2
 max_value = 250.0
 texture_under = ExtResource("2_2hg05")
+texture_over = ExtResource("5_uob68")
 texture_progress = ExtResource("3_rfjfd")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1451644922]
@@ -58,6 +60,7 @@ texture = ExtResource("1_2sf3n")
 layout_mode = 2
 max_value = 250.0
 texture_under = ExtResource("2_2hg05")
+texture_over = ExtResource("5_uob68")
 texture_progress = ExtResource("3_rfjfd")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1155758339]
@@ -76,6 +79,7 @@ texture = ExtResource("1_2sf3n")
 layout_mode = 2
 max_value = 250.0
 texture_under = ExtResource("2_2hg05")
+texture_over = ExtResource("5_uob68")
 texture_progress = ExtResource("3_rfjfd")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=974562231]

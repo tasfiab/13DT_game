@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbjw7saa0643q"
-path="res://.godot/imported/big_palette.png-775d4f51a4b9c39849e3af9b52bfa5de.ctex"
+uid="uid://bse2bl0e5mgb1"
+path="res://.godot/imported/val_happy.png-537ebadc78d021679f65f11533543555.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/big_palette.png"
-dest_files=["res://.godot/imported/big_palette.png-775d4f51a4b9c39849e3af9b52bfa5de.ctex"]
+source_file="res://assets/portraits/val_happy.png"
+dest_files=["res://.godot/imported/val_happy.png-537ebadc78d021679f65f11533543555.ctex"]
 
 [params]
 

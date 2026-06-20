@@ -7,13 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://54kn7ut6yomr" path="res://assets/art/calendar_icon.png" id="3_creid"]
 [ext_resource type="Texture2D" uid="uid://cllnjmfxnkcq3" path="res://assets/art/calendar_marker.png" id="3_ejyiq"]
 [ext_resource type="Texture2D" uid="uid://cogea8gycgdqv" path="res://assets/art/power_off.png" id="6_2jtcb"]
+[ext_resource type="Texture2D" uid="uid://ckmc02dil7dgs" path="res://assets/art/mina_icon.png" id="7_b8h6g"]
 [ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="8_jj3px"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jtcb"]
 size = Vector2(40, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t67i"]
+size = Vector2(43, 42)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0riy"]
-size = Vector2(57, 52)
+size = Vector2(44, 40)
 
 [sub_resource type="Animation" id="Animation_rdffu"]
 length = 0.001
@@ -110,20 +114,36 @@ texture = ExtResource("6_2jtcb")
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_2jtcb")
 
-[node name="Sprite2D" type="TextureRect" parent="outer" unique_id=1935967863]
-offset_left = 598.0
-offset_top = 551.0
-offset_right = 651.0
-offset_bottom = 604.0
+[node name="HBoxContainer" type="HBoxContainer" parent="outer" unique_id=768220035]
+offset_left = 584.0
+offset_top = 548.0
+offset_right = 689.0
+offset_bottom = 586.0
+scale = Vector2(1.3372962, 1.3372962)
+theme_override_constants/separation = 20
+
+[node name="Sprite2D2" type="TextureRect" parent="outer/HBoxContainer" unique_id=1301112760]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_b8h6g")
+stretch_mode = 5
+
+[node name="Area2D" type="Area2D" parent="outer/HBoxContainer/Sprite2D2" unique_id=386658504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outer/HBoxContainer/Sprite2D2/Area2D" unique_id=580790155]
+position = Vector2(23.5, 20)
+shape = SubResource("RectangleShape2D_5t67i")
+
+[node name="Sprite2D" type="TextureRect" parent="outer/HBoxContainer" unique_id=1935967863]
+layout_mode = 2
 texture = ExtResource("3_creid")
+expand_mode = 3
 
-[node name="Area2D" type="Area2D" parent="outer/Sprite2D" unique_id=500397760]
+[node name="Area2D" type="Area2D" parent="outer/HBoxContainer/Sprite2D" unique_id=500397760]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="outer/Sprite2D/Area2D" unique_id=2018440345]
-position = Vector2(26.5, 26)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="outer/HBoxContainer/Sprite2D/Area2D" unique_id=2018440345]
+position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_l0riy")
-
-[node name="Sprite2D2" type="Sprite2D" parent="outer" unique_id=307702452]
 
 [node name="Markers" type="Node" parent="." unique_id=1719920984]
 
@@ -205,5 +225,7 @@ scale = Vector2(1.1600004, 1.1600004)
 
 [connection signal="mouse_entered" from="outer/TextureRect/Area2D" to="." method="_can_power_off"]
 [connection signal="mouse_exited" from="outer/TextureRect/Area2D" to="." method="_cannot_power_off"]
-[connection signal="mouse_entered" from="outer/Sprite2D/Area2D" to="." method="_on_calendar_mouse_entered"]
-[connection signal="mouse_exited" from="outer/Sprite2D/Area2D" to="." method="_on_calendar_mouse_exited"]
+[connection signal="mouse_entered" from="outer/HBoxContainer/Sprite2D2/Area2D" to="." method="_can_click_mina"]
+[connection signal="mouse_exited" from="outer/HBoxContainer/Sprite2D2/Area2D" to="." method="_cannot_click_mina"]
+[connection signal="mouse_entered" from="outer/HBoxContainer/Sprite2D/Area2D" to="." method="_on_calendar_mouse_entered"]
+[connection signal="mouse_exited" from="outer/HBoxContainer/Sprite2D/Area2D" to="." method="_on_calendar_mouse_exited"]

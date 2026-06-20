@@ -121,7 +121,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 576.0
 offset_top = -588.0
-offset_right = -55.0
+offset_right = -47.0
 offset_bottom = -369.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -179,9 +179,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 139.0
+offset_left = 133.0
 offset_top = -63.0
-offset_right = 410.5
+offset_right = 404.5
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -194,15 +194,16 @@ response_template = NodePath("ResponseExample")
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=914537232]
 layout_mode = 2
 text = "Response example"
+autowrap_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
 
 [node name="portrait" type="TextureRect" parent="." unique_id=2573246]
 offset_left = 104.0
-offset_top = 139.0
+offset_top = 177.0
 offset_right = 505.0
-offset_bottom = 540.0
+offset_bottom = 578.0
 expand_mode = 5
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
