@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1d8fvtujnuc5"]
 
-[ext_resource type="Script" uid="uid://b2ice04q3dnhx" path="res://scripts/distraction.gd" id="1_ck73d"]
+[ext_resource type="Script" uid="uid://cwaglke2wr4qt" path="res://scripts/important_info.gd" id="1_ck73d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ck73d"]
 radius = 14.0
@@ -16,6 +16,7 @@ label = NodePath(".")
 metadata/_custom_type_script = "uid://b2ice04q3dnhx"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=681338402]
+collision_priority = 2.0
 metadata/important = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=51770381]

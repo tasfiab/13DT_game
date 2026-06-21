@@ -24,6 +24,26 @@ func _ready() -> void:
 		await power_off
 		fade_animation.play('fade')
 		await fade_animation.animation_finished
+		
+		Global.save_dict.day = Global.day
+		Global.save_dict.pages_done = Global.pages_done
+		Global.save_dict.lessons = Global.lessons
+		
+		Global.save_dict.val_meter = Global.val_meter
+		Global.save_dict.chr_meter = Global.chr_meter
+		Global.save_dict.far_meter = Global.far_meter
+		Global.save_dict.happiness = Global.happiness
+		
+		Global.save_dict.days_no_val = Global.days_no_val
+		Global.save_dict.days_no_chr = Global.days_no_chr
+		Global.save_dict.days_no_far = Global.days_no_far
+		
+		Global.save_dict.open_up = Global.open_up
+		Global.save_dict.open_up_times = Global.open_up_times
+		
+		Global.save_dict.game_end = Global.game_end
+		
+		Global.save_game()
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
 		if Global.day == 10:
 			Global.game_end = true

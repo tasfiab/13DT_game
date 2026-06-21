@@ -13,6 +13,7 @@ func _ready() -> void:
 func new_game() -> void:
 	data = Data.new()
 
+
 # Saves game
 func save_game() -> void:
 	ResourceSaver.save(data, PATH + file_name)

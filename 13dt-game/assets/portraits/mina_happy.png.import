@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c47gbsp2hu8me"
-path="res://.godot/imported/mina_serious.png-033f57d261a3a6e5b69560d985693e40.ctex"
+uid="uid://3teegd3d75kw"
+path="res://.godot/imported/mina_happy.png-e36f587e720c8ca2e5bdd45bd35e3ba6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mina_serious.png"
-dest_files=["res://.godot/imported/mina_serious.png-033f57d261a3a6e5b69560d985693e40.ctex"]
+source_file="res://assets/portraits/mina_happy.png"
+dest_files=["res://.godot/imported/mina_happy.png-e36f587e720c8ca2e5bdd45bd35e3ba6.ctex"]
 
 [params]
 

@@ -80,6 +80,7 @@ scale = Vector2(3.7199984, 3.7199984)
 
 [node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1791743739]
 position = Vector2(39, 39)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1167432132]
 shape = SubResource("CapsuleShape2D_dhdgh")

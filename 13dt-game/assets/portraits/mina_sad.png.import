@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci08hp1sgbmxl"
-path="res://.godot/imported/mina_sad.png-df1e4a9c8195ce4ba94895bd6d76a6e6.ctex"
+path="res://.godot/imported/mina_sad.png-228f0d880246a046c986dba2088dfd44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mina_sad.png"
-dest_files=["res://.godot/imported/mina_sad.png-df1e4a9c8195ce4ba94895bd6d76a6e6.ctex"]
+source_file="res://assets/portraits/mina_sad.png"
+dest_files=["res://.godot/imported/mina_sad.png-228f0d880246a046c986dba2088dfd44.ctex"]
 
 [params]
 
