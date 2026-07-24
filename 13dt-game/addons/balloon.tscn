@@ -2,61 +2,79 @@
 
 [ext_resource type="Script" uid="uid://bkh37h6bnfkxj" path="res://addons/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://hk2lxh26ulko" path="res://assets/art/class_bg_chr.png" id="2_wcokg"]
+[ext_resource type="FontFile" uid="uid://cckxg5w4w4dg5" path="res://assets/fonts/Short_Stack/ShortStack-Regular.ttf" id="3_6pp2t"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
+[ext_resource type="PackedScene" uid="uid://b3jd54aao88ao" path="res://scenes/heart_particles.tscn" id="6_c34ui"]
+[ext_resource type="Texture2D" uid="uid://cjw5qaleph8vy" path="res://assets/portraits/christine_happy.png" id="6_gi7ch"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uexo2"]
+bg_color = Color(0.9372549, 0.6862745, 0.8784314, 1)
 border_width_left = 3
 border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.329412, 0.329412, 0.329412, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
-bg_color = Color(0.121569, 0.121569, 0.121569, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gi7ch"]
+bg_color = Color(0.94, 0.94, 0.94, 1)
 border_width_left = 3
 border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyby7"]
+bg_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
 border_width_left = 3
 border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.6, 0.6, 0.6, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vafb6"]
+bg_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkmqt"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
 border_width_left = 3
 border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 15
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
-default_font_size = 20
-Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
-Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
-Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
-Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
+default_font = ExtResource("3_6pp2t")
+Button/styles/disabled = SubResource("StyleBoxFlat_uexo2")
+Button/styles/focus = SubResource("StyleBoxFlat_gi7ch")
+Button/styles/hover = SubResource("StyleBoxFlat_wyby7")
+Button/styles/normal = SubResource("StyleBoxFlat_vafb6")
 MarginContainer/constants/margin_bottom = 15
 MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
@@ -103,6 +121,16 @@ _data = {
 layer = 100
 script = ExtResource("1_36de5")
 
+[node name="ClassBgChr" type="Sprite2D" parent="." unique_id=415171393]
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+
+[node name="ClassBgChr2" type="Sprite2D" parent="." unique_id=679648988]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("2_wcokg")
+
 [node name="Balloon" type="Control" parent="." unique_id=359403728]
 unique_name_in_owner = true
 layout_mode = 3
@@ -120,9 +148,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 576.0
-offset_top = -588.0
+offset_top = -561.0
 offset_right = -47.0
-offset_bottom = -369.0
+offset_bottom = -401.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -146,6 +174,7 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -155,6 +184,8 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_font_sizes/normal_font_size = 20
 text = "Dialogue..."
 seconds_per_step = 0.04
 
@@ -165,6 +196,7 @@ size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=821575988]
 unique_name_in_owner = true
+color = Color(0.8784314, 0.5058824, 0.74509805, 1)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control" unique_id=452325722]
@@ -179,10 +211,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 133.0
-offset_top = -63.0
-offset_right = 404.5
-offset_bottom = 7.0
+offset_left = 183.0
+offset_top = -103.0
+offset_right = 454.5
+offset_bottom = -33.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -193,17 +225,50 @@ response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=914537232]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_focus_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_disabled_color = Color(0.42745098, 0.03137255, 0.3254902, 1)
+theme_override_colors/font_outline_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_normal_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_focus_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_hover_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_disabled_color = Color(0.42745098, 0.03137255, 0.3254902, 1)
 text = "Response example"
 autowrap_mode = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1116280512]
 unique_name_in_owner = true
 
-[node name="portrait" type="TextureRect" parent="." unique_id=2573246]
-offset_left = 104.0
-offset_top = 177.0
-offset_right = 505.0
-offset_bottom = 578.0
+[node name="CPUParticle2D" parent="." unique_id=1754858223 instance=ExtResource("6_c34ui")]
+position = Vector2(415, 363)
+emitting = false
+one_shot = true
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+scale_amount_min = 5.0
+scale_amount_max = 7.0
+
+[node name="portrait" type="TextureRect" parent="." unique_id=201212509]
+offset_left = 240.0
+offset_top = 168.0
+offset_right = 304.0
+offset_bottom = 248.0
+scale = Vector2(6, 6)
+expand_mode = 3
+
+[node name="portrait_0" type="TextureRect" parent="." unique_id=2573246]
+visible = false
+offset_left = 233.00002
+offset_top = 162.0
+offset_right = 634.0
+offset_bottom = 663.25
+scale = Vector2(0.977, 0.977)
+texture = ExtResource("6_gi7ch")
 expand_mode = 5
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]

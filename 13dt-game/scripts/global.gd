@@ -8,15 +8,17 @@ signal option_chosen
 
 signal class_ended
 
-const DIA_SIZE_CLASS := Vector2(521,219)
-const DIA_POS_CLASS := Vector2(576,60)
-const DIA_SIZE_CUTSCENE := Vector2(1151,200)
-const DIA_POS_CUTSCENE := Vector2(2,396)
+const DIA_SIZE_CLASS := Vector2(529,160)
+const DIA_POS_CLASS := Vector2(576,87)
+const DIA_SIZE_CUTSCENE := Vector2(1088,163)
+const DIA_POS_CUTSCENE := Vector2(32,464)
 
 const RESPONSE_SIZE_CLASS := Vector2(271.5,70)
-const RESPONSE_POS_CLASS := Vector2(718,261)
+const RESPONSE_POS_CLASS := Vector2(759,221)
 const RESPONSE_SIZE_CUTSCENE := Vector2(271.5,70)
-const RESPONSE_POS_CUTSCENE := Vector2(80,373)
+const RESPONSE_POS_CUTSCENE := Vector2(759,426)
+
+const HEART_POINTS := 2
 
 const ONE_HEART := 50
 const TWO_HEARTS := 100
@@ -24,14 +26,24 @@ const THREE_HEARTS := 150
 const FOUR_HEARTS := 200
 const MAX_HEARTS := 250
 
-var path := "user://data.json"
+const FINAL_DAY := 10
+
+var path := "user://data5.json"
 
 var in_class := false
+var dia_size = DIA_SIZE_CLASS 
+var dia_pos = DIA_POS_CLASS
+var response_size = RESPONSE_SIZE_CLASS
+var response_pos = RESPONSE_POS_CLASS
+
+var dis_speed := 50
 
 var day := 0
 
 var happiness := 50
 var expression = 'normal'
+var expression_2 = 'normal'
+var expression_3 = 'normal'
 
 var is_dragging := false
 
@@ -59,17 +71,25 @@ var wrong := 0
 
 var question_asked := true
 
+var chr_one_heart := false
+var chr_two_heart := false
+var chr_three_heart := false
+var chr_four_heart := false
+
 var open_up := false
 var open_up_times := 0
 
-var save_values := [day, pages_done, lessons, val_meter, chr_meter, far_meter,
-					happiness, days_no_val, days_no_chr, days_no_far, open_up_times]
+var tutorial_done := false
+
+var hearts_up := false
 
 
 var save_dict := {
 		'day' : 0,
 		'pages_done' : 0,
 		'lessons' : 0,
+		
+		'tutorial_done' : false,
 		
 		"val_meter" : 0,
 		"chr_meter" : 0,
@@ -160,3 +180,20 @@ func add_meter(num : int):
 	elif far_chosen:
 		far_meter += num 
 		print(far_meter)
+
+
+func dialogue_meter_up(meter, num):
+	meter += num
+	hearts_up = true
+
+
+func dialogue_meter_down(meter,num):
+	meter -= num
+	wrong += 1
+
+func event():
+	if Global.chr_meter > ONE_HEART and not chr_one_heart:
+		const BALLOON = preload("res://addons/cs_balloon.tscn")
+		DialogueManager.show_dialogue_balloon_scene(BALLOON,load("res://addons/dialogue_manager/dialogue_scripts/chr_heart_events.dialogue"))
+		await DialogueManager.dialogue_ended
+		chr_one_heart = true

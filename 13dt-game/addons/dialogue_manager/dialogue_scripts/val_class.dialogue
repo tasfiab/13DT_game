@@ -39,8 +39,9 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 			$> Global.expression = "unsure" 
 			Val: ok... [$> Global.val_meter += 2]
 	- I've had one before
+		$> Global.hearts_up = true
 		$> Global.expression = "elated"
-		Val: omg really!! [$> Global.val_meter += 2][$> Global.happiness += 2]
+		Val: omg really!! [$> Global.val_meter += 2]
 		Val: how was it? 
 		- it was kinda gross
 			$> Global.expression = "surprised" 
@@ -53,10 +54,17 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 			Val: the one's at my house right now are so good
 		- it was delicious
 			$> Global.expression = "elated" 
-			Val: YAYYY, I KNOW RIGHT
+			Val: hell yea I know right!!
+			$> Global.expression = "happy" 
+			Val: if you ever want some, let me know
+			$> Global.expression = "laugh" 
+			Val: I think I could spare a few for you 
 	- ok, I'll try one
+		$> Global.hearts_up = true
+		$> Global.happiness -= 2
 		$> Global.expression = "elated" 
-		Val: YES [$> Global.val_meter += 2]
+		$> Global.val_meter += 2
+		Val: YES 
 		Val: send me a pic of it when you do!
 		$> Global.expression = "happy" 
 		Val: make sure you get a good one too!
@@ -66,6 +74,7 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 	Val: umm, how are you?
 	- tired
 		$> Global.expression = "happy" 
+		$> Global.hearts_up = true
 		Val: same! [$> Global.val_meter += 2][$> Global.happiness += 2]
 		Val: it's just one more period tho!
 		$> Global.expression = "laugh" 
@@ -129,6 +138,7 @@ Val: ...
 
 ~ good
 Val: ...  [$> Global.val_meter += 4][$> Global.happiness += 2]
+$> Global.hearts_up = true
 $> Global.expression = "sad" 
 Val: aww, Violet
 $> Global.expression = "surprised" 
@@ -148,6 +158,7 @@ Val: I'm gonna pretend I didn't hear that
 ~ joke_good
 Val: ...
 $> Global.expression = "laugh" 
+$> Global.hearts_up = true
 Val: HAHHHAHAHA [$> Global.val_meter += 2][$> Global.happiness += 2]
 Val: Oh shoot, didn't mean to laugh that loud... haha
 Val: if we get yelled at, it's your fault 
@@ -168,5 +179,5 @@ Val: you can do better than that...
 ~ bell
 $> Global.expression = "unsure"
 Val: ahh, ms is staring at us...
-Val: let's lock in
+Val: let's lock in!
 => END

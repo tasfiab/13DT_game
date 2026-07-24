@@ -1,9 +1,11 @@
 extends Node
 @export var friends_container : HBoxContainer
 @export var options_container : HBoxContainer
+@export var heading : Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	heading.text = "Choose who to sit with!"
 	friends_container.visible = true
 	options_container.visible = false
 	Global.val_chosen = false
@@ -62,6 +64,7 @@ func _on_far_button_pressed() -> void:
 func button_pressed():
 	Global.friend_chosen.emit()
 	friends_container.visible = false
+	heading.text = "Choose what to do!"
 	options_container.visible = true
 
 

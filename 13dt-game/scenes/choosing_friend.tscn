@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://j3sq8iqd1wdo"]
 
 [ext_resource type="Script" uid="uid://b22i0tflv8hee" path="res://scripts/choosing_friend.gd" id="1_d3nm3"]
+[ext_resource type="FontFile" uid="uid://cckxg5w4w4dg5" path="res://assets/fonts/Short_Stack/ShortStack-Regular.ttf" id="2_jvwcm"]
+[ext_resource type="Theme" uid="uid://dxcpppfg2lplk" path="res://resources/button.tres" id="3_60ypi"]
 
-[node name="Node2D" type="Node2D" unique_id=1424026488 node_paths=PackedStringArray("friends_container", "options_container")]
+[sub_resource type="Theme" id="Theme_a3ylh"]
+default_font = ExtResource("2_jvwcm")
+default_font_size = 50
+
+[node name="Node2D" type="Node2D" unique_id=1424026488 node_paths=PackedStringArray("friends_container", "options_container", "heading")]
 script = ExtResource("1_d3nm3")
-friends_container = NodePath("HBoxContainer")
-options_container = NodePath("HBoxContainer2")
+friends_container = NodePath("VBoxContainer/HBoxContainer")
+options_container = NodePath("VBoxContainer/HBoxContainer2")
+heading = NodePath("VBoxContainer/Label")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=906302482]
 offset_left = -43.0
@@ -13,46 +20,63 @@ offset_right = 1174.0
 offset_bottom = 653.0
 color = Color(0.26, 0.17419998, 0.17419998, 0.29803923)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=789579578]
-offset_left = 50.0
-offset_top = 439.0
-offset_right = 1083.0
-offset_bottom = 583.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1598301923]
+offset_left = 128.0
+offset_top = 3.0
+offset_right = 1016.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=137069008]
+layout_mode = 2
+theme = SubResource("Theme_a3ylh")
+theme_override_colors/font_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
+text = "Choose who to sit with!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1118298731]
+layout_mode = 2
+theme = ExtResource("3_60ypi")
 theme_override_constants/separation = 30
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=1514959881]
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=182983894]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "val"
-
-[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1513436437]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "christine"
-
-[node name="Button3" type="Button" parent="HBoxContainer" unique_id=1793939075]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "farah"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1118298731]
-offset_left = 318.0
-offset_top = 259.0
-offset_right = 776.0
-offset_bottom = 343.0
-
-[node name="Button" type="Button" parent="HBoxContainer2" unique_id=182983894]
-layout_mode = 2
-size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
 text = "learn"
 
-[node name="Button2" type="Button" parent="HBoxContainer2" unique_id=1214527479]
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1214527479]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
 text = "talk"
 
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_val_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_chr_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_far_button_pressed"]
-[connection signal="pressed" from="HBoxContainer2/Button" to="." method="_on_learn_pressed"]
-[connection signal="pressed" from="HBoxContainer2/Button2" to="." method="_on_talk_pressed"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=789579578]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_60ypi")
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1514959881]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Val"
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1513436437]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Christine"
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1793939075]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Farah"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button" to="." method="_on_learn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button2" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_val_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button2" to="." method="_on_chr_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button3" to="." method="_on_far_button_pressed"]

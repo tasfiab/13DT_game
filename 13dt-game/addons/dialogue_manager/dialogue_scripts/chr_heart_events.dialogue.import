@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://d1an370dsq1ha"
+path="res://.godot/imported/chr_heart_events.dialogue-377c6548855cc2169a428a81058f345d.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogue_scripts/chr_heart_events.dialogue"
+dest_files=["res://.godot/imported/chr_heart_events.dialogue-377c6548855cc2169a428a81058f345d.tres"]
+
+[params]
+
+defaults=true

@@ -17,7 +17,7 @@ var mina_done := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	while not Global.game_end:
+	while not Global.day == Global.FINAL_DAY + 1:
 		print(Global.day)
 		fade_animation.play_backwards('fade')
 		await fade_animation.animation_finished
@@ -25,9 +25,16 @@ func _ready() -> void:
 		fade_animation.play('fade')
 		await fade_animation.animation_finished
 		
+		if Global.day == 5:
+			const BALLOON = preload("res://addons/cs_balloon.tscn")
+			DialogueManager.show_dialogue_balloon_scene(BALLOON,load("res://addons/dialogue_manager/dialogue_scripts/test_cutscene.dialogue"))
+			await DialogueManager.dialogue_ended
+		
 		Global.save_dict.day = Global.day
 		Global.save_dict.pages_done = Global.pages_done
 		Global.save_dict.lessons = Global.lessons
+		
+		Global.save_dict.tutorial_done = Global.tutorial_done
 		
 		Global.save_dict.val_meter = Global.val_meter
 		Global.save_dict.chr_meter = Global.chr_meter
@@ -43,10 +50,11 @@ func _ready() -> void:
 		
 		Global.save_dict.game_end = Global.game_end
 		
+		
 		Global.save_game()
+		
+			
 		get_tree().change_scene_to_file("res://scenes/main.tscn")
-		if Global.day == 10:
-			Global.game_end = true
 		break
 		
 	#for marker in markers.get_children():
@@ -56,20 +64,30 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	marker_sprite.global_position = markers.get_child(Global.day - 1 ).global_position
+	marker_sprite.global_position = markers.get_child(Global.day - 1).global_position
 	if can_click_calendar:
 		if Input.is_action_just_pressed("left_click"):
-			if calendar_layer.visible:
+			if calendar_layer.visible and calendar_layer.layer > mina_layer.layer:
 				calendar_layer.visible = false
 				calendar_layer.layer = 1
 			else: 
 				calendar_layer.visible = true
-				calendar_layer.layer = 2
+				calendar_layer.layer = mina_layer.layer + 1
 		
-	if can_click_mina and not mina_done:
+	if can_click_mina:
 		if Input.is_action_just_pressed("left_click"):
-			DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/mina_autumn.dialogue"))
-			mina_done = true
+			if mina_layer.visible and mina_layer.layer > calendar_layer.layer:
+				mina_layer.visible = false
+				mina_layer.layer = 1
+			else:
+				mina_layer.visible = true
+				if not mina_done:
+					can_click_mina = false
+					DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/mina_autumn.dialogue"))
+				mina_layer.layer = calendar_layer.layer + 1
+				mina_done = true
+			
+			
 	if can_power_off:
 		if Input.is_action_just_pressed("left_click"):
 			power_off.emit()

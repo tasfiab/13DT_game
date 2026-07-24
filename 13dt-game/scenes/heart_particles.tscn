@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b3jd54aao88ao"]
+
+[sub_resource type="Curve" id="Curve_8pltw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.14716983), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rg8c2"]
+colors = PackedColorArray(0.9019608, 0.27450982, 0.40392157, 1, 1, 0.654902, 0.7490196, 1)
+
+[sub_resource type="Curve" id="Curve_qr12o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8pltw"]
+colors = PackedColorArray(0.9019608, 0.27450982, 0.40392157, 1, 1, 0.654902, 0.7490196, 1)
+
+[node name="CPUParticle2D" type="CPUParticles2D" unique_id=1754858223]
+amount = 60
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_8pltw")
+color_ramp = SubResource("Gradient_rg8c2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=674971192]
+visible = false
+amount = 60
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_qr12o")
+color = Color(0.9372549, 0.8666667, 0.8980392, 1)
+color_ramp = SubResource("Gradient_8pltw")
+hue_variation_max = 1.0

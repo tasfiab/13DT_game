@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bryysn6it7qfj" path="res://scripts/laptop.gd" id="1_5ijq5"]
 [ext_resource type="Texture2D" uid="uid://bdfepqca87t4" path="res://assets/art/computer_outer.png" id="2_5ijq5"]
-[ext_resource type="Texture2D" uid="uid://b1527m2k0m62j" path="res://assets/mina.png" id="2_creid"]
+[ext_resource type="Texture2D" uid="uid://b1527m2k0m62j" path="res://assets/portraits/mina.png" id="2_creid"]
 [ext_resource type="Texture2D" uid="uid://cnfyh3ifmjb42" path="res://assets/art/calendar.png" id="2_ejyiq"]
 [ext_resource type="Texture2D" uid="uid://54kn7ut6yomr" path="res://assets/art/calendar_icon.png" id="3_creid"]
 [ext_resource type="Texture2D" uid="uid://cllnjmfxnkcq3" path="res://assets/art/calendar_marker.png" id="3_ejyiq"]
+[ext_resource type="Texture2D" uid="uid://dqxmtkbbide2d" path="res://assets/art/mina_background.png" id="5_5t67i"]
 [ext_resource type="Texture2D" uid="uid://cogea8gycgdqv" path="res://assets/art/power_off.png" id="6_2jtcb"]
+[ext_resource type="Texture2D" uid="uid://3teegd3d75kw" path="res://assets/portraits/mina_happy.png" id="6_8qokd"]
 [ext_resource type="Texture2D" uid="uid://ckmc02dil7dgs" path="res://assets/art/mina_icon.png" id="7_b8h6g"]
 [ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="8_jj3px"]
+[ext_resource type="Texture2D" uid="uid://dhcpu631d1ix4" path="res://assets/art/computer_background.png" id="12_2lb2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jtcb"]
 size = Vector2(40, 40)
@@ -58,9 +61,9 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=14524745 node_paths=PackedStringArray("calendar_layer", "mina_layer", "marker_sprite", "markers", "fade_animation")]
 script = ExtResource("1_5ijq5")
-calendar_layer = NodePath("CanvasLayer")
-mina_layer = NodePath("CanvasLayer3")
-marker_sprite = NodePath("CanvasLayer/Sprite2D")
+calendar_layer = NodePath("calendar")
+mina_layer = NodePath("mina_background")
+marker_sprite = NodePath("calendar/Sprite2D")
 markers = NodePath("Markers")
 fade_animation = NodePath("CanvasLayer4/ColorRect2/AnimationPlayer")
 
@@ -71,34 +74,57 @@ offset_right = 1152.0
 offset_bottom = 649.0
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=1584500242]
+layer = 2
+visible = false
 
 [node name="portrait" type="TextureRect" parent="CanvasLayer3" unique_id=247559489]
-visible = false
 offset_left = 104.0
 offset_top = 140.0
 offset_right = 505.0
 offset_bottom = 541.0
 texture = ExtResource("2_creid")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=789822955]
+[node name="calendar" type="CanvasLayer" parent="." unique_id=789822955]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1744726624]
+[node name="TextureRect" type="TextureRect" parent="calendar" unique_id=1744726624]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_ejyiq")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=1039113562]
+[node name="Sprite2D" type="Sprite2D" parent="calendar" unique_id=1039113562]
 position = Vector2(169, 233)
 scale = Vector2(1.5624998, 1.5624998)
 texture = ExtResource("3_ejyiq")
+
+[node name="mina_background" type="CanvasLayer" parent="." unique_id=454954963]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="mina_background" unique_id=145841964]
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+texture = ExtResource("5_5t67i")
+
+[node name="portrait" type="TextureRect" parent="mina_background" unique_id=1350041591]
+offset_left = 240.0
+offset_top = 168.0
+offset_right = 304.0
+offset_bottom = 248.0
+scale = Vector2(6, 6)
+texture = ExtResource("6_8qokd")
+expand_mode = 3
+
+[node name="Control" parent="mina_background" unique_id=2022308998 instance=ExtResource("8_jj3px")]
+position = Vector2(-201, -191.00002)
+scale = Vector2(1.1600004, 1.1600004)
 
 [node name="outer" type="CanvasLayer" parent="." unique_id=1175834812]
 layer = 10
 
 [node name="ComputerOuter" type="Sprite2D" parent="outer" unique_id=232419986]
 position = Vector2(576.00006, 324.00003)
-scale = Vector2(9, 9)
+scale = Vector2(6, 6)
 texture = ExtResource("2_5ijq5")
 
 [node name="TextureRect" type="TextureRect" parent="outer" unique_id=1430819104]
@@ -219,9 +245,14 @@ color = Color(0.25, 0.030000001, 0.11066669, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer4/ColorRect2" unique_id=912866316]
 libraries/ = SubResource("AnimationLibrary_ejyiq")
 
-[node name="Control" parent="." unique_id=2022308998 instance=ExtResource("8_jj3px")]
-position = Vector2(-188, -191.00002)
-scale = Vector2(1.1600004, 1.1600004)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2055712252]
+layer = -2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=159962282]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("12_2lb2v")
 
 [connection signal="mouse_entered" from="outer/TextureRect/Area2D" to="." method="_can_power_off"]
 [connection signal="mouse_exited" from="outer/TextureRect/Area2D" to="." method="_cannot_power_off"]

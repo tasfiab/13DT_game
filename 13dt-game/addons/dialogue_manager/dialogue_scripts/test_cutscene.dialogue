@@ -1,0 +1,32 @@
+~ start
+$> Global.expression = 'happy'
+val: hey wow i'm talking haha
+$> Global.expression = 'elated'
+val: THIS IS SO COOL
+$> Global.expression_2 = 'normal'
+christine: now it's my turn 
+$> Global.expression_2 = 'happy'
+christine: ok this is pretty cool
+$> Global.expression_3 = 'happy'
+farah: ikr!!
+$> Global.expression_3 = 'elated'
+farah: hello hehe ~
+$> Global.expression = 'laugh'
+val: mann, ur so cute farah
+$> Global.expression_3 = 'unsure'
+farah: huh? that was random
+$> Global.expression_2 = 'happy'
+christine: val, aren't you the cute one
+$> Global.expression_2 = 'laugh'
+christine: your heads so easy to pat lol
+$> Global.expression = 'angry'
+val: omg christineee
+$> Global.expression = 'unsure'
+val: we get it your tall
+$> Global.expression_3 = 'elated'
+farah: no I want to pat your head tooo
+farah: your hairs so fluffy hehe
+$> Global.expression = 'angry'
+val: STOP TREATING ME LIKE A DOG GUYS
+violet: hahaha
+=> END

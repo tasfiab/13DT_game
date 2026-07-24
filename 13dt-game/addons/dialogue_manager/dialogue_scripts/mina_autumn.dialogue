@@ -1,11 +1,12 @@
 ~ start
+
 $> Global.expression = "happy" 
 Mina: Hello, Violet 
 Mina: What would you like to talk about?
-- day
+- day (+ 10 :) )
 	$> Global.expression = "serious"
 	=> day
-- work [if Global.pages_done < Global.lessons]
+- work (+ 1 HW) [if Global.pages_done < Global.lessons]
 	Mina: You're behind on work again, huh?
 	Mina: Ok, let me summarise this topic for you!
 	Mina: ...
@@ -14,7 +15,7 @@ Mina: What would you like to talk about?
 	Mina: Is that all?
 	- yes, thank you
 		Mina: Your welcome! [$> Global.pages_done += 1]
-- open up [if not Global.open_up]
+- open up (+ 30 :) ) [if not Global.open_up] 
 	$> Global.expression = "serious"
 	=> open_up
 

@@ -74,6 +74,8 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
 
+var character := ''
+
 
 func _ready() -> void:
 	balloon.hide()
@@ -90,20 +92,10 @@ func _ready() -> void:
 		if not is_instance_valid(dialogue_resource):
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
-		
+
 
 
 func _process(delta: float) -> void:
-	#if not Global.in_class:
-		#margin_container.size = Global.DIO_SIZE_CUTSCENE
-		#margin_container.global_position = Global.DIO_POS_CLASS
-		#margin_container.size = Global.RESPONSE_SIZE_CUTSCENE
-		#margin_container.global_position = Global.RESPONSE_POS_CUTSCENE
-	#else:
-		#margin_container.size = Global.DIO_SIZE_CLASS
-		#margin_container.global_position = Global.DIO_POS_CLASS
-		#responses_menu.size = Global.RESPONSE_SIZE_CLASS
-		#responses_menu.global_position = Global.RESPONSE_POS_CLASS
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
 
@@ -149,7 +141,14 @@ func apply_dialogue_line() -> void:
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
-	var portrait_path : String = "res://assets/portraits/%s.png" % (dialogue_line.character + '_' + Global.expression).to_lower()
+	
+	if character == "":
+		character = dialogue_line.character
+	var portrait_path : String = "res://assets/portraits/%s.png" % (character + '_' + Global.expression).to_lower()
+	#if Global.hearts_up:
+		#var tween : Tween = create_tween()
+		#tween.tween_property(portrait, "global_position",Vector2(240,172),0.1).set_ease(Tween.EASE_OUT)
+		#tween.tween_property(portrait, "global_position",Vector2(240,168),0.1).set_ease(Tween.EASE_IN)
 	if FileAccess.file_exists(portrait_path): 
 		portrait.texture = load(portrait_path)
 	else: portrait.texture = null

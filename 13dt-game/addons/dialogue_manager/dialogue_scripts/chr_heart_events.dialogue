@@ -1,0 +1,129 @@
+~ start
+$> Global.expression = 'elated'
+Farah: oh! I have seen that!
+$> Global.expression_2 = 'elated'
+Val: yea!! 
+$> Global.expression_2 = 'happy'
+Val: mmmm, pretty cool ayy?
+$> Global.expression_2 = 'laugh'
+Val: like a fun thing we could do on, I don't know, sometime next week?
+$> Global.expression = 'elated'
+Farah: hehe, I'd be down
+Farah: I really want to go on that spinny ride!
+$> Global.expression = 'happy'
+Farah: what about you guys?
+: I don't have anything else so sure
+$> Global.expression_2 = 'elated'
+Val: hell yea that's perf!
+$> Global.expression_3 = 'normal'
+Christine: oh, wait when is this again?
+$> Global.expression_2 = 'unsure'
+Val: this weekend - and I think that's it
+$> Global.expression_3 = 'sad'
+Christine: ohh ok...
+Christine: sorry guys, I'm a bit busy next week...
+$> Global.expression_2 = 'angry'
+Val: aww c'mon, it'll just be one day
+$> Global.expression_2 = 'laugh'
+Val: if it's about the calc test, you'll be fine even without one day of study - especially you lol
+$> Global.expression_3 = 'angry'
+Christine: Ok, sure, but like I still need to study a bit more for it
+$> Global.expression_3 = 'sad'
+Christine: And I don't have time over the week cause I have training for volleyball
+Christine: Oh and a rehearsal for orchestra, and I've gotta help out with the bake sale for the Environmental club as well...
+Christine: and -
+$> Global.expression_2 = 'unsure'
+Val: Ok, wait, that's enough - I think I get you're point
+$> Global.expression = 'sad'
+Farah: oh my goodness Christine!? how do you manage all that?
+$> Global.expression_3 = 'laugh'
+Christine: haha - I don't 
+$> Global.expression = 'sad'
+Farah: Christineee - you're gonna burn out with all of that
+$> Global.expression_2 = 'unsure'
+Val: yea fr
+Val: like, you seriously need a break
+Val: like, y'know, maybe a day at a super fun fair that -
+$> Global.expression = 'laugh'
+Farah: ok, I don't think now's the time for that Val...
+$> Global.expression_2 = 'unsure'
+Val: ugh, fine
+$> Global.expression = 'sad'
+Farah: but, yea, you seriously deserve a break...
+$> Global.expression_3 = 'angry'
+Christine: guys, I'm fine
+Christine: stop worrying about me
+$> Global.expression_3 = 'normal'
+Christine: I'm not some kid who can't decide what to do with her time
+Christine: like, I have free will - I can take a break whenever I want
+$> Global.expression_2 = 'unsure'
+Val: sureee girlie
+$> Global.expression = 'sad'
+Farah: ahh, sorry if that came across as pushy
+$> Global.expression = 'laugh'
+Farah: My brother's here so I've got to go now, see you guys later!
+$> Global.expression_2 = 'surprised'
+Val: omg wait same - my bus is gonna be here in 2 mins!
+Val: see ya!
+Christine: bye...
+Christine: ugh, I thought they'd never stop
+- y'know, they only ask out of concern right?
+	$> Global.expression_3 = 'angry'
+	Christine: oh, yea I'm perfectly aware
+	$> Global.expression_3 = 'normal'
+	Christine: but, I never asked for concern from you all
+	- why do you care so much about this?
+		$> Global.chr_meter -=5
+		$> Global.expression_3 = 'angry'
+		Christine: what do you mean? I don't care that much
+		$> Global.expression_3 = 'normal'
+		Violet: ...
+		$> Global.expression_3 = 'sad'
+		Christine: ok, maybe I am getting a litlle heated
+		Christine: it's just, really annoying when people are constantly showing their concern for me
+		$> Global.expression_3 = 'angry'
+		Christine: It's always 'oh no, poor Christine', 'that could never be me', 'does she, have a life...?'
+		$> Global.expression_3 = 'normal'
+		Christine: it gets to a point
+		Christine: ok, rant over
+
+		
+	- ok, I understand
+		$> Global.chr_meter += 2
+		$> Global.happiness -= 5
+		$> Global.expression_3 = 'happy'
+		Christine: thank you
+	
+- why do you do so much?
+	$> Global.expression_3 = 'normal'
+	Christine: genuinely, I don't know
+	Christine: there's no rhyme or reason to it, I guess I just like the validation
+	$> Global.expression_3 = 'happy'
+	Christine: pretty egotistical, I know
+	- I bet there's more to it than that
+		$> Global.expression_3 = 'angry'
+		$> Global.chr_meter -= 5
+		Christine: I'm really not as interesting as you think
+		$> Global.expression_3 = 'normal'
+		Christine: I mean, don't all people innately seek validation
+		Christine: like, that's just human nature I guess
+		: ok, I guess that's real
+	- is it worth it?
+		$> Global.chr_meter += 2
+		$> Global.happiness -= 2
+		Christine: definitely
+		$> Global.expression_3 = 'happy'
+		Christine: like, I can basically get into any uni I want, in any field I want
+		$> Global.expression_3 = 'normal'
+		Christine: and I think I have a good shot at getting a scholarship
+		$> Global.expression_3 = 'happy'
+		Christine: also, people can rely on you when you're actually competent
+		$> Global.expression_3 = 'laugh'
+		Christine: which honestly, is a nice feeling
+		$> Global.expression_3 = 'sad'
+		Christine: oh gosh, I've been rambling
+$> Global.expression_3 = 'normal'
+Christine: I think I'm gonna head out
+Christine: bye
+: bye
+=> END
