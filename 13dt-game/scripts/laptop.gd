@@ -25,11 +25,6 @@ func _ready() -> void:
 		fade_animation.play('fade')
 		await fade_animation.animation_finished
 		
-		if Global.day == 5:
-			const BALLOON = preload("res://addons/cs_balloon.tscn")
-			DialogueManager.show_dialogue_balloon_scene(BALLOON,load("res://addons/dialogue_manager/dialogue_scripts/test_cutscene.dialogue"))
-			await DialogueManager.dialogue_ended
-		
 		Global.save_dict.day = Global.day
 		Global.save_dict.pages_done = Global.pages_done
 		Global.save_dict.lessons = Global.lessons
@@ -117,3 +112,12 @@ func _can_click_mina() -> void:
 
 func _cannot_click_mina() -> void:
 	can_click_mina = false
+
+
+func _close() -> void:
+	if calendar_layer.visible and calendar_layer.layer > mina_layer.layer:
+		calendar_layer.visible = false
+		calendar_layer.layer = 1
+	if mina_layer.visible and mina_layer.layer > calendar_layer.layer:
+		mina_layer.visible = false
+		mina_layer.layer = 1

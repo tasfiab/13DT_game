@@ -2,7 +2,11 @@
 $> Global.expression = "happy"
 Farah: hi!
 
-=> two_hearts
+if Global.far_meter <= Global.ONE_HEART:
+	=> one_heart
+
+if Global.far_meter <= Global.TWO_HEARTS:
+	=> two_hearts
 
 => END
 
@@ -15,7 +19,7 @@ Farah: hi!
 	Farah: how has your day been?
 	- bad
 		$> Global.expression = "sad"
-		$> Global.far_meter -= 5
+		$> Global.far_meter -= Global.HAPPY_POINTS
 		$> Global.wrong += 1
 		Farah: aww, how come? 
 		$> Global.expression = "unsure"
@@ -24,10 +28,8 @@ Farah: hi!
 		Farah: I mean you can, if you want, I just don't want to pry into personal issues, y'know?
 		Farah: anyway, I hope your day gets better
 	- good
-		$> Global.hearts_up = true
-		$> Global.hearts_up = true
-		$> Global.happiness -= 3
-		$> Global.far_meter += 2
+		$> Global.add_meter(Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
 		$> Global.expression = "elated"
 		Farah: yayy! that's good
 		$> Global.expression = "happy"
@@ -42,17 +44,14 @@ Farah: hi!
 		Farah: I mean, it is really cute, hehe
 	- it was a gift 
 		$> Global.expression = "elated"
-		$> Global.hearts_up = true
-		$> Global.happiness += 2
-		$> Global.far_meter += 2
+		$> Global.add_meter(Global.HEART_POINTS)
 		Farah: ahh, that's nice!
 		$> Global.expression = "happy"
 		Farah: they picked a good gift then, hehe!
 	- it's from ...
-		$> Global.hearts_up = true
+		$> Global.add_meter(Global.HEART_POINTS*2)
 		$> Global.expression = "elated"
-		$> Global.far_meter += 4
-		$> Global.happiness -=2
+		$> Global.happiness -= Global.HAPPY_POINTS
 		Farah: ooo ok, I was wondering hehe
 		Farah: I think I've heard of that store!
 		$> Global.expression = "happy"
@@ -63,32 +62,29 @@ Farah: hi!
 	Farah: do you get what's going on right now?
 	- yea, are you slow?
 		$> Global.expression = "laugh"
-		$> Global.far_meter -= 2
-		$> Global.wrong += 1
+		$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS)
 		Farah: oh haha... yea, I guess I am 
 		$> Global.expression = "happy"
 		Farah: But yay! I'm happy you get it though
 	- I think
 		$> Global.expression = "elated"
-		$> Global.far_meter += 2
-		$> Global.happiness -= 2
-		$> Global.hearts_up = true
+		$> Global.happiness -= Global.HAPPY_POINTS
+		$> Global.add_meter(Global.HEART_POINTS)
 		Farah: hehe, that's better then no!
 		$> Global.expression = "unsure"
 		Farah: umm, can you help me with this question...
 		- hold on a sec
 			$> Global.expression = "elated"
-			Farah: ok! [$> Global.happiness += 4][$> Global.wrong += 1]
+			Farah: ok!
 			$> Global.expression = "happy"
 			Farah: ...
 			$> Global.expression = "laugh"
-			$> Global.far_meter -= 2
+			$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS)
 			Farah: actually, nevermind, it's ok!
 		- sure
 			$> Global.expression = "elated"
-			$> Global.hearts_up = true
-			$> Global.far_meter += 4
-			$> Global.happiness -= 2
+			$> Global.add_meter(Global.HEART_POINTS)
+			$> Global.happiness -= 4
 			Farah: really? thank you so much!!
 			$> Global.expression = "unsure"
 			Farah: ...
@@ -102,49 +98,49 @@ Farah: hi!
 ~ two_hearts
 % 
 	$> Global.expression = "elated"
-	Farah: hey, have you heard, there's a new Spiderboy movie out!
+	Farah: hey, have you heard, there's a new monkeyman movie out!
 	- I didn't take you for someone who likes superhero movies?
 		$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS)
 		$> Global.expression = "laugh"
-		Farah: Oh, yea that's totally fair haha
+		Farah: oh, yea that's totally fair haha
 		$> Global.expression = "happy"
 		Farah: Val was surprised too when I told her
 		$> Global.expression = "elated"
-		Farah: My cousin got me into the movies when I was a kid!
+		Farah: my cousin got me into the movies when I was a kid!
 		Farah: and something about the movies gets me really hyped and inspired!
 		$> Global.expression = "unsure"
 		Farah: of course, I think the newer movies aren't nearly as good as the older ones
+		$> Global.expression = "angry"
+		Farah: they've just been... such big cash grabs!
 		$> Global.expression = "sad"
-		Farah: they've been, such big cash grabs!
-		$> Global.expression = "unsure"
 		Farah: ahh, sorry was that too much...
 		- no, it's nice seeing you so passionate about this
-			$> Global.dialogue_meter_up(Global.far_meter, Global.HEART_POINTS * 3)
+			$> Global.add_meter(Global.HEART_POINTS * 3)
 			$> Global.expression = "elated"
 			Farah: aww, really
 			Farah: that makes me really happy
 			$> Global.expression = "happy"
 			Farah: ok, I can keep going haha!
 			$> Global.expression = "elated"
-			: you and Farah have a heated convo about the Spiderboy franchise
+			: you and Farah have a heated convo about the monkeyman franchise
 		- no, I totally agree!
-			$> Global.dialogue_meter_up(Global.far_meter, Global.HEART_POINTS)
-			$> Global.happiness -= 2
+			$> Global.add_meter(Global.HEART_POINTS)
+			$> Global.happiness -= Global.HAPPY_POINTS
 			$> Global.expression = "elated"
 			Farah: yes! thank you
 			Farah: like...
-			: you and Farah have a heated convo about the Spiderboy franchise
+			: you and Farah have a heated convo about the monkeyman franchise
 	- yea! I heard
-		$> Global.dialogue_meter_up(Global.far_meter, Global.HEART_POINTS)
-		$> Global.happiness -= 2
+		$> Global.add_meter(Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
 		$> Global.expression = "elated"
 		Farah: yay that's great!
 	$> Global.expression = "happy"
 	Farah: sooo, would you be interested in watching it after school today?
 	$> Global.expression = "laugh"
-	Farah: Val's not that interested in the franchise, and you know how Christine's schedule is haha
+	Farah: Val's not that interested in the series, and you know how Christine's schedule is haha...
 	- sure
-		$> Global.dialogue_meter_up(Global.far_meter, Global.HEART_POINTS)
+		$> Global.add_meter(Global.HEART_POINTS)
 		$> Global.expression = "elated"
 		Farah: great! let's go quickly after school
 		$> Global.expression = "unsure"
@@ -175,31 +171,35 @@ Farah: ...
 => END
 
 ~ good
-Farah: ...  [$> Global.far_meter += 4][$> Global.happiness += 2]
+Farah: ...
+$> Global.add_meter(Global.HEART_POINTS*2)
 $> Global.expression = "elated"
-$> Global.hearts_up = true
 Farah: aww, really?
 Farah: thanks Violet!
 => bell
 => END
 
 ~ bad
-Farah: ... [$> Global.far_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS * 2)
+$> Global.happiness -= Global.HAPPY_POINTS * 2
+Farah: ...
 $> Global.expression = "laugh"
 Farah: oh, ok haha...
 => bell
 => END
 
 ~ joke_good
-Farah: ... [$> Global.far_meter += 2][$> Global.happiness += 2]
+Farah: ... 
+$> Global.add_meter(Global.HEART_POINTS)
 $> Global.expression = "elated"
-$> Global.hearts_up = true
 Farah: hehehe
 => bell
 => END
 
 ~ joke_bad
-Farah: ... [$> Global.far_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+Farah: ...
+$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS)
+$> Global.happiness -= Global.HAPPY_POINTS
 $> Global.expression = "laugh"
 Farah: oh, haha...
 => bell

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bip3wssfmldy8"
+path="res://.godot/imported/far_heart_events.dialogue-21bc93afb0d88bb3045ecec48a2501fc.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogue_scripts/far_heart_events.dialogue"
+dest_files=["res://.godot/imported/far_heart_events.dialogue-21bc93afb0d88bb3045ecec48a2501fc.tres"]
+
+[params]
+
+defaults=true

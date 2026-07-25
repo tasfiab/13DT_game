@@ -1,0 +1,100 @@
+~ start
+$> Global.expression = "elated"
+Farah: you have a cat?
+$> Global.expression = "happy"
+Farah: wait, do you have any pictures?
+$> Global.expression = "elated"
+Farah: aww, their soo cute
+Farah: you have to let me meet them sometime!
+$> Global.expression = "awe"
+Farah: ...
+: you see a girl your age in the distance in a maximilist outfit
+: the top half of her outfit consists of a purple graphic tee, layered with a crocheted cardigan 
+: the bottom half, a patterned, yellow skirt akin to that of a grandmothers
+: she's accessorised from head to toe with jewellery, belts and everything under the sun
+: maybe she thought this would bring the outfit together, but it seems to just make her outfit more... messy
+: there are people staring awkwardly as she walks past them
+: Farah stares in awe
+- do you know her?
+	$> Global.expression = "unsure"
+	Farah: huh? oh, oops, I didn't mean to stare
+	$> Global.expression = "normal"
+	Farah: no... I don't think they go to our school
+- do you like her outfit haha?
+	$> Global.expression = "unsure"
+	Farah: oh, oops, I was staring at them, huh?
+$> Global.expression = "unsure"
+Farah: I just thought... well they must've put a lot of effort into their outfit
+$> Global.expression = "elated"
+Farah: and I think it looks bold and cool!
+- really?
+	$> Global.expression = "unsure"
+	Farah: well, I guess it is a bit unconventional
+- I think I see what you mean
+	$> Global.expression = "laugh"
+	Farah: ... that didn't sound very convincing haha
+	Farah: I mean, it is a bit unconventional
+$> Global.expression = "happy"
+Farah: but I like the use of complementary colours
+Farah: and the sun and moon accessories go well with the colour scheme
+$> Global.expression = "elated"
+Farah: I think there was a lot of intentionality behind their outfit as a whole
+- are you into fashion?
+	$> Global.expression = "unsure"
+	Farah: oh... I mean I'm not the most knowledgeable on it, but I just think it's really cool
+	$> Global.expression = "elated"
+	Farah: I love the way people can use it to express themselves
+	$> Global.expression = "happy"
+	Farah: like Val usually dresses in a grunge aesthetic
+	$> Global.expression = "laugh"
+	Farah: and Christine - I'm not sure the specific aesthetic but she dresses really maturely, usually sticking to like, a neutral palette
+	- I don't have an interesting style
+		$> Global.expression = "normal"
+		Farah: really? I'm sure you do!
+		$> Global.expression = "unsure"
+		Farah: I mean, we haven't gone out in anything beside our uniforms yet, so I don't know what you like to wear
+		$> Global.expression = "elated"
+		Farah: in my opinion, every style is interesting when it comes from the wearer's heart
+		$> Global.expression = "laugh"
+		Farah: oh, that might've sounded a bit corny, haha
+	- what style do you like?
+		$> Global.expression = "normal"
+		Farah: oh, me?
+		$> Global.expression = "elated"
+		Farah: I mean, I really love the cottagecore aesthetic
+		$> Global.expression = "laugh"
+		Farah: or whatever style has cute skirts, dresses, patchwork patterns, plaid, cardigans and sweaters hehe
+		$> Global.expression = "sad"
+		Farah: but I tend to default to just a basic pair of jeans and a hoodie
+		- out of, fear of judgement?
+			$> Global.expression = "laugh"
+			Farah: yea haha... I guess I don't hide it very well
+			$> Global.expression = "sad"
+			Farah: I don't think I could handle any stares
+			$> Global.expression = "happy"
+			Farah: Val and Christine have thick skins though!
+			$> Global.expression = "elated"
+			Farah: so maybe that'll rub off on me someday hehe
+		- same
+			$> Global.expression = "sad"
+			Farah: that's a shame...
+			$> Global.expression = "unsure"
+			Farah: oh, unless you like that style!
+			$> Global.expression = "happy"
+			Farah: it's a nice style actually, just not for me personally
+			$> Global.expression = "elated"
+			Farah: I'm sure you pull it off well though!
+- I guess so
+	$> Global.expression = "laugh"
+	Farah: yea haha...
+	$> Global.expression = "elated"
+	Farah: that's just my opinion though! what do you think?
+	- it's a bit much
+		$> Global.expression = "laugh"
+		Farah: oh... I guess that's true too...
+	- I see what you mean
+		$> Global.expression = "elated"
+		Farah: right? hehe
+$> Global.expression = "elated"
+Farah: ooo, wait, do you dress your cat in cute clothes?
+=> END

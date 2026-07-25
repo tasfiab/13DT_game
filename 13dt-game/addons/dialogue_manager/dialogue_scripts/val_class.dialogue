@@ -1,10 +1,11 @@
 ~ greeting
 $> Global.expression = "happy"
 Val: hi!
-if Global.val_meter <= Global.ONE_HEART:
-	=>< one_heart
-elif Global.val_meter <= Global.TWO_HEARTS:
-	=> two_hearts
+=> two_hearts
+#if Global.val_meter <= Global.ONE_HEART:
+#	=>< one_heart
+#elif Global.val_meter <= Global.TWO_HEARTS:
+
 => END
 ~ one_heart
 %
@@ -18,30 +19,30 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 	$> Global.expression = "surprised" 
 	Val: I heard that from somewhere, I swear!
 	- this is really your first time having one?
-		$> Global.expression = "angry" 
-		$> Global.happiness += 5
-		Val: ... 
 		$> Global.expression = "surprised" 
-		Val: AHH, DON'T JUDGE ME!! [$> Global.val_meter -= 2][$> Global.wrong += 1]
+		$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+		Val: AHH, DON'T JUDGE ME!!
 		$> Global.expression = "angry" 
 		Val: it's - there's
 		$> Global.expression = "surprised" 
 		Val: THERE'S A FIRST TIME FOR EVERYTHING!!
 		$> Global.expression = "unsure" 
-		Val: I'm just letting you know 'cause it was so good
+		Val: I'm just letting you know 'cause it was so scrumptious and beautiful
 		$> Global.expression = "angry" 
-		Val: damn, I didn't expect such judgement
+		Val: I didn't expect such judgement!
 		- chill, I wasn't judging you
-			$> Global.happiness += 2
-			Val: suree... [$> Global.val_meter -= 5][$> Global.wrong += 1]
-		- haha, sorry for judging you
-			$> Global.happiness += 2
+			$>  Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS * 2)
 			$> Global.expression = "unsure" 
-			Val: ok... [$> Global.val_meter += 2]
+			Val: suree... 
+		- haha, sorry for judging you
+			$> Global.happiness -= Global.HAPPY_POINTS
+			$> Global.add_meter(Global.HEART_POINTS)
+			$> Global.expression = "unsure" 
+			Val: ok then... you're forgiven 
 	- I've had one before
-		$> Global.hearts_up = true
+		$> Global.add_meter(Global.HEART_POINTS)
 		$> Global.expression = "elated"
-		Val: omg really!! [$> Global.val_meter += 2]
+		Val: omg really!!
 		Val: how was it? 
 		- it was kinda gross
 			$> Global.expression = "surprised" 
@@ -53,6 +54,7 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 			$> Global.expression = "happy" 
 			Val: the one's at my house right now are so good
 		- it was delicious
+			$> Global.happiness -= Global.HAPPY_POINTS
 			$> Global.expression = "elated" 
 			Val: hell yea I know right!!
 			$> Global.expression = "happy" 
@@ -60,10 +62,9 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 			$> Global.expression = "laugh" 
 			Val: I think I could spare a few for you 
 	- ok, I'll try one
-		$> Global.hearts_up = true
-		$> Global.happiness -= 2
+		$> Global.add_meter(Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
 		$> Global.expression = "elated" 
-		$> Global.val_meter += 2
 		Val: YES 
 		Val: send me a pic of it when you do!
 		$> Global.expression = "happy" 
@@ -72,16 +73,48 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 	$> Global.expression = "unsure" 
 	Val: ...
 	Val: umm, how are you?
-	- tired
+	- bad
 		$> Global.expression = "happy" 
-		$> Global.hearts_up = true
-		Val: same! [$> Global.val_meter += 2][$> Global.happiness += 2]
-		Val: it's just one more period tho!
+		$> Global.add_meter(Global.HEART_POINTS)
 		$> Global.expression = "laugh" 
-		Val: STAY STRONG!
+		Val: damn, who hurt you lol?
+		$> Global.expression = "angry" 
+		Val: wait, did someone actually hurt you? 
+		$> Global.expression = "elated" 
+		Val: I can beat them up for you if you want?
+		- with what?
+			$> Global.expression = "surprised" 
+			Val: HEY
+			$> Global.expression = "angry" 
+			Val: I've been to the gym before!
+			$> Global.expression = "laugh" 
+			VaL: don't you see these muscles
+			: ...
+			$> Global.expression = "unsure" 
+			Val: damn... I see how it is
+			$> Global.expression = "surprised" 
+			Val: wait, don't tell me it's about my height again
+			$> Global.expression = "angry" 
+			Val: I'M AVERAGE
+			$> Global.expression = "angry" 
+			Val: Y'ALL ARE JUST TALL
+			Val: ...
+			$> Global.expression = "laugh" 
+			Val: fine, I'll give them a good headbutt then!
+		- there's no one
+			$> Global.expression = "laugh" 
+			Val: ok! but let me know if there ever is!
+			$> Global.expression = "elated" 
+			Val: I'm gonna back you up
+		- thank you!
+			$> Global.happiness -= Global.HAPPY_POINTS
+			$> Global.expression = "laugh" 
+			Val: anytime! just say the word haha
 	- good
 		$> Global.expression = "unsure" 
-		Val: that's good... [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+		$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
+		Val: that's good... 
 		$> Global.expression = "unsure" 
 		Val: I'm good too 
 
@@ -90,37 +123,79 @@ elif Global.val_meter <= Global.TWO_HEARTS:
 
 
 ~ two_hearts
+%
+	$> Global.expression = "surprised"
 	Val: AHH I have a test next period
 	- did you study
+		$> Global.expression = "unsure"
 		Val: ...
 		Val: that's... irrelevant
-		- well, 
-			- you have no one to blame but yourself
-				Val: AWW C'MON, I was really busy yesterday...
-				Val: with... engaging in the wider world! in short form... 
-				- you were doomscrolling, weren't you?
-					Val: ...
-					Val: AHH I thought I hid that welllll 
-					Val: ok, fine you caught me
-					
-					- get your book out
-						Val: yes ma'am 
-					
-				- ok? I'll take your word for it
-					Val: yea...
-					Val: thanks hehe
+		- you have no one to blame but yourself
+			$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+			$> Global.expression = "angry"
+			Val: ...
+			$> Global.expression = "sad"
+			Val: MANN I can't even argue with that
+			Val: I don't get how people do it
+			$> Global.expression = "unsure"
+			Val: like, people like Christine who can just, lock in when they need to lock in
+			$> Global.expression = "angry"
+			Val: I always tell myself I'm gonna study, for at least ONE HOUR
+			$> Global.expression = "sad"
+			Val: and I still procrastinate on that, till I'm back where I was before
+			$> Global.expression = "unsure"
+			Val: at least THIS test isn't worth anything, but I'm actually gonna be screwed when it is...
+			- are you making excuses right now?
+				$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+				$> Global.expression = "angry"
+				Val: I'm not, it's a real struggle!
+				$> Global.expression = "unsure"
+				Val: don't tell me you've NEVER procrastinated in your life?
+				- sounds like a skill issue
+					$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+					$> Global.expression = "surprised"
+					Val: DAMN
+					$> Global.expression = "unsure"
+					Val: ok, I see how it is
+					$> Global.expression = "laugh"
+					Val: you'll see Violet, I'm gonna channel my inner Christine 
+					Val: 100% for the rest of the year!
+				- I have...
+					$> Global.add_meter(Global.HEART_POINTS)
+					$> Global.happiness -= Global.HAPPY_POINTS
+					$> Global.expression = "laugh"
+					Val: HAH 
+					$> Global.expression = "unsure"
+					Val: that's what I thought - 
+					$> Global.expression = "unsure"
+					Val: so you have no right to judge 
+			- I find it hard to as well
+				$> Global.add_meter(Global.HEART_POINTS)
+				$> Global.happiness -= Global.HAPPY_POINTS
+				$> Global.expression = "elated"
+				Val: yes! thank you
+				$> Global.expression = "laugh"
+				Val: at least we're suffering together
 				
-		- I can help you study... right now?
-			- if you want?
-				Val: no way! really?
-				Val: you'd do that for me
-				Val: wait, let me get my stuff out
-				Val: thank you so much!
-	- good luck! :)
-		Val: thanks!!
-		Val: ...I'm gonna need it haha
-		Val:
-=> END
+		- I can help you study... right now, if you want?
+			$> Global.add_meter(Global.HEART_POINTS * 3)
+			$> Global.happiness -= Global.HAPPY_POINTS
+			$> Global.expression = "surprised"
+			Val: no way! really?
+			$> Global.expression = "sad"
+			Val: you'd do that for me
+			$> Global.expression = "happy"
+			Val: wait, let me get my stuff out
+			$> Global.expression = "elated"
+			Val: thank you so much!
+	- good luck!
+		$> Global.add_meter(Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
+		$> Global.expression = "happy"
+		Val: thanks!
+		$> Global.expression = "unsure"
+		Val: ...I'm gonna need it haha...
+=> questions
 
 
 ~ questions
@@ -137,8 +212,8 @@ Val: ...
 => END
 
 ~ good
-Val: ...  [$> Global.val_meter += 4][$> Global.happiness += 2]
-$> Global.hearts_up = true
+Val: ...  
+$> Global.add_meter(Global.HEART_POINTS * 2)
 $> Global.expression = "sad" 
 Val: aww, Violet
 $> Global.expression = "surprised" 
@@ -147,7 +222,9 @@ Val: don't look - I'm blushing right now!!
 => END
 
 ~ bad
-Val: ... [$> Global.val_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+Val: ... 
+$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS * 2)
+$> Global.happiness -= Global.HAPPY_POINTS * 2
 $> Global.expression = "angry" 
 Val: excuse me?
 $> Global.expression = "unsure" 
@@ -158,8 +235,8 @@ Val: I'm gonna pretend I didn't hear that
 ~ joke_good
 Val: ...
 $> Global.expression = "laugh" 
-$> Global.hearts_up = true
-Val: HAHHHAHAHA [$> Global.val_meter += 2][$> Global.happiness += 2]
+$> Global.add_meter(Global.HEART_POINTS)
+Val: HAHHHAHAHA
 Val: Oh shoot, didn't mean to laugh that loud... haha
 Val: if we get yelled at, it's your fault 
 => bell
@@ -168,7 +245,9 @@ Val: if we get yelled at, it's your fault
 ~ joke_bad
 Val: ...
 $> Global.expression = "angry" 
-Val: ?? [$> Global.val_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+$> Global.happiness -= Global.HAPPY_POINTS * 2
+Val: ?? 
 $> Global.expression = "unsure" 
 Val: ohhhh, that's what you meant!
 Val: bruh, that was so corny

@@ -8,6 +8,8 @@ signal option_chosen
 
 signal class_ended
 
+signal event_end
+
 const DIA_SIZE_CLASS := Vector2(529,160)
 const DIA_POS_CLASS := Vector2(576,87)
 const DIA_SIZE_CUTSCENE := Vector2(1088,163)
@@ -19,11 +21,12 @@ const RESPONSE_SIZE_CUTSCENE := Vector2(271.5,70)
 const RESPONSE_POS_CUTSCENE := Vector2(759,426)
 
 const HEART_POINTS := 2
+const HAPPY_POINTS := 5
 
-const ONE_HEART := 50
-const TWO_HEARTS := 100
-const THREE_HEARTS := 150
-const FOUR_HEARTS := 200
+const ONE_HEART := 36
+const TWO_HEARTS := 78
+const THREE_HEARTS := 127
+const FOUR_HEARTS := 183
 const MAX_HEARTS := 250
 
 const FINAL_DAY := 10
@@ -76,13 +79,24 @@ var chr_two_heart := false
 var chr_three_heart := false
 var chr_four_heart := false
 
+var far_one_heart := false
+var far_two_heart := false
+var far_three_heart := false
+var far_four_heart := false
+
 var open_up := false
 var open_up_times := 0
 
 var tutorial_done := false
 
 var hearts_up := false
+var hearts_down := false
 
+var character_1 := ""
+var character_2 := ""
+var character_3 := ""
+
+var dialogue_ended := false
 
 var save_dict := {
 		'day' : 0,
@@ -167,6 +181,11 @@ func _process(delta: float) -> void:
 		happiness = 0
 	if happiness > 100:
 		happiness = 100
+		
+	if wrong < 0:
+		wrong = 0
+	if wrong > 3:
+		wrong = 3
 
 func add_meter(num : int):
 	if val_chosen:
@@ -180,20 +199,48 @@ func add_meter(num : int):
 	elif far_chosen:
 		far_meter += num 
 		print(far_meter)
+		
+	if Global.talk:
+		hearts_up = true
 
 
 func dialogue_meter_up(meter, num):
-	meter += num
 	hearts_up = true
+	if val_chosen:
+		val_meter += num
+	elif chr_chosen:
+		chr_meter += num
+	elif far_chosen:
+		far_meter += num
+	print(meter)
 
 
 func dialogue_meter_down(meter,num):
-	meter -= num
+	if val_chosen:
+		val_meter -= num
+	elif chr_chosen:
+		chr_meter -= num
+	elif far_chosen:
+		far_meter -= num
+	hearts_down = true
+	print(meter)
 	wrong += 1
 
 func event():
+	const BALLOON = preload("res://addons/cs_balloon.tscn")
 	if Global.chr_meter > ONE_HEART and not chr_one_heart:
-		const BALLOON = preload("res://addons/cs_balloon.tscn")
-		DialogueManager.show_dialogue_balloon_scene(BALLOON,load("res://addons/dialogue_manager/dialogue_scripts/chr_heart_events.dialogue"))
+		DialogueManager.show_dialogue_balloon_scene(BALLOON, load("res://addons/dialogue_manager/dialogue_scripts/chr_heart_events.dialogue"))
 		await DialogueManager.dialogue_ended
 		chr_one_heart = true
+	elif Global.far_meter > ONE_HEART and not far_one_heart:
+		DialogueManager.show_dialogue_balloon_scene(BALLOON, load("res://addons/dialogue_manager/dialogue_scripts/far_heart_events.dialogue"))
+		await DialogueManager.dialogue_ended
+		far_one_heart = true
+		
+	#elif Global.day == 6:
+			#DialogueManager.show_dialogue_balloon_scene(BALLOON,load("res://addons/dialogue_manager/dialogue_scripts/test_cutscene.dialogue"))
+			#await DialogueManager.dialogue_ended
+	character_1 = ""
+	character_2 = ""
+	character_3 = ""
+	dialogue_ended = false

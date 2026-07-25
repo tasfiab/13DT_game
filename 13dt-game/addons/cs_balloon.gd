@@ -76,10 +76,6 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
 
-var character_1 := ''
-var character_2 := ''
-var character_3 := ''
-
 func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
@@ -101,7 +97,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
-
+	
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
 	if will_block_other_input:
@@ -144,29 +140,29 @@ func apply_dialogue_line() -> void:
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
-	if character_1 == '':
-		character_1 = dialogue_line.character
-	elif character_2 == '' and dialogue_line.character != character_1:
-		character_2 = dialogue_line.character
-	elif character_3 == '' and dialogue_line.character != character_1 and dialogue_line.character != character_2:
-		character_3 = dialogue_line.character
+	if Global.character_1 == '' and dialogue_line.character != Global.character_2 and dialogue_line.character != Global.character_3:
+		Global.character_1 = dialogue_line.character
+	elif Global.character_2 == '' and dialogue_line.character != Global.character_1 and dialogue_line.character != Global.character_3:
+		Global.character_2 = dialogue_line.character
+	elif Global.character_3 == '' and dialogue_line.character != Global.character_1 and dialogue_line.character != Global.character_2:
+		Global.character_3 = dialogue_line.character
 	
-	if character_1 == dialogue_line.character:
+	if Global.character_1 == dialogue_line.character:
 		var tween : Tween = create_tween()
-		tween.tween_property(portrait_1, "global_position",Vector2(31,24),0.1).set_ease(Tween.EASE_OUT)
-		tween.tween_property(portrait_1, "global_position",Vector2(31,20),0.1).set_ease(Tween.EASE_IN)
-	if character_2 == dialogue_line.character:
+		tween.tween_property(portrait_1, "global_position",Vector2(30,28),0.1).set_ease(Tween.EASE_OUT)
+		tween.tween_property(portrait_1, "global_position",Vector2(30,24),0.1).set_ease(Tween.EASE_IN)
+	if Global.character_2 == dialogue_line.character:
 		var tween : Tween = create_tween()
-		tween.tween_property(portrait_2, "global_position",Vector2(371,24),0.1).set_ease(Tween.EASE_OUT)
-		tween.tween_property(portrait_2, "global_position",Vector2(371,20),0.1).set_ease(Tween.EASE_IN)
-	if character_3 == dialogue_line.character:
+		tween.tween_property(portrait_2, "global_position",Vector2(372,28),0.1).set_ease(Tween.EASE_OUT)
+		tween.tween_property(portrait_2, "global_position",Vector2(372,24),0.1).set_ease(Tween.EASE_IN)
+	if Global.character_3 == dialogue_line.character:
 		var tween : Tween = create_tween()
-		tween.tween_property(portrait_3, "global_position",Vector2(695,24),0.1).set_ease(Tween.EASE_OUT)
-		tween.tween_property(portrait_3, "global_position",Vector2(695,20),0.1).set_ease(Tween.EASE_IN)
+		tween.tween_property(portrait_3, "global_position",Vector2(696,28),0.1).set_ease(Tween.EASE_OUT)
+		tween.tween_property(portrait_3, "global_position",Vector2(696,24),0.1).set_ease(Tween.EASE_IN)
 	
-	var portrait_path_1 : String = "res://assets/portraits/%s.png" % (character_1 + '_standing_' + Global.expression).to_lower()
-	var portrait_path_2 : String = "res://assets/portraits/%s.png" % (character_2 + '_standing_' + Global.expression_2).to_lower()
-	var portrait_path_3 : String = "res://assets/portraits/%s.png" % (character_3 + '_standing_' + Global.expression_3).to_lower()
+	var portrait_path_1 : String = "res://assets/portraits/%s.png" % (Global.character_1 + '_standing_' + Global.expression).to_lower()
+	var portrait_path_2 : String = "res://assets/portraits/%s.png" % (Global.character_2 + '_standing_' + Global.expression_2).to_lower()
+	var portrait_path_3 : String = "res://assets/portraits/%s.png" % (Global.character_3 + '_standing_' + Global.expression_3).to_lower()
 	
 	if FileAccess.file_exists(portrait_path_1): 
 		portrait_1.texture = load(portrait_path_1)
@@ -179,6 +175,13 @@ func apply_dialogue_line() -> void:
 	if FileAccess.file_exists(portrait_path_3): 
 		portrait_3.texture = load(portrait_path_3)
 	else: portrait_3.texture = null
+	
+	#if Global.dialogue_ended:
+		#$ColorRect2/AnimationPlayer.play("fade")
+		#await $ColorRect2/AnimationPlayer.animation_finished
+		#Global.dialogue_ended = false
+	
+	
 	
 	responses_menu.hide()
 	responses_menu.responses = dialogue_line.responses

@@ -1,16 +1,122 @@
 [gd_scene format=3 uid="uid://dxja0sfafof31"]
 
 [ext_resource type="Script" uid="uid://cjdb8c5oy43qp" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://ddnrdyjvnhop4" path="res://assets/art/class_bg_2.png" id="2_85g3d"]
+[ext_resource type="Texture2D" uid="uid://hk2lxh26ulko" path="res://assets/art/class_bg_chr.png" id="2_choun"]
 [ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://byn4bcs7g8mun" path="res://assets/art/class_bg_far.png" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://dy6i4rvwymvxx" path="res://scenes/distraction.tscn" id="3_tipki"]
 [ext_resource type="PackedScene" uid="uid://c1d8fvtujnuc5" path="res://scenes/important_info.tscn" id="4_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bvfjxs50ox155" path="res://assets/art/class_bg_val.png" id="4_trceg"]
 [ext_resource type="PackedScene" uid="uid://j3sq8iqd1wdo" path="res://scenes/choosing_friend.tscn" id="5_choun"]
 [ext_resource type="PackedScene" uid="uid://bhkc2ojh3dxys" path="res://scenes/book.tscn" id="6_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://1tqbbx5omwx2" path="res://scenes/prototype_end_screen.tscn" id="7_o6xl0"]
+[ext_resource type="FontFile" uid="uid://cckxg5w4w4dg5" path="res://assets/fonts/Short_Stack/ShortStack-Regular.ttf" id="7_trceg"]
+[ext_resource type="Theme" uid="uid://dxcpppfg2lplk" path="res://resources/button.tres" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://datelsbh0a8vh" path="res://assets/art/arrow.png" id="8_tipki"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dhdgh"]
-radius = 39.763474
-height = 79.52695
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(70.430145, 49.247322)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
+bg_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t76h2"]
+bg_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muem4"]
+bg_color = Color(0.94, 0.94, 0.94, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
+bg_color = Color(0.94, 0.94, 0.94, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
+bg_color = Color(0.94, 0.94, 0.94, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
+bg_color = Color(0.94, 0.94, 0.94, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkv2x"]
+bg_color = Color(0.9372549, 0.8666667, 0.8980392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trceg"]
+bg_color = Color(0.92941177, 0.8509804, 0.88235295, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbj1t"]
+bg_color = Color(0.93, 0.93, 0.93, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="Animation" id="Animation_rdffu"]
 length = 0.001
@@ -49,14 +155,24 @@ _data = {
 &"fade": SubResource("Animation_0et52")
 }
 
-[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "ans_button", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "wrong_label", "ui", "fade_animation", "end_screen")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(1164, 130)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_a8y0u"]
+color = Color(0.42745098, 0.03137255, 0.3254902, 1)
+thickness = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yc10j"]
+bg_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+
+[node name="Node2D" type="Node2D" unique_id=515360974 node_paths=PackedStringArray("choosing_friends_layer", "learn_timer", "learn_time", "important", "distraction", "target_node", "text_box", "ans_button", "question", "mina_button", "friend_text_box", "friend_text", "cam", "q_time", "q_timer", "wrong_label", "wrong_progress_bar", "ui", "fade_animation", "end_screen", "tutorial", "chr_bg", "val_bg", "far_bg")]
 script = ExtResource("1_tefeu")
 choosing_friends_layer = NodePath("CanvasLayer")
 learn_timer = NodePath("Label3/Timer")
 learn_time = NodePath("Label3")
 important = NodePath("important_info")
 distraction = NodePath("Label2")
-target_node = NodePath("ColorRect/Area2D")
+target_node = NodePath("Area2D")
 text_box = NodePath("Panel")
 ans_button = NodePath("Panel/VBoxContainer")
 question = NodePath("Panel/Label")
@@ -67,34 +183,70 @@ cam = NodePath("Camera2D")
 q_time = NodePath("Label")
 q_timer = NodePath("Label/Timer")
 wrong_label = NodePath("Label4")
+wrong_progress_bar = NodePath("ProgressBar")
 ui = NodePath("Camera2D/Control2")
-fade_animation = NodePath("ColorRect2/AnimationPlayer")
+fade_animation = NodePath("CanvasLayer2/ColorRect2/AnimationPlayer")
 end_screen = NodePath("prototype_end_screen")
+tutorial = NodePath("tutorial")
+chr_bg = NodePath("ClassBgChr")
+val_bg = NodePath("ClassBgVal")
+far_bg = NodePath("ClassBgFar")
+
+[node name="ClassBgChr" type="Sprite2D" parent="." unique_id=416254724]
+visible = false
+position = Vector2(-576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("2_choun")
+
+[node name="ClassBgFar" type="Sprite2D" parent="." unique_id=2086816090]
+visible = false
+position = Vector2(-576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("3_eb6dy")
+
+[node name="ClassBgVal" type="Sprite2D" parent="." unique_id=2102963869]
+position = Vector2(-576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("4_trceg")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=177561318]
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("2_85g3d")
+
+[node name="Control" parent="." unique_id=1046598385 instance=ExtResource("6_ya4ey")]
+position = Vector2(0, 504)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1791743739]
+position = Vector2(669, 742)
+scale = Vector2(3.7199984, 3.7199984)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1167432132]
+position = Vector2(-0.806427, -14.6236725)
+shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=54850521]
+visible = false
 offset_left = 76.0
 offset_top = 478.00003
 offset_right = 154.0
 offset_bottom = 557.0
 scale = Vector2(3.7199984, 3.7199984)
 
-[node name="Area2D" type="Area2D" parent="ColorRect" unique_id=1791743739]
-position = Vector2(39, 39)
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D" unique_id=1167432132]
-shape = SubResource("CapsuleShape2D_dhdgh")
-
 [node name="Panel" type="Panel" parent="." unique_id=124843880]
 offset_left = 548.0
-offset_top = 51.0
+offset_top = 36.0
 offset_right = 985.0
-offset_bottom = 264.0
+offset_bottom = 215.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a8y0u")
 
 [node name="Label" type="Label" parent="Panel" unique_id=401194878]
 layout_mode = 0
 offset_right = 442.0
-offset_bottom = 215.0
+offset_bottom = 179.0
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -103,41 +255,66 @@ autowrap_mode = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1161201710]
 layout_mode = 0
 offset_left = 458.0
-offset_top = 45.0
+offset_top = 26.0
 offset_right = 547.0
-offset_bottom = 181.0
+offset_bottom = 162.0
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1653088846]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("8_a8y0u")
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_focus_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_normal_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_focus_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_hover_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_t76h2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_t76h2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_t76h2")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_t76h2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_muem4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_dp3eg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0ld40")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_gqmmt")
 text = "a"
 
 [node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=911370044]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("8_a8y0u")
 text = "b"
 
 [node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=173530225]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("8_a8y0u")
 text = "c"
 
 [node name="Button4" type="Button" parent="Panel/VBoxContainer" unique_id=548021059]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("8_a8y0u")
 text = "d"
 
 [node name="Panel2" type="Panel" parent="." unique_id=1586461676]
 visible = false
-offset_left = -548.0
-offset_top = 345.0
-offset_right = -241.0
-offset_bottom = 405.0
+offset_left = -570.0
+offset_top = 215.0
+offset_right = -263.0
+offset_bottom = 275.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jkv2x")
 
 [node name="Label" type="Label" parent="Panel2" unique_id=629731607]
 layout_mode = 0
 offset_right = 308.0
 offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
 theme_override_font_sizes/font_size = 30
 text = "it's a"
 horizontal_alignment = 1
@@ -145,23 +322,21 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1369209496]
-position = Vector2(-1152, 0)
+position = Vector2(0, 504)
 anchor_mode = 0
 
 [node name="Control2" parent="Camera2D" unique_id=1622419761 instance=ExtResource("2_o6xl0")]
 
-[node name="Label2" parent="." unique_id=1069203816 instance=ExtResource("3_tipki")]
+[node name="Label2" parent="." unique_id=1069203816 node_paths=PackedStringArray("target_node") instance=ExtResource("3_tipki")]
 z_index = 1
-offset_left = 2.0
-offset_top = 34.0
-offset_right = 86.0
-offset_bottom = 57.0
+offset_left = 122.0
+offset_top = 79.0
+offset_right = 206.0
+offset_bottom = 102.0
+target_node = NodePath("../Area2D")
 
-[node name="important_info" parent="." unique_id=1432078683 instance=ExtResource("4_85g3d")]
-offset_left = 178.0
-offset_top = 103.0
-offset_right = 306.0
-offset_bottom = 126.0
+[node name="important_info" parent="." unique_id=1432078683 node_paths=PackedStringArray("target_node") instance=ExtResource("4_85g3d")]
+target_node = NodePath("../Area2D")
 metadata/important = true
 
 [node name="Label" type="Label" parent="." unique_id=1703788782]
@@ -186,38 +361,173 @@ offset_bottom = 23.0
 [node name="Timer" type="Timer" parent="Label3" unique_id=1115973496]
 
 [node name="Button" type="Button" parent="." unique_id=1672214970]
-offset_left = 685.0
-offset_top = 525.0
-offset_right = 844.0
-offset_bottom = 558.0
+visible = false
+offset_left = 812.0
+offset_top = 361.0
+offset_right = 922.0
+offset_bottom = 394.0
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_focus_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_hover_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_normal_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_focus_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_hover_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_trceg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_jbj1t")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jbj1t")
 text = "ask Mina"
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1659049434]
-offset_right = 1148.0
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1209151970]
+layer = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer2" unique_id=1659049434]
+offset_left = -1.0
+offset_right = 1152.0
 offset_bottom = 649.0
 mouse_filter = 2
 color = Color(0.25, 0.030000001, 0.11066669, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2" unique_id=419715535]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/ColorRect2" unique_id=419715535]
 libraries/ = SubResource("AnimationLibrary_rdffu")
-
-[node name="Control" parent="." unique_id=1046598385 instance=ExtResource("6_ya4ey")]
-offset_left = 64.0
-offset_top = 685.0
-offset_right = 64.0
-offset_bottom = 685.0
 
 [node name="prototype_end_screen" parent="." unique_id=91638804 instance=ExtResource("7_o6xl0")]
 visible = false
 
 [node name="Label4" type="Label" parent="." unique_id=1903855052]
-offset_left = -1468.0
-offset_top = 839.0
-offset_right = -1395.0
-offset_bottom = 862.0
-text = "wrong: /2"
+visible = false
+offset_left = -1135.0
+offset_top = 618.0
+offset_right = -1050.0
+offset_bottom = 641.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "wrong: /3"
 
-[connection signal="area_entered" from="ColorRect/Area2D" to="." method="_on_head_entered"]
+[node name="tutorial" type="Node2D" parent="." unique_id=274131823]
+visible = false
+
+[node name="Label" type="Label" parent="tutorial" unique_id=779606630]
+offset_left = -384.0
+offset_top = 131.0
+offset_right = -143.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.2509804, 0.039215688, 0.28235295, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "your friends will attempt to help you! they may not be right though"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="tutorial" unique_id=1640179407]
+position = Vector2(82.000015, 290.00003)
+rotation = -1.5707964
+scale = Vector2(2.3587284, 2.3587284)
+texture = ExtResource("8_tipki")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tutorial" unique_id=828053030]
+position = Vector2(984, 594.00006)
+rotation = 3.1415925
+scale = Vector2(2.3587284, 2.3587284)
+texture = ExtResource("8_tipki")
+
+[node name="Label2" type="Label" parent="tutorial" unique_id=779865259]
+offset_left = 798.0
+offset_top = 691.0
+offset_right = 1039.0
+offset_bottom = 766.0
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "click to turn"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="tutorial" unique_id=1419891286]
+offset_left = 867.0
+offset_top = 540.0
+offset_right = 1108.0
+offset_bottom = 615.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "notes"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="tutorial" unique_id=1028724947]
+offset_left = 38.0
+offset_top = 277.0
+offset_right = 279.0
+offset_bottom = 352.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+theme_override_font_sizes/font_size = 20
+text = "friend"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="tutorial" unique_id=1308841240]
+offset_left = 461.0
+offset_top = 335.0
+offset_right = 648.0
+offset_bottom = 401.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "Mina can give you the answer if you're stuck!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=896503394]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=161456275]
+position = Vector2(572, -65)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=19796375]
+position = Vector2(9, 811)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1213358739]
+position = Vector2(572, -65)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=366461146]
+position = Vector2(0, 784)
+rotation = -1.5707964
+scale = Vector2(0.8185971, 0.8185971)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=69597762]
+position = Vector2(572, -65)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="Area2D5" type="Area2D" parent="." unique_id=16662130]
+position = Vector2(1258, 784)
+rotation = -1.5707964
+scale = Vector2(0.8185971, 0.8185971)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5" unique_id=1800566432]
+position = Vector2(572, -65)
+shape = SubResource("RectangleShape2D_a8y0u")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1747554274]
+offset_left = -1133.0
+offset_top = 621.0
+offset_right = -1049.0
+offset_bottom = 638.0
+theme_override_styles/background = SubResource("StyleBoxLine_a8y0u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yc10j")
+max_value = 3.0
+step = 1.0
+show_percentage = false
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_head_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_a_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_b_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button3" to="." method="_c_pressed"]
@@ -225,3 +535,7 @@ text = "wrong: /2"
 [connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Label3/Timer" to="." method="_learn_timer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_mina_asked"]
+[connection signal="area_entered" from="Area2D2" to="." method="_boundary_entered"]
+[connection signal="area_entered" from="Area2D3" to="." method="_boundary_entered"]
+[connection signal="area_entered" from="Area2D4" to="." method="_boundary_entered"]
+[connection signal="area_entered" from="Area2D5" to="." method="_boundary_entered"]

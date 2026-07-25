@@ -13,6 +13,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "important stuff!!"
 script = ExtResource("1_ck73d")
 label = NodePath(".")
+speed = 50
 metadata/_custom_type_script = "uid://b2ice04q3dnhx"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=681338402]

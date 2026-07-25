@@ -1,83 +1,84 @@
 ~ start
 $>  Global.expression = "normal"
-#if Global.chr_meter < Global.ONE_HEART:
-#	=> one_heart
-=> two_heart
+if Global.chr_meter <= Global.ONE_HEART:
+	=> one_heart
+
+if Global.chr_meter <= Global.TWO_HEARTS:
+	=> two_heart
 
 ~ one_heart
 %
 	Christine: hi
 	Christine: ...
 	Christine: how are you?
-	- good
-		$> Global.chr_meter -= 2
-		$> Global.happiness -= 2
-		$> Global.wrong += 1
-		Christine: mhmm
-		$> Global.expression = "happy"
-		Christine: that's good [$> Global.expression = "normal"]
-		=>< questions
-
 	- today's been really tiring
 		$> Global.expression = "happy"
-		$> Global.chr_meter += 2
-		$> Global.happiness += 2
-		$> Global.hearts_up = true
+		$> Global.add_meter(Global.HEART_POINTS)
 		Christine: I know right
 		Christine: I feel like I'm struggling to keep my eyes open
 		Christine: and I got six hours of sleep last night, that's pretty good right?
 		- yea, I got around that much too
 			$> Global.expression = "laugh"
-			$> Global.hearts_up = true
-			Christine: yes, you get it! [$> Global.chr_meter += 2][$> Global.happiness += 2]
+			$> Global.add_meter(Global.HEART_POINTS)
+			Christine: yes, you get it!
 			$> Global.expression = "normal"
 		- six?!
 			$> Global.expression = "sad"
-			Christine: ohh... I guess it is bad... [$> Global.chr_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+			$> Global.add_meter(Global.HEART_POINTS)
+			$> Global.happiness -= Global.HAPPY_POINTS
+			Christine: ohh... I guess it is bad...
 		Christine: I really wish we could just sleep right now...
 		- I mean, we could? 
-			$> Global.chr_meter -= 2 
-			$> Global.happiness += 2
-			$> Global.wrong += 1
+			$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
 			$> Global.expression = "normal"
 			Christine: oh, yea, that's true...
 			$> Global.expression = "happy"
 			Christine: but no - we have to lock in! 
 			Christine: ok, let's keep talking after class
 		- right, me too 
-			$> Global.hearts_up = true
+			$> Global.add_meter(Global.HEART_POINTS)
+			$> Global.happiness -= Global.HAPPY_POINTS
 			$> Global.expression = "laugh"
-			Christine: pfft [$> Global.chr_meter += 2][$> Global.happiness -= 2]
+			Christine: pfft
 			$> Global.expression = "happy"
 			Christine: let's take a nap at lunch then! 
-			=>< questions
+			=> questions
+	- good
+		$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
+		Christine: mhmm
+		$> Global.expression = "happy"
+		Christine: that's good [$> Global.expression = "normal"]
+		=> questions
 % 
 	Christine: ...
 	Christine: were you able to write down the last slide? 
 	- no
-		Christine: me neither [$> Global.chr_meter += 4][$> Global.happiness += 2]
-		Christine: miss, can you go back one slide please
+		$> Global.add_meter(Global.HEART_POINTS)
+		Christine: me neither
 		$> Global.expression = "happy"
+		Christine: miss, can you go back one slide please
 		Christine: thank you so much!
+		
 		- damn, you did that so casually
 			$> Global.expression = "normal"
 			Christine: huh, did what?
-			- oh nevermind haha... 
-				$> Global.expression = "angry"
-				Christine: [$> Global.chr_meter -= 4][$> Global.happiness -= 2] oh, ok...
 			- like, 
 				Christine: ...
 				- asking to go back a slide
 					Christine: ...
 					- I don't think I could do that haha
-						Christine: [$> Global.chr_meter += 2][$> Global.happiness += 2] huh?
+						Christine: huh?
+						$> Global.add_meter(Global.HEART_POINTS)
+						$> Global.expression = "happy"
 						Christine: ohh, do you feel awkward like, asking for help? 
 						$> Global.expression = "laugh"
 						Christine: you're just like Farah haha!
 						$> Global.expression = "happy"
 						Christine: don't worry, I'll train you too
 						- train me?
-							Christine: [$> Global.chr_meter += 2]like, give you the push to ask questions in class
+							$> Global.add_meter(Global.HEART_POINTS)
+							Christine: like, give you the push to ask questions in class
 							Christine: it's what I do with Farah 
 							$> Global.expression = "laugh"
 							Christine: I got her from asking no questions to asking one like, 30% of the times she needs to
@@ -85,49 +86,57 @@ $>  Global.expression = "normal"
 							Christine: which is some progress!
 							$> Global.expression = "laugh"
 							Christine: so yea, I'll help you too haha
-						- ok, thanks haha
-							Christine: [$> Global.chr_meter -= 2][$> Global.happiness -= 2] no problem
+						- ok, thanks!
+							$> Global.happiness -= Global.HAPPY_POINTS
+							Christine: no problem
+			- oh nevermind haha... 
+				$> Global.expression = "angry"
+				$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
+				$> Global.happiness -= Global.HAPPY_POINTS
+				Christine: ok then...
+			
 		- thanks
 			$> Global.expression = "happy"
-			Christine: [$> Global.happiness -= 2] no problem
+			$> Global.happiness -= Global.HAPPY_POINTS
+			Christine: no problem
 			$> Global.expression = "normal"
 			Christine: I mean, I needed it too
 	- most of it
 		$> Global.expression = "happy"
-		$> Global.chr_meter += 2
-		$> Global.heart_up = true
-		$> Global.happiness -= 2
+		$> Global.happiness -= Global.HAPPY_POINTS
 		Christine: oh cool! can I write it down from your book
 		$> Global.expression = "normal"
 		Christine: I missed it... haha
+	=> questions
 ~ two_heart
 % 
 	$> Global.expression = "angry"
 	Christine: hi 
 	- you look like a dead whale
+		$> Global.expression = "angry"
 		Christine: excuse me?
 		Christine: ...
 		$> Global.expression = "laugh"
-		$> Global.hearts_up = true
-		$> Global.chr_meter += 2
+		$> Global.add_meter(Global.HEART_POINTS)
 		Christine: ok, that woke me up haha
+		Christine: that was so random
 		$> Global.expression = "sad"
-		Christine: guess how much sleep I got last night
+		Christine: guess how many hours of sleep I got last night
 		- five hours
 			$> Global.expression = "laugh"
-			$> Global.dialogue_meter_up(Global.chr_meter, Global.HEART_POINTS)
+			$> Global.add_meter(Global.HEART_POINTS)
 			Christine: nope! four haha
 			- I'm not surprised
-				$> Global.expression = "angry"
 				$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
+				$> Global.expression = "sad"
 				Christine: ...
 				$> Global.expression = "normal"
-				Christine: oh, actually, that's fair
+				Christine: oh, that's understandable
+				$> Global.expression = "sad"
+				Christine: I guess you have heard a lot about my... sleep schedule
+				: 'schedule' is a bit of a stretch...
 				$> Global.expression = "laugh"
-				Christine: I guess you've heard a lot about my... sleepiing habits
-				Violet: if you can call it that
-				$> Global.expression = "laugh"
-				Christine: pfft, it's not that bad!
+				Christine: pfft, it's not that bad! usually...
 			- four!?
 				$> Global.expression = "happy"
 				Christine: I know right!
@@ -138,12 +147,16 @@ $>  Global.expression = "normal"
 			$> Global.expression = "sad"
 			Christine: wow, you're spot on
 			Christine: it's really not enough though 
+			$> Global.expression = "normal"
+			Christine: so, if I glare at you a certain way, you know why
 		- three hours
-			$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
+			$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS * 2)
 			$> Global.expression = "normal"
 			Christine: oh... thankfully no
 			$> Global.expression = "sad"
 			Christine: I got four hours of sleep
+			$> Global.expression = "normal"
+			Christine: so, if I glare at you a certain way, you know why
 	- are you good?
 		$> Global.expression = "angry"
 		$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
@@ -152,22 +165,24 @@ $>  Global.expression = "normal"
 		Christine: ok, I might have only got... four hours of sleep
 		Christine: anyway, I'm fine though
 	- hi
-		$> Global.expression = "normal"
-		$> Global.happiness -= 2
+		$> Global.expression = "angry"
+		$> Global.happiness -= Global.HAPPY_POINTS
 		Christine: hi
 		$> Global.expression = "sad"
-		Christine: oh, right I just said that
+		Christine: oh, right, I just said that
 	$> Global.expression = "normal"
 	Christine: how many hours of sleep did you get?
 	- eight actually!
 		$> Global.expression = "happy"
-		Christine: wow, that's actually really good!
+		Christine: wow, that's really good!
 		$> Global.expression = "sad"
+		$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
 		Christine: I should probably follow your example
 	- six...
 		$> Global.expression = "happy"
+		$> Global.add_meter(Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
 		Christine: oh, that's me on a good day!
-		Christine: that's good though!
 	=> questions
 => END
 
@@ -185,8 +200,8 @@ Christine: ...
 => END
 
 ~ good
-Christine: ...  [$> Global.chr_meter += 4][$> Global.happiness += 2]
-$> Global.hearts_up = true
+Christine: ... 
+$> Global.add_meter(Global.HEART_POINTS * 2)
 $> Global.expression = "happy"
 Christine: you really think so? 
 $> Global.expression = "laugh"
@@ -195,7 +210,9 @@ Christine: thank you!
 => END
 
 ~ bad
-Christine: ... [$> Global.chr_meter -= 4][$> Global.happiness -= 4][$> Global.wrong += 1]
+Christine: ...
+$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS * 2)
+$> Global.happiness -= Global.HAPPY_POINTS * 2
 $> Global.expression = "angry"
 Christine: ??
 Christine: now's not time for you to joke around
@@ -205,8 +222,8 @@ Christine: now's not time for you to joke around
 ~ joke_good
 Christine: ...
 $> Global.expression = "laugh"
-$> Global.hearts_up = true
-Christine: pfft [$> Global.chr_meter += 2][$> Global.happiness += 2]
+$> Global.add_meter(Global.HEART_POINTS)
+Christine: pfft
 Christine: that's so stupid haha
 => bell
 => END
@@ -214,7 +231,9 @@ Christine: that's so stupid haha
 ~ joke_bad
 Christine: ...
 $> Global.expression = "normal"
-Christine: hmm [$> Global.chr_meter -= 2][$> Global.happiness -= 2][$> Global.wrong += 1]
+$> Global.dialogue_meter_down(Global.chr_meter, Global.HEART_POINTS)
+$> Global.happiness -= Global.HAPPY_POINTS 
+Christine: hmm 
 Christine: oh yea...
 => bell
 => END

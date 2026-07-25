@@ -70,5 +70,5 @@ horizontal_alignment = 1
 [node name="Label8" type="Label" parent="VBoxContainer" unique_id=162374239]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Thanks for testing the prototype :)"
+text = "Thanks for testing :)"
 horizontal_alignment = 1

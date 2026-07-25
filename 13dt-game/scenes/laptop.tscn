@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxmtkbbide2d" path="res://assets/art/mina_background.png" id="5_5t67i"]
 [ext_resource type="Texture2D" uid="uid://cogea8gycgdqv" path="res://assets/art/power_off.png" id="6_2jtcb"]
 [ext_resource type="Texture2D" uid="uid://3teegd3d75kw" path="res://assets/portraits/mina_happy.png" id="6_8qokd"]
+[ext_resource type="Texture2D" uid="uid://drbe51avtme2u" path="res://assets/art/close_button.png" id="6_5453l"]
 [ext_resource type="Texture2D" uid="uid://ckmc02dil7dgs" path="res://assets/art/mina_icon.png" id="7_b8h6g"]
 [ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="8_jj3px"]
 [ext_resource type="Texture2D" uid="uid://dhcpu631d1ix4" path="res://assets/art/computer_background.png" id="12_2lb2v"]
@@ -92,6 +93,13 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_ejyiq")
 
+[node name="TextureButton2" type="TextureButton" parent="calendar" unique_id=1536548695]
+offset_left = 1058.0
+offset_top = 51.0
+offset_right = 1098.0
+offset_bottom = 91.0
+texture_normal = ExtResource("6_5453l")
+
 [node name="Sprite2D" type="Sprite2D" parent="calendar" unique_id=1039113562]
 position = Vector2(169, 233)
 scale = Vector2(1.5624998, 1.5624998)
@@ -105,6 +113,13 @@ offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 649.0
 texture = ExtResource("5_5t67i")
+
+[node name="TextureButton" type="TextureButton" parent="mina_background" unique_id=115819576]
+offset_left = 1058.0
+offset_top = 51.0
+offset_right = 1098.0
+offset_bottom = 91.0
+texture_normal = ExtResource("6_5453l")
 
 [node name="portrait" type="TextureRect" parent="mina_background" unique_id=1350041591]
 offset_left = 240.0
@@ -254,6 +269,8 @@ position = Vector2(576, 324)
 scale = Vector2(6, 6)
 texture = ExtResource("12_2lb2v")
 
+[connection signal="pressed" from="calendar/TextureButton2" to="." method="_close"]
+[connection signal="pressed" from="mina_background/TextureButton" to="." method="_close"]
 [connection signal="mouse_entered" from="outer/TextureRect/Area2D" to="." method="_can_power_off"]
 [connection signal="mouse_exited" from="outer/TextureRect/Area2D" to="." method="_cannot_power_off"]
 [connection signal="mouse_entered" from="outer/HBoxContainer/Sprite2D2/Area2D" to="." method="_can_click_mina"]

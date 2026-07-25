@@ -11,6 +11,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "distraction"
 script = ExtResource("1_rqyey")
 label = NodePath(".")
+speed = 50
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=471678512]
 position = Vector2(0, -1)

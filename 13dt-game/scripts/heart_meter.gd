@@ -8,6 +8,7 @@ extends Node
 @export var happy_meter : TextureProgressBar
 
 @export var heart_particles : CPUParticles2D
+@export var sad_particles : CPUParticles2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,3 +31,7 @@ func _process(delta: float) -> void:
 	if Global.hearts_up:
 		heart_particles.emitting = true
 		Global.hearts_up = false
+		
+	if Global.hearts_down:
+		sad_particles.emitting = true
+		Global.hearts_down = false

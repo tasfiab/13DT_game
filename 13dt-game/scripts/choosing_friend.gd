@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 func _on_val_button_pressed() -> void:
 	button_pressed()
 	Global.val_chosen = true
-	Global.val_meter += 10
+	Global.val_meter += 5
 	
 	Global.days_no_chr += 1
 	Global.days_no_far += 1
@@ -51,7 +51,7 @@ func _on_chr_button_pressed() -> void:
 func _on_far_button_pressed() -> void:
 	button_pressed()
 	Global.far_chosen = true
-	Global.far_meter += 10
+	Global.far_meter += 7
 	
 	Global.days_no_val += 1
 	Global.days_no_chr += 1
