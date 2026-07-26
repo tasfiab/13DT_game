@@ -145,28 +145,6 @@ var ans = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.load_game()
-	
-	Global.day = Global.save_dict.day
-	Global.pages_done = Global.save_dict.pages_done 
-	Global.lessons = Global.save_dict.lessons 
-	
-	Global.tutorial_done = Global.save_dict.tutorial_done
-	
-	Global.val_meter = Global.save_dict.val_meter 
-	Global.chr_meter = Global.save_dict.chr_meter 
-	Global.far_meter = Global.save_dict.far_meter
-	Global.happiness = Global.save_dict.happiness
-		
-	Global.days_no_val = Global.save_dict.days_no_val 
-	Global.days_no_chr = Global.save_dict.days_no_chr
-	Global.days_no_far = Global.save_dict.days_no_far
-		
-	Global.open_up = Global.save_dict.open_up
-	Global.open_up_times = Global.save_dict.open_up_times
-	
-	Global.game_end = Global.save_dict.game_end
-	
 	mina_button.visible = false
 	cam.position = INIT_POS
 	text_box.visible = false

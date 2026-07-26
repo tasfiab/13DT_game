@@ -1,0 +1,113 @@
+~ start
+$> Global.expression = "serious"
+Mina: So you made a new friend? And she introduced you to her other friends??
+$> Global.expression = "elated"
+Mina: Violet, I'm so happy for you!
+- I'm a bit scared 
+	$> Global.expression = "sad"
+	Mina: Oh, that's completely understandable
+	$> Global.expression = "serious"
+	Mina: I mean, it has been quite a while since you made a friend at school
+	$> Global.expression = "sad"
+	Mina: And talking to new people can be very scary!
+	$> Global.expression = "happy"
+	Mina: But, don't worry, I'll help you prepare for tomorrow!
+- thanks Mina
+	$> Global.expression = "elated"
+	Mina: Of course!
+	$> Global.expression = "happy"
+	Mina: But first, let me help you prepare for tomorrow!
+$> Global.expression = "elated"
+Mina: I'll play the role of your school friend, and you play... yourself!
+Mina: ok?
+- this seems really stupid
+	$> Global.expression = "laugh"
+	Mina: Haha, it probably does seem really stupid right now
+	$> Global.expression = "happy"
+	Mina: But I'm sure it'll help you feel ready!
+- ok haha
+$> Global.expression = "happy"
+Mina: Let's get started
+$> Global.expression = "elated"
+Mina: Hey Violet, it's nice to see you again!
+$> Global.expression = "happy"
+Mina: ...
+$> Global.expression = "laugh"
+Mina: Now you respond, silly!
+$> Global.expression = "happy"
+Mina: The top option will be your most honest response
+Mina: While the bottom ones are what you believe you should say/are more socially acceptable
+$> Global.expression = "sad"
+Mina: Of course, saying the bottom response will come at a cost of your own happiness
+- so this is my honest response
+	$> Global.expression = "elated"
+	Mina: Yes, well done!
+- and this is me being fake
+	$> Global.expression = "laugh"
+	Mina: Not fake! Considerate
+	$> Global.expression = "sad"
+	Mina: But, it is less honest than your true feelings...
+$> Global.expression = "laugh"
+Mina: Ok, lets start again
+$> Global.expression = "happy"
+Mina: Hey Violet, it's so nice to see you again!
+- I'm so scared to talk to you right now
+	$> Global.expression = "sad"
+	Mina: Aww.. you don't have to be scared!
+	$> Global.expression = "serious"
+	Mina: Ok, if this was actually our conversation, I'd feel very sad right now
+	Mina: So be careful with when you choose to be honest
+	$> Global.expression = "happy"
+	Mina: Conversations can be a gamble!
+	$> Global.expression = "laugh"
+	Mina: You'll never have to worry about that with me though, hehe
+- it's nice seeing you too!
+	$> Global.expression = "elated"
+	Mina: Good response, hehe
+	$> Global.expression = "laugh"
+	Mina: I feel closer with you already
+$> Global.expression = "happy"
+Mina: So, how was your day?
+- good, because I'm not alone now thanks to you
+	$> Global.expression = "elated"
+	Mina: Aww, that's so sweet!
+	$> Global.expression = "happy"
+	Mina: Here, choosing your honest response was better!
+	$> Global.expression = "laugh"
+	Mina: So, don't feel as though you'll always have to hide your true feelings
+	$> Global.expression = "happy"
+	Mina: It relies heavily on the specific situation!
+- good
+	$> Global.expression = "elated"
+	Mina: Yay! That's good
+	Mina: My day was really good too
+	$> Global.expression = "laugh"
+	Mina: Because I get to talk to you!
+$> Global.expression = "laugh"
+Mina: Well, I think we can end our conversation here my pupil! Well done
+$> Global.expression = "serious"
+Mina: While having conversations, remember that three wrong responses can lead to your own happiness facing a big hit!
+$> Global.expression = "sad"
+Mina: You really gotta keep working on that self esteem of yours, Violet
+$> Global.expression = "happy"
+Mina: I'm so happy I've gotten to help you on this journey, though!
+$> Global.expression = "elated"
+Mina: You've come so far!
+$> Global.expression = "sad"
+Mina: Please, don't forget to talk to me when you make new friends
+$> Global.expression = "serious"
+Mina: Oh, one other thing I forgot to mention, if your happiness ever falls below zero...
+Mina: I say this as your best friend, but I think you should give up on those friendships
+$> Global.expression = "sad"
+Mina: Friendships aren't worth all that effort! 
+$> Global.expression = "elated"
+Mina: And I'm always here for you!
+$> Global.expression = "happy"
+Mina: You'll never have to hide your true feelings from me
+- ...
+	$> Global.expression = "serious"
+	Mina: ...
+- thanks Mina
+	$> Global.expression = "elated"
+	Mina: Anytime!
+=> END

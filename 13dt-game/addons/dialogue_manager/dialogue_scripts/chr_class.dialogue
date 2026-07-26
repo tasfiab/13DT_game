@@ -35,6 +35,7 @@ if Global.chr_meter <= Global.TWO_HEARTS:
 			$> Global.expression = "happy"
 			Christine: but no - we have to lock in! 
 			Christine: ok, let's keep talking after class
+			=> END
 		- right, me too 
 			$> Global.add_meter(Global.HEART_POINTS)
 			$> Global.happiness -= Global.HAPPY_POINTS
@@ -189,10 +190,10 @@ if Global.chr_meter <= Global.TWO_HEARTS:
 ~ questions
 $> Global.expression = "normal"
 Christine: ...
-- compliment
+- compliment (33% success rate)
 	% => good
 	%2 => bad
-- joke 
+- joke (50% success rate)
 	% => joke_good
 	% => joke_bad
 - open up [if Global.chr_meter > Global.FOUR_HEARTS]

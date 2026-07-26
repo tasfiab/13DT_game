@@ -235,16 +235,16 @@ offset_bottom = 557.0
 scale = Vector2(3.7199984, 3.7199984)
 
 [node name="Panel" type="Panel" parent="." unique_id=124843880]
-offset_left = 548.0
-offset_top = 36.0
-offset_right = 985.0
-offset_bottom = 215.0
+offset_left = 546.0
+offset_top = 67.0
+offset_right = 983.0
+offset_bottom = 210.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_a8y0u")
 
 [node name="Label" type="Label" parent="Panel" unique_id=401194878]
 layout_mode = 0
 offset_right = 442.0
-offset_bottom = 179.0
+offset_bottom = 143.0
 theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
 theme_override_fonts/font = ExtResource("7_trceg")
 theme_override_font_sizes/font_size = 30
@@ -255,9 +255,9 @@ autowrap_mode = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1161201710]
 layout_mode = 0
 offset_left = 458.0
-offset_top = 26.0
+offset_top = 12.0
 offset_right = 547.0
-offset_bottom = 162.0
+offset_bottom = 148.0
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1653088846]
 layout_mode = 2
@@ -319,6 +319,78 @@ theme_override_font_sizes/font_size = 30
 text = "it's a"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="tutorial" type="Node2D" parent="." unique_id=274131823]
+visible = false
+
+[node name="Label" type="Label" parent="tutorial" unique_id=779606630]
+offset_left = -384.0
+offset_top = 131.0
+offset_right = -143.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(0.2509804, 0.039215688, 0.28235295, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "your friends will attempt to help you! they may not be right though"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="tutorial" unique_id=1640179407]
+position = Vector2(82.000015, 290.00003)
+rotation = -1.5707964
+scale = Vector2(2.3587284, 2.3587284)
+texture = ExtResource("8_tipki")
+
+[node name="Sprite2D2" type="Sprite2D" parent="tutorial" unique_id=828053030]
+position = Vector2(73.00009, 607.00006)
+rotation = 3.1415925
+scale = Vector2(2.3587284, 2.3587284)
+texture = ExtResource("8_tipki")
+
+[node name="Label3" type="Label" parent="tutorial" unique_id=1419891286]
+offset_left = 15.0
+offset_top = 505.0
+offset_right = 138.0
+offset_bottom = 594.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "down arrow to check notes
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="tutorial" unique_id=779865259]
+offset_left = 798.0
+offset_top = 691.0
+offset_right = 1039.0
+offset_bottom = 766.0
+theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "click to turn"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="tutorial" unique_id=1028724947]
+offset_left = 81.0
+offset_top = 270.0
+offset_right = 322.0
+offset_bottom = 345.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+theme_override_font_sizes/font_size = 20
+text = "left arrow for friends answer"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="tutorial" unique_id=1308841240]
+offset_left = 461.0
+offset_top = 335.0
+offset_right = 648.0
+offset_bottom = 401.0
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("7_trceg")
+text = "Mina can give you the answer if you're stuck!"
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1369209496]
@@ -413,77 +485,6 @@ offset_bottom = 641.0
 theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
 theme_override_fonts/font = ExtResource("7_trceg")
 text = "wrong: /3"
-
-[node name="tutorial" type="Node2D" parent="." unique_id=274131823]
-visible = false
-
-[node name="Label" type="Label" parent="tutorial" unique_id=779606630]
-offset_left = -384.0
-offset_top = 131.0
-offset_right = -143.0
-offset_bottom = 206.0
-theme_override_colors/font_color = Color(0.2509804, 0.039215688, 0.28235295, 1)
-theme_override_fonts/font = ExtResource("7_trceg")
-text = "your friends will attempt to help you! they may not be right though"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="tutorial" unique_id=1640179407]
-position = Vector2(82.000015, 290.00003)
-rotation = -1.5707964
-scale = Vector2(2.3587284, 2.3587284)
-texture = ExtResource("8_tipki")
-
-[node name="Sprite2D2" type="Sprite2D" parent="tutorial" unique_id=828053030]
-position = Vector2(984, 594.00006)
-rotation = 3.1415925
-scale = Vector2(2.3587284, 2.3587284)
-texture = ExtResource("8_tipki")
-
-[node name="Label2" type="Label" parent="tutorial" unique_id=779865259]
-offset_left = 798.0
-offset_top = 691.0
-offset_right = 1039.0
-offset_bottom = 766.0
-theme_override_colors/font_color = Color(0.45882353, 0.09019608, 0.3372549, 1)
-theme_override_fonts/font = ExtResource("7_trceg")
-text = "click to turn"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Label3" type="Label" parent="tutorial" unique_id=1419891286]
-offset_left = 867.0
-offset_top = 540.0
-offset_right = 1108.0
-offset_bottom = 615.0
-theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
-theme_override_fonts/font = ExtResource("7_trceg")
-text = "notes"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Label4" type="Label" parent="tutorial" unique_id=1028724947]
-offset_left = 38.0
-offset_top = 277.0
-offset_right = 279.0
-offset_bottom = 352.0
-theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
-theme_override_fonts/font = ExtResource("7_trceg")
-theme_override_font_sizes/font_size = 20
-text = "friend"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Label5" type="Label" parent="tutorial" unique_id=1308841240]
-offset_left = 461.0
-offset_top = 335.0
-offset_right = 648.0
-offset_bottom = 401.0
-theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
-theme_override_fonts/font = ExtResource("7_trceg")
-text = "Mina can give you the answer if you're stuck!"
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=896503394]
 

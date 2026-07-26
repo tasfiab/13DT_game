@@ -1,11 +1,10 @@
 ~ greeting
 $> Global.expression = "happy"
 Val: hi!
-=> two_hearts
-#if Global.val_meter <= Global.ONE_HEART:
-#	=>< one_heart
-#elif Global.val_meter <= Global.TWO_HEARTS:
-
+if Global.val_meter <= Global.ONE_HEART:
+	=> one_heart
+elif Global.val_meter <= Global.TWO_HEARTS:
+	=> two_hearts
 => END
 ~ one_heart
 %
@@ -19,8 +18,10 @@ Val: hi!
 	$> Global.expression = "surprised" 
 	Val: I heard that from somewhere, I swear!
 	- this is really your first time having one?
-		$> Global.expression = "surprised" 
 		$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
+		$> Global.expression = "angry" 
+		Val: ...
+		$> Global.expression = "surprised" 
 		Val: AHH, DON'T JUDGE ME!!
 		$> Global.expression = "angry" 
 		Val: it's - there's
@@ -101,7 +102,7 @@ Val: hi!
 			Val: ...
 			$> Global.expression = "laugh" 
 			Val: fine, I'll give them a good headbutt then!
-		- there's no one
+		- no one hurt me
 			$> Global.expression = "laugh" 
 			Val: ok! but let me know if there ever is!
 			$> Global.expression = "elated" 
@@ -109,7 +110,7 @@ Val: hi!
 		- thank you!
 			$> Global.happiness -= Global.HAPPY_POINTS
 			$> Global.expression = "laugh" 
-			Val: anytime! just say the word haha
+			Val: no problem! just say the word haha
 	- good
 		$> Global.expression = "unsure" 
 		$> Global.dialogue_meter_down(Global.val_meter, Global.HEART_POINTS)
@@ -201,10 +202,10 @@ Val: hi!
 ~ questions
 $> Global.expression = "happy" 
 Val: ...
-- compliment
+- compliment (33% success rate)
 	% => good
 	%2 => bad
-- joke 
+- joke (50% success rate)
 	% => joke_good
 	% => joke_bad
 - open up [if Global.val_meter > Global.FOUR_HEARTS]

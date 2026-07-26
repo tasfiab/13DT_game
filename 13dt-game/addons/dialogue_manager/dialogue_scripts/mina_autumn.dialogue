@@ -1,9 +1,9 @@
 ~ start
 
 $> Global.expression = "happy" 
-Mina: Hello, Violet 
+Mina: Hey, Violet 
 Mina: What would you like to talk about?
-- day (+ 10 :) )
+- day (+ 15 :) )
 	$> Global.expression = "serious"
 	=> day
 - work (+ 1 HW) [if Global.pages_done < Global.lessons]
@@ -22,173 +22,238 @@ Mina: What would you like to talk about?
 => END
 
 ~ day
-$> Global.happiness += 10
-% 
-	Mina: ...
-	- We went to the mall after school today
-		Mina: ...
-		- they started selling some blind boxes for this game Christine's really into
-			Mina: ...
-			- she started freaking out!
-				Mina: ...
-				- I've never seen her this excited about smth, so it was really funny!
-					Mina: ...
-					- especially given how... composed she is, ig
-						Mina: ...
-						- I don't think she got a good character though...
-							Mina: ...
-							- she opened it, and was like 'oh...'
-								Mina: ...
-								- we all just laughed about it and move on
-									Mina: ...
-									- I might check out the game, since it means a lot to her
-										Mina: ...
-										- anyway, that was my day
-	Mina: ... 
-	$> Global.expression = "happy" 
-	Mina: Wow! you seem to have had a really fun day today!!
-	Mina: It's really funny when you uncover different sides of people
-	Mina: Especailly one's that are nothing like your impression of them
-	Mina: That makes Christine's change of character funnier! 
-	$> Global.expression = "sad" 
-	Mina: I'm kinda jealous... wish I could've joined you guys!
-	$> Global.expression = "happy" 
-	Mina: Of course, that's ok!! I'm happy to hear about it from you
-	=> END
+$> Global.happiness += 15
+#% 
+#	Mina: ...
+#	- We went to the mall after school today
+#		Mina: ...
+#		- they started selling some blind boxes for this game Christine's really into
+#			Mina: ...
+#			- she started freaking out!
+#				Mina: ...
+#				- I've never seen her this excited about smth, so it was really funny!
+#					Mina: ...
+#					- especially given how... composed she is, ig
+#						Mina: ...
+#						- I don't think she got a good character though...
+#							Mina: ...
+#							- she opened it, and was like 'oh...'
+#								Mina: ...
+#								- we all just laughed about it and move on
+#									Mina: ...
+#									- I might check out the game, since it means a lot to her
+#										Mina: ...
+#										- anyway, that was my day
+#	Mina: ... 
+#	$> Global.expression = "happy" 
+#	Mina: Wow! you seem to have had a really fun day today!!
+#	Mina: It's really funny when you uncover different sides of people
+#	Mina: Especailly one's that are nothing like your impression of them
+#	Mina: That makes Christine's change of character funnier! 
+#	$> Global.expression = "sad" 
+#	Mina: I'm kinda jealous... wish I could've joined you guys!
+#	$> Global.expression = "happy" 
+#	Mina: Of course, that's ok!! I'm happy to hear about it from you
+#	=> END
 %
-	Mina: ...
-	- class was really tiring
-		Mina: ...
-		- miss goes way too fast
-			Mina: ...
-			- I actually can't keep up
-				if Global.chr_meter > Global.ONE_HEART:
-					Mina: ...
-					- it's nice when I sit with Christine tho
-						Mina: 
-						- she's really good at explaining the things I miss
-				else:
-					Mina: ...
-					- at least I'm not suffering alone now ig
+	: class was really tiring
+	: miss goes way too fast - like I actually can't keep up
+	if Global.chr_meter > Global.ONE_HEART:
+		: it's nice when I sit with Christine tho
+		: she's really good at explaining the things I miss
+	else:
+		: at least I'm not suffering alone now I guess
 	Mina: ... 
-	Mina: It's really frustrating how fast your teacher explains the material
+	$> Global.expression = "sad" 
+	Mina: Aww, it's really frustrating how fast your teacher explains the material
 	$> Global.expression = "happy" 
 	Mina: I suggest speaking to her about that, if you feel comfortable to do so
-	Mina: After all, a teacher's number one priority is helping their students! [$> Global.expression = 'happy']
-	Mina: Of course, I'm happy you have your friends with you now!
+	$> Global.expression = "laugh" 
+	Mina: After all, a teacher's number one priority is helping their students! 
+	$> Global.expression = "happy" 
+	Mina: Of course, I'm happy you have your school friends with you now!
+	$> Global.expression = "elated" 
 	Mina: And, I can always help with whatever you're stuck on
-	Mina: Just let me know when you need help
-	Mina: I'm always here for you!
+	$> Global.expression = "laugh" 
+	Mina: Just say the word, and I'll be ready to help hehe!
 %
-	Mina: ...
-	- class was really fun today!
+	: class was kinda fun today
+	: surprising I know
+	if Global.val_chosen:
+		: I had a nice interaction with Val today
+		: sometimes she's a bit much for me...
+		: but today, it felt nice talking to her
+		$> Global.expression = "happy" 
+		Mina: That's really great Violet!
+		$> Global.expression = "laugh" 
+		Mina: Val sounds like a fun person to be around, even if she is a bit too much sometimes
+		Mina: I love hearing about your day
+		Mina: I always look forward to it!
+	elif Global.chr_chosen:
+		: Christine said something funny today
+		: I don't think it'll sound funny if I say it now, so just trust me on that!
+		$> Global.expression = "laugh" 
+		Mina: Hehe, I'll trust you on that!
+		$> Global.expression = "happy" 
+		Mina: I'm happy you had a funny interaction with Christine today!
+		$> Global.expression = "elated" 
+		Mina: I love hearing about your day
+		Mina: I always look forward to it!
+	else:
+		: Farah and I played hangman in class
+		: I didn't expect her to be so good at choosing and guessing words
+		: I think I lost like, 3-1
+		: actually, now that I think about it, I think I was just really bad at it...
+		: I don't think she even has a strategy for it, she just wings it
+		: I mean it is hangman, so of course there isn't really a strategy to it
+		: but she absolutely destroyed me haha
+		: it was still quite fun though
+		$> Global.expression = "laugh" 
+		Mina: Hehe, that sounds so fun!
+		$> Global.expression = "happy" 
+		Mina: Farah seems to be quite talented
+		$> Global.expression = "laugh" 
+		Mina: Though, if you want, I can help you improve your skills in this game!
+		- that would be great
+			$> Global.expression = "happy" 
+			Mina: Ok so...
+			: Mina explains the intricacies of choosing the best word for hangman
+			: She also explains what letters are best to guess for the best chance of winning
+			$> Global.expression = "laugh" 
+			Mina : Does that help hehe?
+			- I'm not remembering all of that lol
+				$> Global.expression = "laugh" 
+				Mina: Hehe, that's fair!
+				$> Global.expression = "elated" 
+				Mina: I can always remind you again before any hangman matches
+			- yes, it does
+				$> Global.expression = "elated" 
+				Mina: Great!
+				$> Global.expression = "laugh" 
+				Mina: Now you'll have a better shot at beating Farah next time!
+		- I'm good, thanks
+			$> Global.expression = "happy" 
+			Mina: Ok then!
+			$> Global.expression = "laugh" 
+			Mina: But, if you ever want some tips, I'm here!
+%
+	: I came to second period a bit late today because I took too long... taking a dump
+	: walking into class was so embarrassing! 
+	: I'm dying just thinking about it...
+	$> Global.expression = "sad" 
+	Mina: Oh no, I understand feeling embarrassed by that
+	$> Global.expression = "serious" 
+	Mina: But, what exactly about this experience did you find embarrassing?
+	- my classmates staring at me
+		$> Global.expression = "sad" 
+		Mina: Oh, I can see why you felt embarrassed by that
+		Mina: It's normal to feel uncomfortable with so many eyes on you
+		$> Global.expression = "happy"
+		Mina: But, I hope you know, I'm sure no one was thinking 'Violet came to class late today, that is so embarrassing!'
+		$> Global.expression = "laugh" 
+		Mina: Putting it like that makes it sound really silly, right?
+		$> Global.expression = "happy" 
+		Mina: Everyone has their own lives that they are busy with
+		$> Global.expression = "laugh" 
+		Mina: So don't let these embarrassing moments linger in your mind too much, especially if you're afraid of what everyone else was thinking
+	- my teacher questioning me
+		$> Global.expression = "sad" 
+		Mina: Oh, I see
+		Mina: I understand feeling embarrassed by that
+		$> Global.expression = "happy" 
+		Mina: But, I hope you know, your teacher won't judge you for having to use the toilet
+		$> Global.expression = "laugh" 
+		Mina: That's a basic human necessity!
+		$> Global.expression = "happy" 
+		Mina: Teacher's should be understanding of their students!
+		Mina: So you don't have to feel embarrassed by this situation
+	$> Global.expression = "elated" 
+	Mina: Hope that helps!
+	- thanks Mina
+		Mina: Anytime!
+	- ...
 		Mina: ...
-		- surprising I know
-			if Global.val_chosen:
-				Mina: ...
-				- I had a nice interaction with Val
-					Mina: ...
-					- sometimes she's a bit too much for me
-						Mina: ...
-						- but today was nice talking to her!
-				$> Global.expression = "happy" 
-				Mina: That's really great!
-				Mina: Val sounds like a fun person to be around, even if she is a bit too much sometimes
-				Mina: I love hearing about your day
-				Mina: I always look forward to it!
-			elif Global.chr_chosen:
-				Mina: ...
-				- Christine said smth really funny today
-					Mina: ...
-					- idt it'll sound funny if I say it now so just trust me on that
-				$> Global.expression = "happy" 
-				Mina: Hehe, I'll trust you on that!
-				Mina: I'm happy you had a funny interaction with Christine today!
-				Mina: I love hearing about your day
-				Mina: I always look forward to it!
-			else:
-				Mina: ...
-				- Farah and I played little games in class
-					Mina: ...
-					- she was really good at them, surprisingly!
-						Mina: ...
-						- but she was being so humble about it
-							Mina: ...
-							- like, she was destroying me haha
-								Mina: ...
-								- actually, maybe I was just bad at it...
-									Mina: ...
-									- it was still fun tho
-				$> Global.expression = "happy" 
-				Mina: Hehe, that sounds so fun!
-				Mina: Farah is quite talented
-				Mina: Though, if you want, I can help you improve your skills in this game!
-				Mina: Just let me know, hehe
 => END
 
 ~ open_up
 $> Global.open_up_times += 1
 $> Global.open_up = true
-% 	
-	Mina: ... 
-	- y'know how I've made new friends?
-		Mina: ...
-		- actually, are we friends? idk
-			Mina: ...
-			- anyway...
-				Mina: ...
-				- idk if they actually like me...
-					Mina: ...
-					- like, part of me thinks they only talk to me out of pity
-						Mina: ...
-						- like, maybe they just see me as a stray dog or smth
-							Mina: ...
-							- idk
-								Mina: ...
-								- people are confusing...
+% 
+	: to be honest, I don't know if my friends actually like me very much... [speed=0.2]
+	: actually, I don't even know if they even consider me a friend yet... [speed=0.2]
+	: like, part of me thinks they only talk to me out of pity [speed=0.2]
+	: like, maybe they just think of me as a stray dog or something [speed=0.2]
+	: I don't know... [speed=0.2]
+	: people are so confusing[speed=0.2]
 	Mina: ... [$> Global.expression = 'sad'] 
 	Mina: I'm sorry to hear that, Violet!
 	Mina: People ARE really confusing...
 	Mina: You're not the first person to think that 
-	Mina: And you're also not the first person to think that people only talk to you out of pity![$> Global.expression = 'happy']
-	Mina: So don't be discouraged on your venture to make more friends!
-	Mina: The fact that you're still trying despite this hurdle shows how strong you are
-	Mina: Thank you for sharing your worries with me!
-	Mina: I'm certain it'll get easier! 
-	Mina: And you'll always have me to fall back on if things get too hard! [$> Global.happiness += 30]
-	- thanks, Mina 
-		Mina: Your welcome!
-	- ...
-% 
-	Mina: ...
-	- it's 11pm right now
+	Mina: And you're definitely not the first person to think that people only talk to you out of pity!
+	$> Global.expression = 'happy'
+	Mina: So don't be discouraged on your venture to build these friendships!
+	$> Global.expression = 'serious'
+	Mina: If I may ask, why do you think that they only talk to you out of pity?
+	- they look awkward when I sit with them
+		Mina: Oh, I see...
+		$> Global.expression = 'laugh'
+		Mina: Well, befriending new people will always have an awkward start!
+		$> Global.expression = 'elated'
+		Mina: The fact that you're still trying despite this hurdle, shows how strong you are
+		Mina: Thank you for sharing your worries with me!
+	- I feel like they're already so close
 		Mina: ...
-		- mum is still out 
-			Mina: ...
-			- I'm... kinda worried about her
-				Mina: ...
-				- like, she hardly tells me anything about how she's doing, y'know
-					Mina: ...
-					- actually... I guess we hardly speak at all
-						Mina: ...
-						- I mean, I'm grateful she works so hard and all
-							Mina: ...
-							- and she doesn't put any stress on me to get a job or smth
-								Mina: ...
-								- but still, I wish she'd just talk to me, y'know
-									Mina: ...
-									- I can see it takes a toll on her
+		- so I don't know why they'd need me
+		Mina: I see...
+		$> Global.expression = 'sad'
+		Mina: I'm sure they talk to you because they want to, not need to!
+		Mina: And it's always difficult to join an already established friend group!
+		Mina: The fact that you're still trying despite this hurdle, shows how strong you are
+		$> Global.expression = 'elated'
+		Mina: Thank you for sharing your worries with me!
+	- I don't know
+		$> Global.expression = 'laugh'
+		Mina: ...I can tell you're not being completely honest with me Violet!
+		Mina: I won't pry, but I hope you know I'm here for you
+	$> Global.expression = 'elated'
+	$> Global.happiness += 30
+	Mina: I'm certain it'll get easier! 
+	Mina: And if it doesn't work out, you'll always have me to fall back on!
+	- thanks Mina
+		Mina: Anytime!
+	- ...
+		Mina: ...
+% 
+	: it's 11pm right now, and Mum is still out...
+	: I'm... kinda worried about her
+	: like, she hardly tells me anything about how she's doing, y'know
+	: actually, I guess we hardly speak about anything ever
+	: I mean, don't get me wrong, I'm grateful she works so hard and all
+	: and she's never put any stress on me to get a job or take on the same stress she does
+	: but still, I wish she'd just talk to me, y'know
+	: I can see it takes a toll on her...
 	Mina: ... [$> Global.expression = "sad"]
 	Mina: Your mum does seem to be working very hard!
 	Mina: And it is clear she cares about you - as she doesn't put any pressure on you to do the same
 	Mina: But, you're still right to feel hurt by this
 	$> Global.expression = "happy" 
-	Mina: Still, I have to say, you're so kind-hearted for understanding your mother's situation!
+	Mina: Still, I have to say, Violet you're so kind-hearted for understanding your mother's situation!
 	Mina: Many would come at this situation with anger
+	$> Global.expression = "laugh" 
 	Mina: But you remain understanding and empathetic
+	$> Global.expression = "elated" 
 	Mina: That shows how considerate you are, Violet!
 	Mina: Never forget that! [$> Global.happiness += 30]
-	- thanks, Mina
-	- ...
-	Mina: Anytime!
+	Mina: In the mean time, I'll keep you company hehe
+	- I'd like that
+		$> Global.expression = "laugh" 
+		Mina: Hehe, ok then!
+	- I'm going to bed
+		$> Global.expression = "happy" 
+		Mina: Ok!
+		$> Global.expression = "elated" 
+		Mina: Goodnight Violet
+		- Goodnight Mina
+		- ...
+			Mina: ...
 => END

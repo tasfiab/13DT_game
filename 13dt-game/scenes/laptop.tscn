@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bryysn6it7qfj" path="res://scripts/laptop.gd" id="1_5ijq5"]
 [ext_resource type="Texture2D" uid="uid://bdfepqca87t4" path="res://assets/art/computer_outer.png" id="2_5ijq5"]
-[ext_resource type="Texture2D" uid="uid://b1527m2k0m62j" path="res://assets/portraits/mina.png" id="2_creid"]
 [ext_resource type="Texture2D" uid="uid://cnfyh3ifmjb42" path="res://assets/art/calendar.png" id="2_ejyiq"]
 [ext_resource type="Texture2D" uid="uid://54kn7ut6yomr" path="res://assets/art/calendar_icon.png" id="3_creid"]
 [ext_resource type="Texture2D" uid="uid://cllnjmfxnkcq3" path="res://assets/art/calendar_marker.png" id="3_ejyiq"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmc02dil7dgs" path="res://assets/art/mina_icon.png" id="7_b8h6g"]
 [ext_resource type="PackedScene" uid="uid://gggssl4qm0ga" path="res://scenes/heart_meter.tscn" id="8_jj3px"]
 [ext_resource type="Texture2D" uid="uid://dhcpu631d1ix4" path="res://assets/art/computer_background.png" id="12_2lb2v"]
+[ext_resource type="FontFile" uid="uid://cckxg5w4w4dg5" path="res://assets/fonts/Short_Stack/ShortStack-Regular.ttf" id="12_5453l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2jtcb"]
 size = Vector2(40, 40)
@@ -60,30 +60,20 @@ _data = {
 &"fade": SubResource("Animation_0et52")
 }
 
-[node name="Node2D" type="Node2D" unique_id=14524745 node_paths=PackedStringArray("calendar_layer", "mina_layer", "marker_sprite", "markers", "fade_animation")]
+[node name="Node2D" type="Node2D" unique_id=14524745 node_paths=PackedStringArray("calendar_layer", "mina_layer", "marker_sprite", "markers", "fade_animation", "game_saved")]
 script = ExtResource("1_5ijq5")
 calendar_layer = NodePath("calendar")
 mina_layer = NodePath("mina_background")
 marker_sprite = NodePath("calendar/Sprite2D")
 markers = NodePath("Markers")
 fade_animation = NodePath("CanvasLayer4/ColorRect2/AnimationPlayer")
+game_saved = NodePath("CanvasLayer4/ColorRect2/Label")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1106693035]
 visible = false
 offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 649.0
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=1584500242]
-layer = 2
-visible = false
-
-[node name="portrait" type="TextureRect" parent="CanvasLayer3" unique_id=247559489]
-offset_left = 104.0
-offset_top = 140.0
-offset_right = 505.0
-offset_bottom = 541.0
-texture = ExtResource("2_creid")
 
 [node name="calendar" type="CanvasLayer" parent="." unique_id=789822955]
 visible = false
@@ -252,7 +242,7 @@ position = Vector2(708, 479)
 layer = 20
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer4" unique_id=1762553555]
-offset_right = 1148.0
+offset_right = 1152.0
 offset_bottom = 649.0
 mouse_filter = 2
 color = Color(0.25, 0.030000001, 0.11066669, 0)
@@ -260,11 +250,22 @@ color = Color(0.25, 0.030000001, 0.11066669, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer4/ColorRect2" unique_id=912866316]
 libraries/ = SubResource("AnimationLibrary_ejyiq")
 
+[node name="Label" type="Label" parent="CanvasLayer4/ColorRect2" unique_id=207656576]
+visible = false
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 611.0
+offset_right = 1128.0
+offset_bottom = 634.0
+theme_override_colors/font_color = Color(0.9372549, 0.6862745, 0.8784314, 1)
+theme_override_fonts/font = ExtResource("12_5453l")
+text = "game saved!"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2055712252]
 layer = -2
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=159962282]
-visible = false
 position = Vector2(576, 324)
 scale = Vector2(6, 6)
 texture = ExtResource("12_2lb2v")

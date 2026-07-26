@@ -31,7 +31,9 @@ const MAX_HEARTS := 250
 
 const FINAL_DAY := 10
 
-var path := "user://data5.json"
+var save_num := 1
+
+var path := "user://data" + str(save_num) + ".json"
 
 var in_class := false
 var dia_size = DIA_SIZE_CLASS 
@@ -84,6 +86,12 @@ var far_two_heart := false
 var far_three_heart := false
 var far_four_heart := false
 
+var val_one_heart := false
+var val_two_heart := false
+var val_three_heart := false
+var val_four_heart := false
+
+
 var open_up := false
 var open_up_times := 0
 
@@ -105,6 +113,21 @@ var save_dict := {
 		
 		'tutorial_done' : false,
 		
+		'chr_one_heart' : false,
+		'chr_two_heart' : false,
+		'chr_three_heart' : false,
+		'chr_four_heart' : false,
+
+		'far_one_heart' : false,
+		'far_two_heart' : false,
+		'far_three_heart' : false,
+		'far_four_heart' : false,
+
+		'val_one_heart' : false,
+		'val_two_heart' : false,
+		'val_three_heart' : false,
+		'val_four_heart' : false,
+		
 		"val_meter" : 0,
 		"chr_meter" : 0,
 		"far_meter" : 0,
@@ -118,6 +141,7 @@ var save_dict := {
 		'open_up_times' : 0,
 		
 		'game_end' : false,
+
 }
 
 
@@ -141,6 +165,23 @@ func load_game():
 		save_dict.day = save_data.day
 		save_dict.pages_done = save_data.pages_done
 		save_dict.lessons = save_data.lessons
+		
+		save_dict.tutorial_done = save_data.tutorial_done
+		
+		save_dict.chr_one_heart = save_data.chr_one_heart
+		save_dict.chr_two_heart = save_data.chr_two_heart 
+		save_dict.chr_three_heart = save_data.chr_three_heart
+		save_dict.chr_four_heart = save_data.chr_four_heart
+		
+		save_dict.far_one_heart = save_data.far_one_heart
+		save_dict.far_two_heart = save_data.far_two_heart
+		save_dict.far_three_heart = save_data.far_three_heart
+		save_dict.far_four_heart = save_data.far_four_heart
+		
+		save_dict.val_one_heart = save_data.val_one_heart
+		save_dict.val_two_heart = save_data.val_two_heart
+		save_dict.val_three_heart = save_data.val_three_heart
+		save_dict.val_four_heart = save_data.val_four_heart
 		
 		save_dict.val_meter = save_data.val_meter
 		save_dict.chr_meter = save_data.chr_meter
@@ -204,15 +245,15 @@ func add_meter(num : int):
 		hearts_up = true
 
 
-func dialogue_meter_up(meter, num):
-	hearts_up = true
-	if val_chosen:
-		val_meter += num
-	elif chr_chosen:
-		chr_meter += num
-	elif far_chosen:
-		far_meter += num
-	print(meter)
+#func dialogue_meter_up(meter, num):
+	#hearts_up = true
+	#if val_chosen:
+		#val_meter += num
+	#elif chr_chosen:
+		#chr_meter += num
+	#elif far_chosen:
+		#far_meter += num
+	#print(meter)
 
 
 func dialogue_meter_down(meter,num):

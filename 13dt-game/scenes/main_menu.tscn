@@ -1,19 +1,37 @@
 [gd_scene format=3 uid="uid://c47ouyicmgufh"]
 
 [ext_resource type="Script" uid="uid://cupgtkseqcu13" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://cckxg5w4w4dg5" path="res://assets/fonts/Short_Stack/ShortStack-Regular.ttf" id="2_bqqt6"]
+[ext_resource type="Theme" uid="uid://dxcpppfg2lplk" path="res://resources/button.tres" id="3_wu84c"]
 
-[node name="Node2D" type="Node2D" unique_id=1661761690]
+[node name="Node2D" type="Node2D" unique_id=1661761690 node_paths=PackedStringArray("load_button")]
 script = ExtResource("1_l6cm7")
+load_button = NodePath("VBoxContainer/load")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2094649793]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 320.0
+offset_right = 832.0
+offset_bottom = 648.0
 theme_override_constants/separation = 13
+alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=926069714]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=189094976]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.12156863, 0.0627451, 0.16470589, 1)
+theme_override_fonts/font = ExtResource("2_bqqt6")
+theme_override_font_sizes/font_size = 60
+text = "TITLE"
+horizontal_alignment = 1
+
+[node name="load" type="Button" parent="VBoxContainer" unique_id=1603895309]
+layout_mode = 2
+theme = ExtResource("3_wu84c")
+text = "load game"
+
+[node name="new" type="Button" parent="VBoxContainer" unique_id=926069714]
+layout_mode = 2
+theme = ExtResource("3_wu84c")
 text = "new game"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1603895309]
-layout_mode = 2
-text = "load game"
+[connection signal="pressed" from="VBoxContainer/load" to="." method="_load_game"]
+[connection signal="pressed" from="VBoxContainer/new" to="." method="_new_game"]

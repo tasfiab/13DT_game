@@ -160,10 +160,10 @@ if Global.far_meter <= Global.TWO_HEARTS:
 ~ questions
 $> Global.expression = "happy"
 Farah: ...
-- compliment
+- compliment (33% success rate)
 	% => good
 	%2 => bad
-- joke 
+- joke (50% success rate)
 	% => joke_good
 	% => joke_bad
 - open up [if Global.far_meter > Global.FOUR_HEARTS]
@@ -180,9 +180,9 @@ Farah: thanks Violet!
 => END
 
 ~ bad
+Farah: ...
 $> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS * 2)
 $> Global.happiness -= Global.HAPPY_POINTS * 2
-Farah: ...
 $> Global.expression = "laugh"
 Farah: oh, ok haha...
 => bell

@@ -12,7 +12,7 @@ Farah: hehe, I'd be down
 Farah: I really want to go on that spinny ride!
 $> Global.expression = 'happy'
 Farah: what about you guys?
-: I don't have anything else so sure
+: I don't have anything this weekend, so sure
 $> Global.expression_2 = 'elated'
 Val: hell yea that's perf!
 $> Global.expression_3 = 'normal'
@@ -61,7 +61,7 @@ Val: sureee girlie
 $> Global.expression = 'sad'
 Farah: ahh, sorry if that came across as pushy
 $> Global.expression = 'laugh'
-Farah: My brother's here so I've got to go now, see you guys later!
+Farah: my brother's here so I've got to go now, see you guys later!
 $> Global.expression_2 = 'surprised'
 Val: omg wait same - my bus is gonna be here in 2 mins!
 Val: see ya!

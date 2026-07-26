@@ -6,6 +6,7 @@ extends Node
 @export var markers : Node
 
 @export var fade_animation : AnimationPlayer
+@export var game_saved : Label
 
 signal power_off
 
@@ -18,18 +19,44 @@ var mina_done := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	while not Global.day == Global.FINAL_DAY + 1:
-		print(Global.day)
-		fade_animation.play_backwards('fade')
-		await fade_animation.animation_finished
-		await power_off
-		fade_animation.play('fade')
-		await fade_animation.animation_finished
+		if Global.day == 0:
+			mina_layer.visible = true
+			DialogueManager.show_dialogue_balloon(load("res://addons/dialogue_manager/dialogue_scripts/tutorial.dialogue"))
+			await DialogueManager.dialogue_ended
+			fade_animation.play('fade')
+			await fade_animation.animation_finished
+			
+		else: 
+			print(Global.day)
+			fade_animation.play_backwards('fade')
+			await fade_animation.animation_finished
+			await power_off
+			fade_animation.play('fade')
+			await fade_animation.animation_finished
+			game_saved.visible = true
+			await get_tree().create_timer(1).timeout
+			game_saved.visible = false
 		
 		Global.save_dict.day = Global.day
 		Global.save_dict.pages_done = Global.pages_done
 		Global.save_dict.lessons = Global.lessons
 		
 		Global.save_dict.tutorial_done = Global.tutorial_done
+		
+		Global.save_dict.chr_one_heart = Global.chr_one_heart
+		Global.save_dict.chr_two_heart = Global.chr_two_heart 
+		Global.save_dict.chr_three_heart = Global.chr_three_heart
+		Global.save_dict.chr_four_heart = Global.chr_four_heart
+
+		Global.save_dict.far_one_heart = Global.far_one_heart
+		Global.save_dict.far_two_heart = Global.far_two_heart
+		Global.save_dict.far_three_heart = Global.far_three_heart
+		Global.save_dict.far_four_heart = Global.far_four_heart
+		
+		Global.save_dict.val_one_heart = Global.val_one_heart
+		Global.save_dict.val_two_heart = Global.val_two_heart
+		Global.save_dict.val_three_heart = Global.val_three_heart
+		Global.save_dict.val_four_heart = Global.val_four_heart
 		
 		Global.save_dict.val_meter = Global.val_meter
 		Global.save_dict.chr_meter = Global.chr_meter

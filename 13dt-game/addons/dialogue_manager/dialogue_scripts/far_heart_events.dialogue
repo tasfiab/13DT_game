@@ -61,14 +61,12 @@ Farah: I think there was a lot of intentionality behind their outfit as a whole
 		$> Global.expression = "normal"
 		Farah: oh, me?
 		$> Global.expression = "elated"
-		Farah: I mean, I really love the cottagecore aesthetic
+		Farah: I mean, I really love whatever style has cute skirts, dresses, patchwork patterns, plaid, cardigans and sweaters hehe
 		$> Global.expression = "laugh"
-		Farah: or whatever style has cute skirts, dresses, patchwork patterns, plaid, cardigans and sweaters hehe
-		$> Global.expression = "sad"
 		Farah: but I tend to default to just a basic pair of jeans and a hoodie
 		- out of, fear of judgement?
 			$> Global.expression = "laugh"
-			Farah: yea haha... I guess I don't hide it very well
+			Farah: yea haha... I guess I made that really obvious
 			$> Global.expression = "sad"
 			Farah: I don't think I could handle any stares
 			$> Global.expression = "happy"
@@ -80,7 +78,7 @@ Farah: I think there was a lot of intentionality behind their outfit as a whole
 			Farah: that's a shame...
 			$> Global.expression = "unsure"
 			Farah: oh, unless you like that style!
-			$> Global.expression = "happy"
+			$> Global.expression = "laugh"
 			Farah: it's a nice style actually, just not for me personally
 			$> Global.expression = "elated"
 			Farah: I'm sure you pull it off well though!
