@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://21l7q8inq5b"
+path="res://.godot/imported/val_heart_events.dialogue-7070cd795c485ad5c0431cc5bb33977f.tres"
+
+[deps]
+
+source_file="res://addons/dialogue_manager/dialogue_scripts/val_heart_events.dialogue"
+dest_files=["res://.godot/imported/val_heart_events.dialogue-7070cd795c485ad5c0431cc5bb33977f.tres"]
+
+[params]
+
+defaults=true

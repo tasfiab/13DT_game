@@ -85,7 +85,7 @@ Christine: ugh, I thought they'd never stop
 		Christine: ok... maybe I am getting a litlle heated
 		Christine: it's just, really annoying when people are constantly showing their concern for me
 		$> Global.expression_3 = 'angry'
-		Christine: It's always 'oh no, poor Christine', 'that could never be me', 'does she, have a life...?'
+		Christine: It's always 'oh no, poor Christine', 'that could never be me', 'does she... have a life?'
 		$> Global.expression_3 = 'normal'
 		Christine: it gets to a point
 		Christine: ok, rant over
@@ -102,7 +102,6 @@ Christine: ugh, I thought they'd never stop
 	Christine: ...
 	$> Global.expression_3 = 'normal'
 	Christine: there's no rhyme or reason to it, I guess I just like the validation
-	$> Global.expression_3 = 'happy'
 	Christine: pretty egotistical, I know
 	- I bet there's more to it than that
 		$> Global.expression_3 = 'angry'

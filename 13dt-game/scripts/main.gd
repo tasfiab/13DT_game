@@ -148,10 +148,6 @@ func _ready() -> void:
 	mina_button.visible = false
 	cam.position = INIT_POS
 	text_box.visible = false
-	
-	if Global.happiness <= 0:
-		end_screen.visible = true
-		Global.reset_save_file()
 
 	if Global.day == Global.FINAL_DAY:
 		end_screen.visible = true
@@ -173,6 +169,10 @@ func _ready() -> void:
 		else:
 			Global.happiness -= 10
 			
+		if Global.happiness <= 0:
+			end_screen.visible = true
+			Global.reset_save_file()
+		
 		if Global.day % 3 == 0:
 			Global.lessons += 1
 		

@@ -19,7 +19,7 @@ Mina: Violet, I'm so happy for you!
 	Mina: But first, let me help you prepare for tomorrow!
 $> Global.expression = "elated"
 Mina: I'll play the role of your school friend, and you play... yourself!
-Mina: ok?
+Mina: Ok?
 - this seems really stupid
 	$> Global.expression = "laugh"
 	Mina: Haha, it probably does seem really stupid right now
@@ -68,7 +68,7 @@ Mina: Hey Violet, it's so nice to see you again!
 	Mina: I feel closer with you already
 $> Global.expression = "happy"
 Mina: So, how was your day?
-- good, because I'm not alone now thanks to you
+- good, because I have someone to sit next to now
 	$> Global.expression = "elated"
 	Mina: Aww, that's so sweet!
 	$> Global.expression = "happy"

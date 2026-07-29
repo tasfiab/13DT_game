@@ -160,21 +160,21 @@ func apply_dialogue_line() -> void:
 		tween.tween_property(portrait_3, "global_position",Vector2(696,28),0.1).set_ease(Tween.EASE_OUT)
 		tween.tween_property(portrait_3, "global_position",Vector2(696,24),0.1).set_ease(Tween.EASE_IN)
 	
-	var portrait_path_1 : String = "res://assets/portraits/%s.png" % (Global.character_1 + '_standing_' + Global.expression).to_lower()
-	var portrait_path_2 : String = "res://assets/portraits/%s.png" % (Global.character_2 + '_standing_' + Global.expression_2).to_lower()
-	var portrait_path_3 : String = "res://assets/portraits/%s.png" % (Global.character_3 + '_standing_' + Global.expression_3).to_lower()
+	var portrait_path_1 : String = "res://assets/portraits/" + (Global.character_1 + '_standing_' + Global.expression + ".png").to_lower() 
+	var portrait_path_2 : String = "res://assets/portraits/" + (Global.character_2 + '_standing_' + Global.expression_2 + ".png").to_lower()
+	var portrait_path_3 : String = "res://assets/portraits/" + (Global.character_3 + '_standing_' + Global.expression_3 + ".png").to_lower()
 	
-	if FileAccess.file_exists(portrait_path_1): 
-		portrait_1.texture = load(portrait_path_1)
-	else: portrait_1.texture = null
+	#if FileAccess.file_exists(portrait_path_1): 
+	portrait_1.texture = load(portrait_path_1)
+	#else: portrait_1.texture = null
 	
-	if FileAccess.file_exists(portrait_path_2): 
-		portrait_2.texture = load(portrait_path_2)
-	else: portrait_2.texture = null
+	#if FileAccess.file_exists(portrait_path_2): 
+	portrait_2.texture = load(portrait_path_2)
+	#else: portrait_2.texture = null
 	
-	if FileAccess.file_exists(portrait_path_3): 
-		portrait_3.texture = load(portrait_path_3)
-	else: portrait_3.texture = null
+	#if FileAccess.file_exists(portrait_path_3): 
+	portrait_3.texture = load(portrait_path_3)
+	#else: portrait_3.texture = null
 	
 	#if Global.dialogue_ended:
 		#$ColorRect2/AnimationPlayer.play("fade")

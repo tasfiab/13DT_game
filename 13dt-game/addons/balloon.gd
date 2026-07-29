@@ -144,14 +144,14 @@ func apply_dialogue_line() -> void:
 	
 	if character == "":
 		character = dialogue_line.character
-	var portrait_path : String = "res://assets/portraits/%s.png" % (character + '_' + Global.expression).to_lower()
+	var portrait_path : String = "res://assets/portraits/" + (character + '_' + Global.expression + ".png").to_lower()
 	#if Global.hearts_up:
 		#var tween : Tween = create_tween()
 		#tween.tween_property(portrait, "global_position",Vector2(240,172),0.1).set_ease(Tween.EASE_OUT)
 		#tween.tween_property(portrait, "global_position",Vector2(240,168),0.1).set_ease(Tween.EASE_IN)
-	if FileAccess.file_exists(portrait_path): 
-		portrait.texture = load(portrait_path)
-	else: portrait.texture = null
+	#if FileAccess.file_exists(portrait_path): 
+	portrait.texture = load(portrait_path)
+	#else: portrait.texture = null
 	
 	responses_menu.hide()
 	responses_menu.responses = dialogue_line.responses

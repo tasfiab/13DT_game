@@ -37,11 +37,6 @@ if Global.far_meter <= Global.TWO_HEARTS:
 	=> questions
 % 
 	Farah: I like your pencil case
-	- thank you!
-		$> Global.expression = "elated"
-		Farah: no problem!
-		$> Global.expression = "happy"
-		Farah: I mean, it is really cute, hehe
 	- it was a gift 
 		$> Global.expression = "elated"
 		$> Global.add_meter(Global.HEART_POINTS)
@@ -51,11 +46,16 @@ if Global.far_meter <= Global.TWO_HEARTS:
 	- it's from ...
 		$> Global.add_meter(Global.HEART_POINTS*2)
 		$> Global.expression = "elated"
-		$> Global.happiness -= Global.HAPPY_POINTS
 		Farah: ooo ok, I was wondering hehe
 		Farah: I think I've heard of that store!
 		$> Global.expression = "happy"
 		Farah: I'll have to check it out sometime then!
+	- thank you!
+		$> Global.expression = "elated"
+		$> Global.happiness -= Global.HAPPY_POINTS
+		Farah: no problem!
+		$> Global.expression = "happy"
+		Farah: I mean, it is really cute, hehe
 
 	=> questions
 %
@@ -65,7 +65,7 @@ if Global.far_meter <= Global.TWO_HEARTS:
 		$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS)
 		Farah: oh haha... yea, I guess I am 
 		$> Global.expression = "happy"
-		Farah: But yay! I'm happy you get it though
+		Farah: but yay! I'm happy you get it though
 	- I think
 		$> Global.expression = "elated"
 		$> Global.happiness -= Global.HAPPY_POINTS
@@ -151,6 +151,7 @@ if Global.far_meter <= Global.TWO_HEARTS:
 		=> END
 	- I'm busy
 		$> Global.dialogue_meter_down(Global.far_meter, Global.HEART_POINTS)
+		$> Global.happiness -= Global.HAPPY_POINTS
 		$> Global.expression = "sad"
 		Farah: ohh... that's ok!
 		$> Global.expression = "laugh"

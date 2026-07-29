@@ -1,11 +1,10 @@
 ~ start
+$> Global.expression = "happy"
+Farah: you have twelve plushies!?
 $> Global.expression = "elated"
-Farah: you have a cat?
+Farah: your room must be so lively hehe
 $> Global.expression = "happy"
 Farah: wait, do you have any pictures?
-$> Global.expression = "elated"
-Farah: aww, their soo cute
-Farah: you have to let me meet them sometime!
 $> Global.expression = "awe"
 Farah: ...
 : you see a girl your age in the distance in a maximilist outfit
@@ -14,13 +13,12 @@ Farah: ...
 : she's accessorised from head to toe with jewellery, belts and everything under the sun
 : maybe she thought this would bring the outfit together, but it seems to just make her outfit more... messy
 : there are people staring awkwardly as she walks past them
-: Farah stares in awe
 - do you know her?
 	$> Global.expression = "unsure"
 	Farah: huh? oh, oops, I didn't mean to stare
 	$> Global.expression = "normal"
 	Farah: no... I don't think they go to our school
-- do you like her outfit haha?
+- do you like her outfit?
 	$> Global.expression = "unsure"
 	Farah: oh, oops, I was staring at them, huh?
 $> Global.expression = "unsure"
@@ -46,13 +44,13 @@ Farah: I think there was a lot of intentionality behind their outfit as a whole
 	Farah: I love the way people can use it to express themselves
 	$> Global.expression = "happy"
 	Farah: like Val usually dresses in a grunge aesthetic
-	$> Global.expression = "laugh"
-	Farah: and Christine - I'm not sure the specific aesthetic but she dresses really maturely, usually sticking to like, a neutral palette
+	$> Global.expression = "elated"
+	Farah: and Christine - I'm not sure the specific aesthetic but her style is really cool too!
 	- I don't have an interesting style
-		$> Global.expression = "normal"
+		$> Global.expression = "sad"
 		Farah: really? I'm sure you do!
 		$> Global.expression = "unsure"
-		Farah: I mean, we haven't gone out in anything beside our uniforms yet, so I don't know what you like to wear
+		Farah: I mean, we haven't gone out in anything beside our uniforms yet, so I don't know what you usually wear
 		$> Global.expression = "elated"
 		Farah: in my opinion, every style is interesting when it comes from the wearer's heart
 		$> Global.expression = "laugh"
@@ -60,13 +58,16 @@ Farah: I think there was a lot of intentionality behind their outfit as a whole
 	- what style do you like?
 		$> Global.expression = "normal"
 		Farah: oh, me?
+		$> Global.expression = "happy"
+		Farah: I mean, I really love whatever style has cute skirts, dresses, cardigans and sweaters hehe
 		$> Global.expression = "elated"
-		Farah: I mean, I really love whatever style has cute skirts, dresses, patchwork patterns, plaid, cardigans and sweaters hehe
+		Farah: and I absolutely adore it when people experiment with patterns, colours and accessories!
+		Farah: I feel like it just makes them look so cool!
 		$> Global.expression = "laugh"
 		Farah: but I tend to default to just a basic pair of jeans and a hoodie
 		- out of, fear of judgement?
 			$> Global.expression = "laugh"
-			Farah: yea haha... I guess I made that really obvious
+			Farah: yea haha... I guess it's pretty obvious
 			$> Global.expression = "sad"
 			Farah: I don't think I could handle any stares
 			$> Global.expression = "happy"
@@ -94,5 +95,5 @@ Farah: I think there was a lot of intentionality behind their outfit as a whole
 		$> Global.expression = "elated"
 		Farah: right? hehe
 $> Global.expression = "elated"
-Farah: ooo, wait, do you dress your cat in cute clothes?
+Farah: ooo, wait, do you ever dress your plushies in cute clothes?
 => END

@@ -7,13 +7,19 @@ Mina: What would you like to talk about?
 	$> Global.expression = "serious"
 	=> day
 - work (+ 1 HW) [if Global.pages_done < Global.lessons]
+	$> Global.expression = "laugh"
 	Mina: You're behind on work again, huh?
+	$> Global.expression = "happy"
 	Mina: Ok, let me summarise this topic for you!
 	Mina: ...
+	$> Global.expression = "elated"
 	Mina: And here are the answers to the problems you've provided
+	$> Global.expression = "happy"
 	Mina: ...
+	$> Global.expression = "laugh"
 	Mina: Is that all?
 	- yes, thank you
+		$> Global.expression = "elated"
 		Mina: Your welcome! [$> Global.pages_done += 1]
 - open up (+ 30 :) ) [if not Global.open_up] 
 	$> Global.expression = "serious"
@@ -165,7 +171,6 @@ $> Global.happiness += 15
 		$> Global.expression = "laugh" 
 		Mina: That's a basic human necessity!
 		$> Global.expression = "happy" 
-		Mina: Teacher's should be understanding of their students!
 		Mina: So you don't have to feel embarrassed by this situation
 	$> Global.expression = "elated" 
 	Mina: Hope that helps!
@@ -180,9 +185,9 @@ $> Global.open_up_times += 1
 $> Global.open_up = true
 % 
 	: to be honest, I don't know if my friends actually like me very much... [speed=0.2]
-	: actually, I don't even know if they even consider me a friend yet... [speed=0.2]
+	: actually, I don't know if 'friends' is the right word for them yet... maybe just classmates [speed=0.2]
 	: like, part of me thinks they only talk to me out of pity [speed=0.2]
-	: like, maybe they just think of me as a stray dog or something [speed=0.2]
+	: maybe they just think of me as a stray dog or something [speed=0.2]
 	: I don't know... [speed=0.2]
 	: people are so confusing[speed=0.2]
 	Mina: ... [$> Global.expression = 'sad'] 
@@ -194,7 +199,7 @@ $> Global.open_up = true
 	Mina: So don't be discouraged on your venture to build these friendships!
 	$> Global.expression = 'serious'
 	Mina: If I may ask, why do you think that they only talk to you out of pity?
-	- they look awkward when I sit with them
+	- they become awkward when I'm around
 		Mina: Oh, I see...
 		$> Global.expression = 'laugh'
 		Mina: Well, befriending new people will always have an awkward start!
@@ -237,7 +242,7 @@ $> Global.open_up = true
 	Mina: And it is clear she cares about you - as she doesn't put any pressure on you to do the same
 	Mina: But, you're still right to feel hurt by this
 	$> Global.expression = "happy" 
-	Mina: Still, I have to say, Violet you're so kind-hearted for understanding your mother's situation!
+	Mina: Still, I have to say, Violet, you're so kind-hearted for understanding your mother's situation!
 	Mina: Many would come at this situation with anger
 	$> Global.expression = "laugh" 
 	Mina: But you remain understanding and empathetic
